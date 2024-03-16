@@ -1,0 +1,34 @@
+.orders-container {
+    margin-top: 20px;
+}
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.orders-table th,
+.orders-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    width: 120px;
+}
+.orders-table th {
+    background-color: #f2f2f2;
+}
+.orders-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.orders-table select {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+.delivered-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
