@@ -6,7 +6,7 @@ const Orders = () => {
     {
       id: 1,
       product: 'Product A',
-      address: '123 Main St, City, Country',
+      address: 'Nairobi, Kenya',
       orderDate: '2024-02-20',
       user: 'User 1',
       totalAmount: 150,
@@ -16,7 +16,7 @@ const Orders = () => {
     {
       id: 2,
       product: 'Product B',
-      address: '456 Elm St, City, Country',
+      address: 'Kisumu, Kenya',
       orderDate: '2024-02-21',
       user: 'User 2',
       totalAmount: 200,

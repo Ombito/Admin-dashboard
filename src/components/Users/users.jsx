@@ -1,9 +1,75 @@
-import React from 'react'
+import React, { useState } from 'react';
+import './users.css';
 
 const Users = () => {
+  const sampleUsers = [
+    { id: 1, name: 'Ken', email: 'ken@example.com', role: 'Admin' },
+    { id: 2, name: 'Beatrice', email: 'beatrice@example.com', role: 'User' },
+  ];
+
+  const [users, setUsers] = useState(sampleUsers);
+  const [newUser, setNewUser] = useState({ name: '', email: '', role: 'User' });
+
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewUser({ ...newUser, [name]: value });
+  };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (newUser.name && newUser.email) {
+      setUsers([...users, { ...newUser, id: users.length + 1 }]);
+      setNewUser({ name: '', email: '', role: 'User' });
+    }
+  };
+
+   const handleRemoveUser = (id) => {
+    const confirmDelete = window.confirm('Are you sure you want to delete this user?');
+    if (confirmDelete) {
+      const updatedUsers = users.filter(user => user.id !== id);
+      setUsers(updatedUsers);
+    }
+  };
+
   return (
-    <div>users</div>
-  )
-}
+    <div className="users-container">
+      <h2>User Management</h2>
+      <form onSubmit={handleSubmit} className="add-user-form">
+        <input type="text" name="name" value={newUser.name} placeholder="Name" onChange={handleInputChange} />
+        <input type="email" name="email" value={newUser.email} placeholder="Email" onChange={handleInputChange} />
+        <select name="role" value={newUser.role} onChange={handleInputChange}>
+          <option value="User">User</option>
+          <option value="Admin">Admin</option>
+        </select>
+        <button type="submit">Add User</button>
+      </form>
+
+      <table className="users-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(user => (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>{user.role}</td>
+              <td>
+                <button onClick={() => handleRemoveUser(user.id)}>Remove</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 export default Users;

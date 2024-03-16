@@ -1,12 +1,12 @@
 import React from 'react';
-import { FaHome, FaUser, FaCog, FaClipboardList, FaShoppingCart, FaTimes } from 'react-icons/fa';
+import { FaHome, FaUser, FaCog, FaClipboardList, FaShoppingCart, FaBars } from 'react-icons/fa';
 import './sidebar.css'; 
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="close-icon">
-        <FaTimes />
+        <FaBars />
       </div>
       <ul className="sidebar-menu">
         <li><FaHome /><span>Home</span></li>
