@@ -1,41 +1,19 @@
-/* .settings-container {
-    margin-top: 20px;
-  }
-  
-  .setting-option {
-    margin-bottom: 10px;
-  }
-  
-  .setting-option label {
-    display: inline-block;
-    width: 100px;
-  }
-  
-  .setting-option select,
-  .setting-option input[type='checkbox'] {
-    margin-left: 10px;
-  }
-   */
-
-
-   .settings-container {
+.settings-container {
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     transition: background-color 0.3s ease;
-  }
-  
-  .dark-theme {
+}
+.dark-theme {
     background-color: #333;
     color: #fff;
-  }
-  
-  .setting-option {
+}
+.setting-option {
     margin-bottom: 10px;
-  }
-  
-  label {
+}
+label {
     display: inline-block;
     width: 100px;
-  }
+}
+
   
