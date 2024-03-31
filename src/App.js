@@ -4,7 +4,6 @@ import Home from '../src/components/Home/home';
 import Products from '../src/components/Products/products';
 import Orders from '../src/components/Orders/orders';
 import Users from '../src/components/Users/users';
-import Pricing from '../src/components/Pricing/pricing';
 import Discounts from '../src/components/Discounts/discounts';
 import Giftcard from '../src/components/Giftcard/giftcard';
 import Settings from '../src/components/Settings/settings';
@@ -21,7 +20,6 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/customers" element={<Users />} />
-            <Route path="/pricing" element={<Pricing />} />
             <Route path="/discounts" element={<Discounts />} />
             <Route path="/gift&vouchers" element={<Giftcard />} />
             <Route path="/settings" element={<Settings />} />
