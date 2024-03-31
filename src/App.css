@@ -1,7 +1,8 @@
 .app {
   display: flex;
   flex-direction: row;
-  height: 102vh;
+  height: 100vh;
+  overflow-y: hidden;
 }
 .content {
   width: 100%;

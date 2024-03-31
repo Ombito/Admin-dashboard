@@ -1,37 +1,41 @@
 .sidebar {
-    width: 250px;
-    height: 100%;
-    background-color: #333;
-    color: #fff;
-    padding-top: 20px;
-  }
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sidebar-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin-top: 20%;
+}
 .sidebar-hero {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 350px;
 }
-  
-  .sidebar-menu {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar-menu li {
-    padding: 10px 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.3s ease;
-  }
-  
-  .sidebar-menu li:hover {
-    background-color: #555;
-  }
-  
-  .sidebar-menu li svg {
-    margin-right: 10px;
-  }
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+.sidebar-menu li {
+  padding: 15px 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+.sidebar-menu li:hover {
+  background-color: #555;
+}
+.sidebar-menu li svg {
+  margin-right: 15px;
+}
 .logo {
   height: 8vh;
   width: 5vw;
@@ -40,16 +44,16 @@
   justify-content: center;
 }
 .sidebar-username {
-  height: 100%;
   display: flex;
-  /* padding: 0px 20px; */
+  text-align: center;
+  padding: 0px 20px;
+  gap: 10px;
 }
 .sidebar-username img {
   height: 50px;
 }
-
-.sidebar-username div {
+.sidebar-username h5 {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  text-align: center;
+  margin: 0;
 }
