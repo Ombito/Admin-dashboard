@@ -10,6 +10,7 @@ import Settings from '../src/components/Settings/settings';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 function App() {
+  
   return (
     <div className='app'>
       <Sidebar />

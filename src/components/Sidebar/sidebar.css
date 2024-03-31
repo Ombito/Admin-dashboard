@@ -48,7 +48,7 @@
   text-align: center;
   padding: 20px 20px;
   gap: 7px;
-  
+  cursor: pointer;
 }
 .sidebar-username img {
   height: 40px;
