@@ -1,0 +1,60 @@
+.giftcards-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.giftcards-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+.giftcards-content {
+    margin-top: 20px;
+}
+.giftcard-form {
+    margin-bottom: 20px;
+}
+.giftcard-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+.giftcard-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+}
+.giftcard-form button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.giftcard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.giftcard-table th, .giftcard-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.giftcard-table th {
+    background-color: #f2f2f2;
+}
+.giftcard-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.giftcard-table button {
+    padding: 4px 8px;
+    margin-right: 4px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.giftcard-table button:hover {
+    background-color: #0056b3;
+}
+  
