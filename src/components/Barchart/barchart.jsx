@@ -14,7 +14,7 @@ const Barchart = () => {
     
 
   return (
-    <div>
+    <div className="">
       <h2>Barchart</h2>
       <Bar data={userData} />
     </div>

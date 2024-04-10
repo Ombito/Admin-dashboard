@@ -7,9 +7,11 @@ const Home = () => {
   return (
     <div>
       <h2>Home</h2>
-      {/* <Barchart /> */}
+      <div className="dashboard">
+        {/* <Barchart /> */}
+        <Linegraph />
       {/* <Piechart /> */}
-      <Linegraph />
+      </div>
     </div>
   )
 }

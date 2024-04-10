@@ -1,31 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './products.css';
 
 const Products = () => {
-  const sampleProducts = [
-    {
-      name: 'Product 1',
-      category: 'Electronics',
-      description: 'Description 1',
-      grouping: 'Trending',
-      image_url: 'image1.jpg',
-      price: 100,
-      rating: 4.5
-    },
-    {
-      name: 'Product 2',
-      category: 'Phones',
-      description: 'Description 2',
-      grouping: 'Featured',
-      image_url: 'image2.jpg',
-      price: 200,
-      rating: 4.0
-    },
-  ];
-
-  const [products, setProducts] = useState(sampleProducts);
+  const [products, setProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [groupingFilter, setGroupingFilter] = useState('All');
+
+  useEffect(() => {
+    const apiUrl = `https://127.0.0.1:5555/products`;
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Fetched products:', data); 
+        setProducts(data);
+        setLoading(false);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      });
+  }, []);
+
+
 
   const handleCategoryFilterChange = (e) => {
     setCategoryFilter(e.target.value);
