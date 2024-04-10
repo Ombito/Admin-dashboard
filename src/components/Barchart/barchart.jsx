@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from 'chart.js/auto';
-
+import './barchart.css';
 
 const Barchart = () => {
     const [userData, setUserData] = useState({
@@ -14,7 +14,7 @@ const Barchart = () => {
     
 
   return (
-    <div className="">
+    <div className="bar">
       <h2>Barchart</h2>
       <Bar data={userData} />
     </div>

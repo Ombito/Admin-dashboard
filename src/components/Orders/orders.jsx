@@ -3,9 +3,10 @@ import './orders.css';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const apiUrl = `https://127.0.0.1:5555/orders`;
+    const apiUrl = `http://127.0.0.1:5555/orders`;
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
@@ -56,12 +57,12 @@ const Orders = () => {
         <tbody>
           {orders.map(order => (
             <tr key={order.id}>
-              <td>{order.product}</td>
+              <td>order.product</td>
               <td>{order.address}</td>
-              <td>{order.orderDate}</td>
-              <td>{order.user}</td>
-              <td>${order.totalAmount}</td>
-              <td>${order.shippingFees}</td>
+              <td>{order.order_date}</td>
+              <td>order.user</td>
+              <td>${order.total_amount}</td>
+              <td>${order.shipping_fees}</td>
               <td>{order.status}</td>
               <td>
                 {order.status === 'Delivered' ? (

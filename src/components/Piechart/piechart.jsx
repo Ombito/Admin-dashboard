@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS } from 'chart.js/auto';
+import './piechart.css';
 
 const Piechart = () => {
     const [userData, setUserData] = useState({
@@ -13,8 +14,8 @@ const Piechart = () => {
     
 
   return (
-    <div>
-      <h2>Barchart</h2>
+    <div className="pie">
+      <h2>Piechart</h2>
       <Pie data={userData} />
     </div>
   );

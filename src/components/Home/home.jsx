@@ -2,15 +2,20 @@ import React from 'react'
 import Barchart from '../Barchart/barchart';
 import Piechart from '../Piechart/piechart';
 import Linegraph from '../Linegraph/linegraph';
+import './home.css';
 
 const Home = () => {
   return (
     <div>
       <h2>Home</h2>
       <div className="dashboard">
-        {/* <Barchart /> */}
-        <Linegraph />
-      {/* <Piechart /> */}
+        <div className="chart-container">
+          <Barchart />
+          <Linegraph />
+        </div>
+        <div className="chart-container">
+          <Piechart />
+        </div>
       </div>
     </div>
   )

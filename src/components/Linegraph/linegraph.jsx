@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from 'chart.js/auto';
+import './linegraph.css';
 
 const Linegraph = () => {
     const [userData, setUserData] = useState({
@@ -13,7 +14,7 @@ const Linegraph = () => {
     
 
   return (
-    <div>
+    <div className="line">
       <h2>Linegraph</h2>
       <Line data={userData} />
     </div>

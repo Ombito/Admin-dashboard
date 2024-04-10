@@ -4,9 +4,10 @@ import './users.css';
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [newUser, setNewUser] = useState({ name: '', email: '', role: 'User' });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const apiUrl = `https://127.0.0.1:5555/users`;
+    const apiUrl = `http://127.0.0.1:5555/users`;
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
@@ -73,7 +74,7 @@ const Users = () => {
         <tbody>
           {users.map(user => (
             <tr key={user.id}>
-              <td>{user.name}</td>
+              <td>{user.full_name}</td>
               <td>{user.email}</td>
               <td>user.role</td>
               <td>
