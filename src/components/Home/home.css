@@ -1,8 +1,6 @@
-/* Home.css */
-
-.home-container {
+/* .home-container {
     padding: 20px;
-  }
+}
   
   .line-chart-container {
     margin-bottom: 20px;
@@ -11,5 +9,15 @@
   .pie-chart-container {
     max-width: 400px;
     margin: 0 auto;
-  }
-  
+  } */
+
+.dashboard {
+  gap: 20px;
+}
+
+.chart-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 50%; 
+  padding: 30px;
+}

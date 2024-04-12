@@ -1,15 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './users.css';
 
 const Users = () => {
-  const sampleUsers = [
-    { id: 1, name: 'Ken', email: 'ken@example.com', role: 'Admin' },
-    { id: 2, name: 'Beatrice', email: 'beatrice@example.com', role: 'User' },
-  ];
-
-  const [users, setUsers] = useState(sampleUsers);
+  const [users, setUsers] = useState([]);
   const [newUser, setNewUser] = useState({ name: '', email: '', role: 'User' });
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const apiUrl = `http://127.0.0.1:5555/users`;
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Fetched users:', data); 
+        setUsers(data);
+        setLoading(false);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      });
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -58,9 +74,9 @@ const Users = () => {
         <tbody>
           {users.map(user => (
             <tr key={user.id}>
-              <td>{user.name}</td>
+              <td>{user.full_name}</td>
               <td>{user.email}</td>
-              <td>{user.role}</td>
+              <td>user.role</td>
               <td>
                 <button onClick={() => handleRemoveUser(user.id)}>Remove</button>
               </td>

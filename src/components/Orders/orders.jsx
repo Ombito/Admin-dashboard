@@ -1,29 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './orders.css';
 
 const Orders = () => {
-  const [orders, setOrders] = useState([
-    {
-      id: 1,
-      product: 'Product A',
-      address: 'Nairobi, Kenya',
-      orderDate: '2024-02-20',
-      user: 'User 1',
-      totalAmount: 150,
-      shippingFees: 10,
-      status: 'In Progress'
-    },
-    {
-      id: 2,
-      product: 'Product B',
-      address: 'Kisumu, Kenya',
-      orderDate: '2024-02-21',
-      user: 'User 2',
-      totalAmount: 200,
-      shippingFees: 15,
-      status: 'On Transit'
-    },
-  ]);
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const apiUrl = `http://127.0.0.1:5555/orders`;
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Fetched orders:', data); 
+        setOrders(data);
+        setLoading(false);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      });
+  }, []);
 
   
   const handleStatusChange = (orderId, newStatus) => { 
@@ -56,12 +57,12 @@ const Orders = () => {
         <tbody>
           {orders.map(order => (
             <tr key={order.id}>
-              <td>{order.product}</td>
+              <td>order.product</td>
               <td>{order.address}</td>
-              <td>{order.orderDate}</td>
-              <td>{order.user}</td>
-              <td>${order.totalAmount}</td>
-              <td>${order.shippingFees}</td>
+              <td>{order.order_date}</td>
+              <td>order.user</td>
+              <td>${order.total_amount}</td>
+              <td>${order.shipping_fees}</td>
               <td>{order.status}</td>
               <td>
                 {order.status === 'Delivered' ? (

@@ -20,7 +20,7 @@ const Sidebar = () => {
       <div className="sidebar-div">
         <div className='sidebar-hero'>
           <ul className="sidebar-menu">
-            <li onClick={() => handleNavigate('/dashboard')}><FaHome /><span>Home</span></li>
+            <li onClick={() => handleNavigate('/')}><FaHome /><span>Home</span></li>
             <li onClick={() => handleNavigate('/customers')}><FaUser /><span>Users</span></li>
             <li onClick={() => handleNavigate('/orders')}><FaClipboardList /><span>Orders</span></li>
             <li onClick={() => handleNavigate('/products')}><FaShoppingCart /><span>Products</span></li>

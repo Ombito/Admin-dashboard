@@ -10,13 +10,14 @@ import Settings from '../src/components/Settings/settings';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 function App() {
+  
   return (
     <div className='app'>
       <Sidebar />
       <div className="content">
         <Routes>
           <Route>
-            <Route path="/dashboard" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/customers" element={<Users />} />
