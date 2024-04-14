@@ -7,7 +7,7 @@ const Barchart = () => {
     const [userData, setUserData] = useState({
         labels: UserData.map(data => data.year),
         datasets: [{
-            label: 'Top Selling Product',
+            label: 'Top Selling Products',
             data: UserData.map(data => data.worth),
         }],
     });

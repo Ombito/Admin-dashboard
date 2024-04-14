@@ -4,7 +4,29 @@
 
 .chart-container {
   display: flex;
-  flex-wrap: wrap;
-  flex: 1 1 50%; 
-  padding: 30px;
+  /* flex-wrap: wrap; */
+  /* flex: 1 1 50%;  */
+  /* padding: 30px; */
+}
+
+
+.dashboard-stats-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 6%;
+}
+
+.dashboard-stat {
+  display: flex;
+  align-items: center;
+  padding: 10px 60px;
+  gap: 10px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-icon {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
