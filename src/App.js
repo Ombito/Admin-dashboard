@@ -7,7 +7,6 @@ import Users from '../src/components/Users/users';
 import Discounts from '../src/components/Discounts/discounts';
 import Giftcard from '../src/components/Giftcard/giftcard';
 import Settings from '../src/components/Settings/settings';
-import Navbar from '../src/components/Navbar/navbar';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
     <div className='app'>
       <Sidebar />
       <div className="content">
-        <Navbar />
         <Routes>
           <Route>
             <Route path="/" element={<Home />} />

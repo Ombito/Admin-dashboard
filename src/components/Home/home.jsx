@@ -4,7 +4,7 @@ import Piechart from '../Piechart/piechart';
 import Linegraph from '../Linegraph/linegraph';
 import './home.css';
 import { FaMoneyBillAlt, FaShoppingCart, FaDollarSign, FaUsers } from 'react-icons/fa';
-
+import user from "../../Assets/user.jpg";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -13,7 +13,13 @@ const Home = () => {
 
   return (
     <div>
-      <h2>Dashboard</h2>
+      <div>
+        <h2>Dashboard</h2>
+        <div className='sidebar-username'>
+          <img src={user} alt="avatar" />
+          <h4>Administrator</h4>
+        </div>
+      </div>
       <div className="dashboard-stats-container">
         <div className="dashboard-stat">
           <FaMoneyBillAlt color='#85bc2b' className="dashboard-icon" />

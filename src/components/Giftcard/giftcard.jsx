@@ -1,10 +1,17 @@
 import React from 'react';
 import './giftcard.css';
+import user from "../../Assets/user.jpg";
 
 const Giftcards = () => {
   return (
     <div className="giftcards-container">
-      <h2>Giftcards & Vouchers</h2>
+      <div>
+        <h2>Giftcards & Vouchers</h2>
+        <div className='sidebar-username'>
+          <img src={user} alt="avatar" />
+          <h4>Administrator</h4>
+        </div>
+      </div>
       <div className="giftcards-content">
         <form className="giftcard-form">
           <label htmlFor="giftcard-code">Giftcard Code:</label>
