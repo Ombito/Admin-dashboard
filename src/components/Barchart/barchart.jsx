@@ -7,7 +7,7 @@ const Barchart = () => {
     const [userData, setUserData] = useState({
         labels: UserData.map(data => data.year),
         datasets: [{
-            label: 'Year',
+            label: 'Top Selling Products',
             data: UserData.map(data => data.worth),
         }],
     });
@@ -15,7 +15,7 @@ const Barchart = () => {
 
   return (
     <div className="bar">
-      <h2>Barchart</h2>
+      <h3>Top Selling Products</h3>
       <Bar data={userData} />
     </div>
   );

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaHome, FaUser, FaCog, FaClipboardList, FaShoppingCart, FaSignOutAlt, FaDollarSign, FaGift } from 'react-icons/fa';
 import './sidebar.css'; 
 import logo from "../../Assets/banner.jpg";
-import user from "../../Assets/user.jpg";
+
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Sidebar = () => {
       <div className="sidebar-div">
         <div className='sidebar-hero'>
           <ul className="sidebar-menu">
-            <li onClick={() => handleNavigate('/')}><FaHome /><span>Home</span></li>
+            <li onClick={() => handleNavigate('/')}><FaHome /><span>Dashboard</span></li>
             <li onClick={() => handleNavigate('/customers')}><FaUser /><span>Users</span></li>
             <li onClick={() => handleNavigate('/orders')}><FaClipboardList /><span>Orders</span></li>
             <li onClick={() => handleNavigate('/products')}><FaShoppingCart /><span>Products</span></li>
@@ -30,9 +30,8 @@ const Sidebar = () => {
             <li ><FaSignOutAlt/><span>Logout</span></li>
           </ul>
         </div>
-        <div className='sidebar-username'>
-          <img src={user} alt="avatar" />
-          <h4>Administrator</h4>
+        <div className="support-ticket">
+          <button>Support Ticket</button>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './orders.css';
+import user from "../../Assets/user.jpg";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -40,7 +41,13 @@ const Orders = () => {
 
   return (
     <div className="orders-container">
-      <h2>Orders</h2>
+      <div>
+        <h2>Orders</h2>
+        <div className='sidebar-username'>
+          <img src={user} alt="avatar" />
+          <h4>Administrator</h4>
+        </div>
+      </div>
       <table className="orders-table">
         <thead>
           <tr>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './products.css';
+import user from "../../Assets/user.jpg";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -85,7 +86,13 @@ const Products = () => {
 
   return (
     <div className="product-container">
-      <h2>Product Management</h2>
+      <div>
+        <h2>Product Management</h2>
+        <div className='sidebar-username'>
+          <img src={user} alt="avatar" />
+          <h4>Administrator</h4>
+        </div>
+      </div>
       <form onSubmit={handleSubmit} className="product-form">
         <input type="text" name="name" value={newProduct.name} placeholder="Name" onChange={handleInputChange} />
         <select name="category" value={newProduct.category} onChange={handleInputChange}>
