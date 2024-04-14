@@ -15,7 +15,7 @@ const Piechart = () => {
 
   return (
     <div className="pie">
-      <h2>Product Category Distribution</h2>
+      <h3>Product Category Distribution</h3>
       <Pie data={userData} />
     </div>
   );

@@ -7,17 +7,9 @@ import { FaMoneyBillAlt, FaShoppingCart, FaDollarSign, FaUsers } from 'react-ico
 
 
 const Home = () => {
-  const [groupingFilter, setGroupingFilter] = useState('All');
-  const [categoryFilter, setCategoryFilter] = useState('All');
   const [loading, setLoading] = useState(true);
 
-  const handleCategoryFilterChange = (e) => {
-    setCategoryFilter(e.target.value);
-  };
 
-  const handleGroupingFilterChange = (e) => {
-    setGroupingFilter(e.target.value);
-  };
 
   return (
     <div>
@@ -27,28 +19,28 @@ const Home = () => {
           <FaMoneyBillAlt color='#85bc2b' className="dashboard-icon" />
           <div>
             <p>Total Sales</p>
-            <h3  style={{color:'#85bc2b'}}>230k</h3>
+            <h3 style={{color:'#85bc2b'}}>230k</h3>
           </div>
         </div>
         <div className="dashboard-stat">
           <FaShoppingCart color='orange' className="dashboard-icon" />
           <div>
             <p>Products Sold</p>
-            <h3 style={{color:'orange'}}>230k</h3>
+            <h3 style={{color:'orange'}}>62,108</h3>
           </div>
         </div>
         <div className="dashboard-stat">
           <FaDollarSign color='red' className="dashboard-icon" />
           <div>
             <p>Total Earnings</p>
-            <h3 style={{color:'red'}}>230k</h3>
+            <h3 style={{color:'red'}}>$1,230</h3>
           </div>
         </div>
         <div className="dashboard-stat">
           <FaUsers color='purple' className="dashboard-icon" />
           <div>
             <p>Total Customers</p>
-            <h3  style={{color:'purple'}}>230k</h3>
+            <h3  style={{color:'purple'}}>4k</h3>
           </div>
         </div>
       </div>
@@ -63,30 +55,12 @@ const Home = () => {
           <table className="product-table">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>
-                  Category: 
-                  <select value={categoryFilter} onChange={handleCategoryFilterChange}>
-                    <option value="All">All</option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="Phones">Phones</option>
-                    <option value="Television">Television</option>
-                    <option value="Radio">Radio</option>
-                  </select>
-                </th>
-                <th>Description</th>
-                <th>
-                  Grouping: 
-                  <select value={groupingFilter} onChange={handleGroupingFilterChange}>
-                    <option value="All">All</option>
-                    <option value="trending">Trending</option>
-                    <option value="Featured">Featured</option>
-                    <option value="Flash Sales">Flash Sales</option>
-                  </select>
-                </th>
-                <th>Image URL</th>
+                <th>Order ID</th>
+                <th>Product</th>
                 <th>Price</th>
-                <th>Rating</th>
+                <th>Order Date</th>
+                <th>Address</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>

@@ -15,7 +15,7 @@ const Barchart = () => {
 
   return (
     <div className="bar">
-      <h2>Top Selling Products</h2>
+      <h3>Top Selling Products</h3>
       <Bar data={userData} />
     </div>
   );

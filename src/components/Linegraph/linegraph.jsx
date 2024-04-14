@@ -7,7 +7,7 @@ const Linegraph = () => {
     const [userData, setUserData] = useState({
         labels: UserData.map(data => data.year),
         datasets: [{
-            label: 'Sales per Month',
+            label: 'Sale3 per Month',
             data: UserData.map(data => data.worth),
         }],
     });
@@ -15,7 +15,7 @@ const Linegraph = () => {
 
   return (
     <div className="line">
-      <h2>Sales Overview</h2>
+      <h3>Sales Overview</h3>
       <Line data={userData} />
     </div>
   );
