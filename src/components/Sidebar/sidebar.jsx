@@ -14,13 +14,17 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <div>
+      {/* <div>
         <img className="logo" src={logo} alt="logo" />
-      </div>
+      </div> */}
+      <div className='sidebar-username'>
+          <img src={user} alt="avatar" />
+          <h4>Administrator</h4>
+        </div>
       <div className="sidebar-div">
         <div className='sidebar-hero'>
           <ul className="sidebar-menu">
-            <li onClick={() => handleNavigate('/')}><FaHome /><span>Home</span></li>
+            <li onClick={() => handleNavigate('/')}><FaHome /><span>Dashboard</span></li>
             <li onClick={() => handleNavigate('/customers')}><FaUser /><span>Users</span></li>
             <li onClick={() => handleNavigate('/orders')}><FaClipboardList /><span>Orders</span></li>
             <li onClick={() => handleNavigate('/products')}><FaShoppingCart /><span>Products</span></li>
@@ -30,9 +34,8 @@ const Sidebar = () => {
             <li ><FaSignOutAlt/><span>Logout</span></li>
           </ul>
         </div>
-        <div className='sidebar-username'>
-          <img src={user} alt="avatar" />
-          <h4>Administrator</h4>
+        <div>
+          <button>Support Ticket</button>
         </div>
       </div>
     </div>

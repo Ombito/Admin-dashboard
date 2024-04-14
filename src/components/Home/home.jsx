@@ -7,7 +7,7 @@ import './home.css';
 const Home = () => {
   return (
     <div>
-      <h2>Home</h2>
+      <h2>Dashboard</h2>
       <div className="dashboard">
         <div className="chart-container">
           <Barchart />
