@@ -7,7 +7,7 @@ const Piechart = () => {
     const [userData, setUserData] = useState({
         labels: UserData.map(data => data.year),
         datasets: [{
-            label: 'Year',
+            label: 'category',
             data: UserData.map(data => data.worth),
         }],
     });
@@ -15,7 +15,7 @@ const Piechart = () => {
 
   return (
     <div className="pie">
-      <h2>Piechart</h2>
+      <h2>Product Category Distribution</h2>
       <Pie data={userData} />
     </div>
   );
