@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './settings.css';
+import user from "../../Assets/user.jpg";
 
 const Settings = () => {
   const [settings, setSettings] = useState({
@@ -25,7 +26,13 @@ const Settings = () => {
 
   return (
     <div className={`settings-container ${settings.theme === 'dark' ? 'dark-theme' : ''}`}>
-      <h2>Settings</h2>
+      <div>
+        <h2>Settings</h2>
+        <div className='sidebar-username'>
+          <img src={user} alt="avatar" />
+          <h4>Administrator</h4>
+        </div>
+      </div>
       <div className="setting-option">
         <label>Theme:</label>
         <button onClick={handleThemeChange}>{settings.theme === 'light' ? 'Dark' : 'Light'}</button>

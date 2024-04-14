@@ -1,5 +1,6 @@
 import React from 'react';
 import './discounts.css';
+import user from "../../Assets/user.jpg";
 
 const Discounts = () => {
   const discounts = [
@@ -23,7 +24,13 @@ const Discounts = () => {
 
   return (
     <div className="discounts-container">
-      <h2>Discounts</h2>
+      <div>
+        <h2>Discounts</h2>
+        <div className='sidebar-username'>
+          <img src={user} alt="avatar" />
+          <h4>Administrator</h4>
+        </div>
+      </div>
       <div className="discounts-list">
         {discounts.map(discount => (
           <div key={discount.id} className="discount-item">
