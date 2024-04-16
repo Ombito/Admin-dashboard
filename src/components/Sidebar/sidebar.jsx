@@ -20,14 +20,14 @@ const Sidebar = () => {
       <div className="sidebar-div">
         <div className='sidebar-hero'>
           <ul className="sidebar-menu">
-            <li onClick={() => handleNavigate('/')}><FaHome /><span>Dashboard</span></li>
-            <li onClick={() => handleNavigate('/customers')}><FaUser /><span>Users</span></li>
-            <li onClick={() => handleNavigate('/orders')}><FaClipboardList /><span>Orders</span></li>
-            <li onClick={() => handleNavigate('/products')}><FaShoppingCart /><span>Products</span></li>
-            <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift /><span>Gift Cards</span></li>
-            <li onClick={() => handleNavigate('/discounts')}><FaDollarSign /><span>Discounts</span></li>
-            <li onClick={() => handleNavigate('/settings')}><FaCog /><span>Settings</span></li>
-            <li ><FaSignOutAlt/><span>Logout</span></li>
+            <li onClick={() => handleNavigate('/')}><FaHome color='#ff6384'/><span>Dashboard</span></li>
+            <li onClick={() => handleNavigate('/customers')}><FaUser color='#00aeee'/><span>Users</span></li>
+            <li onClick={() => handleNavigate('/orders')}><FaClipboardList color='green'/><span>Orders</span></li>
+            <li onClick={() => handleNavigate('/products')}><FaShoppingCart color='purple'/><span>Products</span></li>
+            <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/><span>Gift Cards</span></li>
+            <li onClick={() => handleNavigate('/discounts')}><FaDollarSign color='gold'/><span>Discounts</span></li>
+            <li onClick={() => handleNavigate('/settings')}><FaCog color='#393564'/><span>Settings</span></li>
+            <li ><FaSignOutAlt color='#ff9f40'/><span>Logout</span></li>
           </ul>
         </div>
         <div className="support-ticket">
