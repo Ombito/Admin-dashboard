@@ -1,40 +1,37 @@
+.navbar-div {
+  display: flex;
+  justify-content: space-between;
+}
 .users-container {
-    margin-top: 20px;
-  }
-  
-  .add-user-form {
-    margin-bottom: 20px;
-  }
-  
-  .users-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .users-table th,
-  .users-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .users-table th {
-    background-color: #f2f2f2;
-  }
-  
-  .users-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .users-table button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .users-table button:hover {
-    background-color: #d32f2f;
-  }
+  margin-top: 20px;
+} 
+.add-user-form {
+  margin-bottom: 20px;
+}
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.users-table th,
+.users-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.users-table th {
+  background-color: #f2f2f2;
+}
+.users-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.users-table button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.users-table button:hover {
+  background-color: #d32f2f;
+}
   

@@ -9,15 +9,13 @@ import user from "../../Assets/user.jpg";
 const Home = () => {
   const [loading, setLoading] = useState(true);
 
-
-
   return (
     <div>
-      <div>
+      <div className="navbar-div">
         <h2>Dashboard</h2>
         <div className='sidebar-username'>
           <img src={user} alt="avatar" />
-          <h4>Administrator</h4>
+          <h4>Admin</h4>
         </div>
       </div>
       <div className="dashboard-stats-container">

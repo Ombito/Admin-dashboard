@@ -1,6 +1,10 @@
 .product-container {
     margin-top: 20px;
-}  
+} 
+.navbar-div {
+    display: flex;
+    justify-content: space-between;
+} 
 .product-form {
     margin-bottom: 20px;
 }
@@ -23,7 +27,7 @@
 } 
 .product-table tbody {
     display: block;
-    max-height: 300px; 
+    max-height: 700px; 
     overflow-y: auto;
 }
 .product-table thead,

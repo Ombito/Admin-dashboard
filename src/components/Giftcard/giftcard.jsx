@@ -5,11 +5,11 @@ import user from "../../Assets/user.jpg";
 const Giftcards = () => {
   return (
     <div className="giftcards-container">
-      <div>
+      <div className="navbar-div">
         <h2>Giftcards & Vouchers</h2>
         <div className='sidebar-username'>
           <img src={user} alt="avatar" />
-          <h4>Administrator</h4>
+          <h4>Admin</h4>
         </div>
       </div>
       <div className="giftcards-content">

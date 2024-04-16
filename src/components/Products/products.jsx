@@ -86,17 +86,20 @@ const Products = () => {
 
   return (
     <div className="product-container">
-      <div>
+      <div className="navbar-div">
         <h2>Product Management</h2>
         <div className='sidebar-username'>
           <img src={user} alt="avatar" />
-          <h4>Administrator</h4>
+          <h4>Admin</h4>
         </div>
       </div>
       <form onSubmit={handleSubmit} className="product-form">
         <input type="text" name="name" value={newProduct.name} placeholder="Name" onChange={handleInputChange} />
         <select name="category" value={newProduct.category} onChange={handleInputChange}>
           <option value="Electronics">Electronics</option>
+          <option value="Phones">Phones</option>
+          <option value="Television">Television</option>
+          <option value="Radio">Radio</option>
           <option value="Phones">Phones</option>
           <option value="Television">Television</option>
           <option value="Radio">Radio</option>
@@ -136,7 +139,7 @@ const Products = () => {
               <select value={groupingFilter} onChange={handleGroupingFilterChange}>
                 <option value="All">All</option>
                 <option value="trending">Trending</option>
-                <option value="Featured">Featured</option>
+                <option value="featured">Featured</option>
                 <option value="Flash Sales">Flash Sales</option>
               </select>
             </th>

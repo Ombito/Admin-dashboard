@@ -41,11 +41,11 @@ const Orders = () => {
 
   return (
     <div className="orders-container">
-      <div>
+      <div className="navbar-div">
         <h2>Orders</h2>
         <div className='sidebar-username'>
           <img src={user} alt="avatar" />
-          <h4>Administrator</h4>
+          <h4>Admin</h4>
         </div>
       </div>
       <table className="orders-table">

@@ -1,19 +1,19 @@
 .dashboard {
   gap: 20px;
 }
-
 .chart-container {
   display: flex;
   justify-content: space-between;
 }
-
-
+.navbar-div {
+  display: flex;
+  justify-content: space-between;
+}
 .dashboard-stats-container {
   display: flex;
   justify-content: space-between;
   margin: 0 3%;
 }
-
 .dashboard-stat {
   display: flex;
   align-items: center;
@@ -23,7 +23,6 @@
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 .dashboard-icon {
   font-size: 2rem;
   margin-bottom: 20px;

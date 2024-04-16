@@ -1,3 +1,7 @@
+.navbar-div {
+    display: flex;
+    justify-content: space-between;
+}
 .settings-container {
     padding: 0 20px;
     height: 100vh;
@@ -16,5 +20,9 @@ label {
     display: inline-block;
     width: 100px;
 }
-
+.admin-profile {
+    display: flex;
+    gap: 7px;
+    text-align: center;
+}
   

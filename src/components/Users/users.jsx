@@ -52,11 +52,11 @@ const Users = () => {
 
   return (
     <div className="users-container">
-      <div>
+      <div className="navbar-div">
         <h2>User Management</h2>
         <div className='sidebar-username'>
           <img src={user} alt="avatar" />
-          <h4>Administrator</h4>
+          <h4>Admin</h4>
         </div>
       </div>
       <form onSubmit={handleSubmit} className="add-user-form">
@@ -83,7 +83,7 @@ const Users = () => {
             <tr key={user.id}>
               <td>{user.full_name}</td>
               <td>{user.email}</td>
-              <td>user.role</td>
+              <td>Customer</td>
               <td>
                 <button onClick={() => handleRemoveUser(user.id)}>Remove</button>
               </td>
