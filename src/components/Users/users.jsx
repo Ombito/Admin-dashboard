@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './users.css';
 import user from "../../Assets/user.jpg";
+import { FaBell } from 'react-icons/fa';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -55,8 +56,14 @@ const Users = () => {
       <div className="navbar-div">
         <h2>User Management</h2>
         <div className='sidebar-username'>
-          <img src={user} alt="avatar" />
-          <h4>Admin</h4>
+          <div className="notification-icon-container">
+            <FaBell className="notification-icon" />
+            <div className="notification-dot"></div>
+          </div>
+          <div className="admin-profile">
+            <img src={user} alt="avatar" />
+            <h4>Admin</h4>
+          </div>
         </div>
       </div>
       <form onSubmit={handleSubmit} className="add-user-form">

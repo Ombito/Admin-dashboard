@@ -2,9 +2,6 @@
   display: flex;
   justify-content: space-between;
 }
-.users-container {
-  margin-top: 20px;
-} 
 .add-user-form {
   margin-bottom: 20px;
 }

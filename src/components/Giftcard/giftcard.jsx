@@ -1,6 +1,7 @@
 import React from 'react';
 import './giftcard.css';
 import user from "../../Assets/user.jpg";
+import { FaBell } from 'react-icons/fa';
 
 const Giftcards = () => {
   return (
@@ -8,8 +9,14 @@ const Giftcards = () => {
       <div className="navbar-div">
         <h2>Giftcards & Vouchers</h2>
         <div className='sidebar-username'>
-          <img src={user} alt="avatar" />
-          <h4>Admin</h4>
+          <div className="notification-icon-container">
+            <FaBell className="notification-icon" />
+            <div className="notification-dot"></div>
+          </div>
+          <div className="admin-profile">
+            <img src={user} alt="avatar" />
+            <h4>Admin</h4>
+          </div>
         </div>
       </div>
       <div className="giftcards-content">
