@@ -1,11 +1,34 @@
+.home-summary {
+  width: 100%;
+}
 .dashboard {
   gap: 20px;
+  width: 100%;
 }
-
 .chart-container {
+  display: flex;
+  /* justify-content: space-between; */
+  width: 100%;
+}
+.navbar-div {
   display: flex;
   justify-content: space-between;
 }
+.dashboard-hero {
+  width: 100%;
+}
+.dashboard-stats-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -1.5%;
+}
+/* .dashboard-stat {
+  display: flex;
+  width: 17%;
+  align-items: center;
+  padding: 0px 40px;
+  justify-content: space-between;
+} */
 
 
 .dashboard-stats-container {
@@ -16,12 +39,37 @@
 
 .dashboard-stat {
   display: flex;
+  width: 17%;
   align-items: center;
   padding: 10px 60px;
   gap: 10px;
   text-align: center;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.dashboard-icon {
+  font-size: 2rem;
+}
+.dashboard-top-products {
+  width: 270px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding-left: 10px;
+  margin-left: 15px;
+}
+.top-products-div {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 10px;
+}
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.orders-table th,
+.orders-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  width: 120px;
 }
 
 .dashboard-icon {

@@ -1,8 +1,11 @@
 .giftcards-container {
-    padding: 20px;
     background-color: #f8f9fa;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar-div {
+    display: flex;
+    justify-content: space-between;
 }
 .giftcards-container h2 {
     margin-bottom: 20px;
@@ -13,6 +16,7 @@
 }
 .giftcard-form {
     margin-bottom: 20px;
+    padding: 0 20px 0 0;
 }
 .giftcard-form label {
     display: block;
@@ -57,4 +61,19 @@
 .giftcard-table button:hover {
     background-color: #0056b3;
 }
-  
+.notification-icon-container {
+    display: flex;
+    align-items: center;
+}
+.notification-icon {
+    font-size: 1.6rem;
+}
+.notification-dot {
+    position: absolute;
+    top: 38px;
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 10px;
+  }

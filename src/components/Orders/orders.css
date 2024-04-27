@@ -1,5 +1,6 @@
-.orders-container {
-    margin-top: 20px;
+.navbar-div {
+    display: flex;
+    justify-content: space-between;
 }
 .orders-table {
     width: 100%;
