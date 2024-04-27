@@ -95,7 +95,7 @@ const Linegraph = () => {
       <Line data={userData} />
     </div>
   );
->>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04 
 };
 
 
