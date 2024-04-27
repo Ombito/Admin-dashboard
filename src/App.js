@@ -12,7 +12,7 @@ import SignIn from '../src/components/Signin/signin';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(true);
   
   return (
     <div className='app'>

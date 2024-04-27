@@ -2,6 +2,10 @@
   display: flex;
   justify-content: space-between;
 }
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
 .add-user-form {
   display: flex;
   flex-direction: column;
@@ -12,6 +16,19 @@
   height: 4vh;
   padding: 0 5px;
   border-radius: 4px;
+}
+.search-bar {
+  border: 1px solid gray;
+  padding: 3px 5px;
+}
+.search-input {
+  border: none;
+  width: 320px;
+  padding: 5px;
+  outline: none;
+}
+.search-input:focus {
+  border: none;
 }
 .users-table {
   width: 100%;

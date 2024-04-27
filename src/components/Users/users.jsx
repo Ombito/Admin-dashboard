@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './users.css';
 import user from "../../Assets/user.jpg";
-import { FaBell } from 'react-icons/fa';
+import { FaBell, FaSearch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -85,6 +86,7 @@ const Users = () => {
     }
   };
 
+
   return (
     <div className="users-container">
       <div className="navbar-div">
@@ -100,24 +102,37 @@ const Users = () => {
           </div>
         </div>
       </div>
-      <button onClick={handleOpenModal}>Add User</button>
-        {showModal && (
-          <div className="modal">
-            <div className="modal-content">
-              <span className="close" onClick={handleCloseModal}>&times;</span>
-              <form onSubmit={handleSubmit} className="add-user-form">
-                <div className="name-div">
-                  <input type="text" className="input" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                  <input type="text" className="input" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+      <div className="button-container">
+        <button onClick={handleOpenModal}>Add User</button>
+          {showModal && (
+            <div className="modal">
+              <div className="modal-content">
+                <span className="close" onClick={handleCloseModal}>&times;</span>
+                <form onSubmit={handleSubmit} className="add-user-form">
+                  <div className="name-div">
+                    <input type="text" className="input" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                    <input type="text" className="input" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                  </div>
+                  <input type="email" className="input" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <input type="phone" className="input" placeholder="Phone number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+                  <input type="password" className="input" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                  <button type="submit">Add User</button>
+                </form>
                 </div>
-                <input type="email" className="input" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type="phone" className="input" placeholder="Phone number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
-                <input type="password" className="input" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <button type="submit">Add User</button>
-              </form>
-              </div>
+          </div>
+        )}
+        <div className="search-bar">
+          <FaSearch className="search-icon" />
+          <input
+            className="search-input"
+            type="text"
+            placeholder="Search users..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          /> 
         </div>
-      )}
+      </div>
+
       <table className="users-table">
         <thead>
           <tr>
@@ -128,7 +143,23 @@ const Users = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map(user => (
+        {users
+            .filter(user => {
+              return user.first_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                     user.last_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                     user.email.toLowerCase().includes(searchQuery.toLowerCase());
+            })
+            .map(filteredUser => (
+              <tr key={filteredUser.id}>
+                <td>{filteredUser.first_name} {filteredUser.last_name}</td>
+                <td>{filteredUser.email}</td>
+                <td>Customer</td>
+                <td>
+                  <button onClick={() => handleRemoveUser(filteredUser.id)}>Remove</button>
+                </td>
+              </tr>
+            ))}
+          {/* {users.map(user => (
             <tr key={user.id}>
               <td>{user.first_name} {user.last_name}</td>
               <td>{user.email}</td>
@@ -137,7 +168,7 @@ const Users = () => {
                 <button onClick={() => handleRemoveUser(user.id)}>Remove</button>
               </td>
             </tr>
-          ))}
+          ))} */}
         </tbody>
       </table>
     </div>
