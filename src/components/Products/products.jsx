@@ -9,6 +9,15 @@ const Products = () => {
   const [groupingFilter, setGroupingFilter] = useState('All');
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [newProduct, setNewProduct] = useState({
+    name: '',
+    category: 'Electronics',
+    description: '',
+    grouping: 'Trending',
+    image_url: '',
+    price: '',
+    quantity: '1'
+  });
 
   useEffect(() => {
     const apiUrl = `http://127.0.0.1:5555/products`;
@@ -58,27 +67,32 @@ const Products = () => {
     return true;
   });
 
-  const [newProduct, setNewProduct] = useState({
-    name: '',
-    category: 'Electronics',
-    description: '',
-    grouping: 'Trending',
-    image_url: '',
-    price: '',
-    quantity: '1'
-  });
-
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewProduct({ ...newProduct, [name]: value });
   };
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (newProduct.name && newProduct.description && newProduct.image_url && newProduct.price) {
-      setProducts([...products, newProduct]);
+      try {
+        const response = await fetch('http://127.0.0.1:5555/products', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newProduct),
+        });
+    
+        if (response.ok) {
+          const data = await response.json();
+        } else {
+          console.log("Login failed!")
+        }
+      } catch (error) {
+        console.error('Login failed: ', error);
+      }
       setNewProduct({
         name: '',
         category: '',
