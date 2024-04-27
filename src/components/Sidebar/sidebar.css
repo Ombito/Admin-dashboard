@@ -61,15 +61,21 @@
 .sidebar-username h5 {
   display: flex;
   margin: 0;
+<<<<<<< HEAD
   text-align: center;
+=======
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
 }
 .support-ticket {
   margin: auto;
 }
 .support-ticket button{
   padding: 10px 25px;
+<<<<<<< HEAD
 }
 .notification-icon {
   text-align: center;
   margin: auto 0;
+=======
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
 }

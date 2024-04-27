@@ -1,4 +1,8 @@
 .bar {
+<<<<<<< HEAD
     height: 35vh;
+=======
+    height: 40vh;
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
     width: 100%;
 }

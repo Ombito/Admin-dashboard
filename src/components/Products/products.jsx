@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './products.css';
 import user from "../../Assets/user.jpg";
+<<<<<<< HEAD
 import { FaBell } from 'react-icons/fa';
+=======
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -96,6 +99,7 @@ const Products = () => {
 
   return (
     <div className="product-container">
+<<<<<<< HEAD
       <div className="navbar-div">
         <h2>Product Management</h2>
         <div className='sidebar-username'>
@@ -145,6 +149,38 @@ const Products = () => {
         </div>
       )}
       </div>
+=======
+      <div>
+        <h2>Product Management</h2>
+        <div className='sidebar-username'>
+          <img src={user} alt="avatar" />
+          <h4>Administrator</h4>
+        </div>
+      </div>
+      <form onSubmit={handleSubmit} className="product-form">
+        <input type="text" name="name" value={newProduct.name} placeholder="Name" onChange={handleInputChange} />
+        <select name="category" value={newProduct.category} onChange={handleInputChange}>
+          <option value="Electronics">Electronics</option>
+          <option value="Phones">Phones</option>
+          <option value="Television">Television</option>
+          <option value="Radio">Radio</option>
+        </select>
+        <input type="text" name="description" value={newProduct.description} placeholder="Description" onChange={handleInputChange} />
+        <select name="grouping" value={newProduct.category} onChange={handleInputChange}>
+          <option value="trending">Trending</option>
+          <option value="Featured">Featured</option>
+          <option value="Flash Sales">Flash Sales</option>
+        </select>
+        <input type="text" name="image_url" value={newProduct.image_url} placeholder="Image URL" onChange={handleInputChange} />
+        <input type="number" name="price" value={newProduct.price} placeholder="Price" onChange={handleInputChange} />
+        <select name="rating" value={newProduct.rating} onChange={handleInputChange}>
+          {[1, 2, 3, 4, 5].map((num) => (
+            <option key={num} value={num}>{num}</option>
+          ))}
+        </select>
+        <button type="submit">Add Product</button>
+      </form>
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
       <table className="product-table">
         <thead>
           <tr>

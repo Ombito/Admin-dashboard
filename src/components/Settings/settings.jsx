@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './settings.css';
 import user from "../../Assets/user.jpg";
+<<<<<<< HEAD
 import { FaBell } from 'react-icons/fa';
+=======
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
 
 const Settings = () => {
   const [settings, setSettings] = useState({
@@ -27,6 +30,7 @@ const Settings = () => {
 
   return (
     <div className={`settings-container ${settings.theme === 'dark' ? 'dark-theme' : ''}`}>
+<<<<<<< HEAD
       <div className="navbar-div">
         <h2>Settings</h2>
         <div className='sidebar-username'>
@@ -38,6 +42,13 @@ const Settings = () => {
             <img src={user} alt="avatar" />
             <h4>Admin</h4>
           </div>
+=======
+      <div>
+        <h2>Settings</h2>
+        <div className='sidebar-username'>
+          <img src={user} alt="avatar" />
+          <h4>Administrator</h4>
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
         </div>
       </div>
       <div className="setting-option">

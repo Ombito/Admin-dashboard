@@ -4,6 +4,7 @@ import { Chart as ChartJS } from 'chart.js/auto';
 import './barchart.css';
 
 const Barchart = () => {
+<<<<<<< HEAD
     const [productData, setProductData] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -74,6 +75,23 @@ const Barchart = () => {
             <Bar data={chartData} options={chartOptions} />
         </div>
     );
+=======
+    const [userData, setUserData] = useState({
+        labels: UserData.map(data => data.year),
+        datasets: [{
+            label: 'Top Selling Products',
+            data: UserData.map(data => data.worth),
+        }],
+    });
+    
+
+  return (
+    <div className="bar">
+      <h3>Top Selling Products</h3>
+      <Bar data={userData} />
+    </div>
+  );
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
 };
 
 export default Barchart;

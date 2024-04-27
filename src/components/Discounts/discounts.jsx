@@ -1,7 +1,10 @@
 import React from 'react';
 import './discounts.css';
 import user from "../../Assets/user.jpg";
+<<<<<<< HEAD
 import { FaBell } from 'react-icons/fa';
+=======
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
 
 const Discounts = () => {
   const discounts = [
@@ -25,6 +28,7 @@ const Discounts = () => {
 
   return (
     <div className="discounts-container">
+<<<<<<< HEAD
       <div className="navbar-div">
         <h2>Discounts</h2>
         <div className='sidebar-username'>
@@ -36,6 +40,13 @@ const Discounts = () => {
             <img src={user} alt="avatar" />
             <h4>Admin</h4>
           </div>
+=======
+      <div>
+        <h2>Discounts</h2>
+        <div className='sidebar-username'>
+          <img src={user} alt="avatar" />
+          <h4>Administrator</h4>
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
         </div>
       </div>
       <div className="discounts-list">

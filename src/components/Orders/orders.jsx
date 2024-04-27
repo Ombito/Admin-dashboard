@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './orders.css';
 import user from "../../Assets/user.jpg";
+<<<<<<< HEAD
 import { FaBell } from 'react-icons/fa';
+=======
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -42,6 +45,7 @@ const Orders = () => {
 
   return (
     <div className="orders-container">
+<<<<<<< HEAD
       <div className="navbar-div">
         <h2>Orders</h2>
         <div className='sidebar-username'>
@@ -53,6 +57,13 @@ const Orders = () => {
             <img src={user} alt="avatar" />
             <h4>Admin</h4>
           </div>
+=======
+      <div>
+        <h2>Orders</h2>
+        <div className='sidebar-username'>
+          <img src={user} alt="avatar" />
+          <h4>Administrator</h4>
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
         </div>
       </div>
       <table className="orders-table">

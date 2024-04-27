@@ -4,6 +4,7 @@ import { Chart as ChartJS } from 'chart.js/auto';
 import './piechart.css';
 
 const Piechart = () => {
+<<<<<<< HEAD
     const [categoryData, setCategoryData] = useState([]);
 
     useEffect(() => {
@@ -54,6 +55,23 @@ const Piechart = () => {
             <Pie data={chartData} />
         </div>
     );
+=======
+    const [userData, setUserData] = useState({
+        labels: UserData.map(data => data.year),
+        datasets: [{
+            label: 'category',
+            data: UserData.map(data => data.worth),
+        }],
+    });
+    
+
+  return (
+    <div className="pie">
+      <h3>Product Category Distribution</h3>
+      <Pie data={userData} />
+    </div>
+  );
+>>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
 };
 
 export default Piechart;
