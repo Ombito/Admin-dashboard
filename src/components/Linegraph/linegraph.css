@@ -2,3 +2,6 @@
     height: 40vh;
     width: 100%;
 }
+.line h3 {
+    margin-bottom: 0;
+}

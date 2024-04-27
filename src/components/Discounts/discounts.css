@@ -1,5 +1,6 @@
-.discounts-container {
-  padding: 20px;
+.navbar-div {
+  display: flex;
+  justify-content: space-between;
 }
 .discounts-list {
   display: grid;

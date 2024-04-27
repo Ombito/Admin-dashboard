@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './users.css';
 import user from "../../Assets/user.jpg";
+import { FaBell } from 'react-icons/fa';
+
 
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [newUser, setNewUser] = useState({ name: '', email: '', role: 'User' });
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const apiUrl = `http://127.0.0.1:5555/users`;
@@ -33,6 +36,13 @@ const Users = () => {
     setNewUser({ ...newUser, [name]: value });
   };
 
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,23 +62,36 @@ const Users = () => {
 
   return (
     <div className="users-container">
-      <div>
+      <div className="navbar-div">
         <h2>User Management</h2>
         <div className='sidebar-username'>
-          <img src={user} alt="avatar" />
-          <h4>Administrator</h4>
+          <div className="notification-icon-container">
+            <FaBell className="notification-icon" />
+            <div className="notification-dot"></div>
+          </div>
+          <div className="admin-profile">
+            <img src={user} alt="avatar" />
+            <h4>Admin</h4>
+          </div>
         </div>
       </div>
-      <form onSubmit={handleSubmit} className="add-user-form">
-        <input type="text" name="name" value={newUser.name} placeholder="Name" onChange={handleInputChange} />
-        <input type="email" name="email" value={newUser.email} placeholder="Email" onChange={handleInputChange} />
-        <select name="role" value={newUser.role} onChange={handleInputChange}>
-          <option value="User">User</option>
-          <option value="Admin">Admin</option>
-        </select>
-        <button type="submit">Add User</button>
-      </form>
-
+      <button onClick={handleOpenModal}>Add User</button>
+        {showModal && (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close" onClick={handleCloseModal}>&times;</span>
+              <form onSubmit={handleSubmit} className="add-user-form">
+                <input type="text" name="name" value={newUser.name} placeholder="Name" onChange={handleInputChange} />
+                <input type="email" name="email" value={newUser.email} placeholder="Email" onChange={handleInputChange} />
+                <select name="role" value={newUser.role} onChange={handleInputChange}>
+                  <option value="User">User</option>
+                  <option value="Admin">Admin</option>
+                </select>
+                <button type="submit">Add User</button>
+              </form>
+              </div>
+        </div>
+      )}
       <table className="users-table">
         <thead>
           <tr>
@@ -83,7 +106,7 @@ const Users = () => {
             <tr key={user.id}>
               <td>{user.full_name}</td>
               <td>{user.email}</td>
-              <td>user.role</td>
+              <td>Customer</td>
               <td>
                 <button onClick={() => handleRemoveUser(user.id)}>Remove</button>
               </td>
