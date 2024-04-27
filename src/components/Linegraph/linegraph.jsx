@@ -4,7 +4,6 @@ import './linegraph.css';
 import { Chart as ChartJS } from 'chart.js/auto';
 
 const Linegraph = () => {
-<<<<<<< HEAD
     const [ordersData, setOrdersData] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -79,7 +78,7 @@ const Linegraph = () => {
             )}
         </div>
     );
-=======
+
     const [userData, setUserData] = useState({
         labels: UserData.map(data => data.year),
         datasets: [{
@@ -95,7 +94,7 @@ const Linegraph = () => {
       <Line data={userData} />
     </div>
   );
->>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04 
+
 };
 
 
