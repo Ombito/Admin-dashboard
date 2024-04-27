@@ -12,7 +12,7 @@ import SignIn from '../src/components/Signin/signin';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(null);
   
   return (
     <div className='app'>
@@ -28,6 +28,7 @@ function App() {
               <Route path="/discounts" element={<Discounts />} />
               <Route path="/gift&vouchers" element={<Giftcard />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/signin" element={<SignIn setUser={setUser}/>} />
             </Routes>
           </div>
         </>
