@@ -1,6 +1,13 @@
 .signin-container {
+    height: 350px;
     width: 450px;
-    margin: 20% auto;
+    margin: 10% auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0 30px;
+    border-radius: 4px;
+}
+.signin-container h2{
+    text-align: center;
 }
 .form-group {
     margin-bottom: 15px;
@@ -12,7 +19,7 @@
   }
   
   .form-group input {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;

@@ -124,7 +124,7 @@ const Users = () => {
         <tbody>
           {users.map(user => (
             <tr key={user.id}>
-              <td>{user.first_name}{user.last_name}</td>
+              <td>{user.first_name} {user.last_name}</td>
               <td>{user.email}</td>
               <td>Customer</td>
               <td>

@@ -38,9 +38,8 @@ const Signin = ( {user, setUser}) => {
   };
 
   return (
-    <div>
       <div className='signin-container'>
-        <h2>Signin</h2>
+        <h2>Login to Dashboard</h2>
         <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email:</label>
@@ -62,10 +61,9 @@ const Signin = ( {user, setUser}) => {
             required
           />
         </div>
-        <button type="submit">Sign In</button>
+        <button type="submit">Login</button>
       </form>
       </div>
-    </div>
   )
 }
 
