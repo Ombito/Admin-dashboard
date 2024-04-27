@@ -8,6 +8,11 @@
   margin-bottom: 20px;
   gap: 20px;
 }
+.input {
+  height: 4vh;
+  padding: 0 5px;
+  border-radius: 4px;
+}
 .users-table {
   width: 100%;
   border-collapse: collapse;
@@ -17,6 +22,7 @@
 .users-table td {
   border: 1px solid #ddd;
   padding: 8px;
+  text-align: center;
 }
 .users-table th {
   background-color: #f2f2f2;
@@ -34,5 +40,9 @@
 }
 .users-table button:hover {
   background-color: #d32f2f;
+}
+.name-div {
+  display: flex;
+  justify-content: space-between;
 }
   

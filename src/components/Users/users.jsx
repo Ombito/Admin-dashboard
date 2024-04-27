@@ -61,6 +61,12 @@ const Users = () => {
       });
   
       if (response.ok) {
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPhoneNumber('');
+        setPassword('');
+        handleCloseModal()
         console.log('Signup successful')
       } else {
         console.log("Signup failed!")
@@ -100,13 +106,13 @@ const Users = () => {
             <div className="modal-content">
               <span className="close" onClick={handleCloseModal}>&times;</span>
               <form onSubmit={handleSubmit} className="add-user-form">
-                <div>
-                <input type="text" className="input" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                <input type="text" className="input" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                <div className="name-div">
+                  <input type="text" className="input" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                  <input type="text" className="input" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                 </div>
                 <input type="email" className="input" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <input type="phone" className="input" placeholder="Phone number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
-          <input type="password" className="input" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input type="phone" className="input" placeholder="Phone number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+                <input type="password" className="input" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <button type="submit">Add User</button>
               </form>
               </div>
