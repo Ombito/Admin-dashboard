@@ -113,7 +113,7 @@ const Users = () => {
                     <input type="text" className="input" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                     <input type="text" className="input" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                   </div>
-                  <input type="email" className="input" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <input type="email" className="input" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
                   <input type="phone" className="input" placeholder="Phone number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
                   <input type="password" className="input" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                   <button type="submit">Add User</button>
@@ -137,8 +137,8 @@ const Users = () => {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
+            <th>Email Address</th>
+            <th>Phone Number</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -146,29 +146,19 @@ const Users = () => {
         {users
             .filter(user => {
               return user.first_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                     user.last_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                     user.email.toLowerCase().includes(searchQuery.toLowerCase());
+                user.last_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                user.email.toLowerCase().includes(searchQuery.toLowerCase());
             })
             .map(filteredUser => (
               <tr key={filteredUser.id}>
                 <td>{filteredUser.first_name} {filteredUser.last_name}</td>
                 <td>{filteredUser.email}</td>
-                <td>Customer</td>
+                <td>{filteredUser.phone_number}</td>
                 <td>
                   <button onClick={() => handleRemoveUser(filteredUser.id)}>Remove</button>
                 </td>
               </tr>
             ))}
-          {/* {users.map(user => (
-            <tr key={user.id}>
-              <td>{user.first_name} {user.last_name}</td>
-              <td>{user.email}</td>
-              <td>Customer</td>
-              <td>
-                <button onClick={() => handleRemoveUser(user.id)}>Remove</button>
-              </td>
-            </tr>
-          ))} */}
         </tbody>
       </table>
     </div>

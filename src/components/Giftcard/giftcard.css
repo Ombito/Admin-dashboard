@@ -70,7 +70,7 @@
 }
 .notification-dot {
     position: absolute;
-    top: 38px;
+    top: 10px;
     width: 8px;
     height: 8px;
     background-color: red;
