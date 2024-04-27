@@ -28,6 +28,7 @@ function App() {
               <Route path="/discounts" element={<Discounts />} />
               <Route path="/gift&vouchers" element={<Giftcard />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/signin" element={<SignIn setUser={setUser}/>} />
             </Routes>
           </div>
         </>
