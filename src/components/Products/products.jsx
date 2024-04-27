@@ -8,6 +8,7 @@ const Products = () => {
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [groupingFilter, setGroupingFilter] = useState('All');
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const apiUrl = `http://127.0.0.1:5555/products`;
@@ -30,7 +31,13 @@ const Products = () => {
       });
   }, []);
 
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   const handleCategoryFilterChange = (e) => {
     setCategoryFilter(e.target.value);
@@ -82,6 +89,8 @@ const Products = () => {
         rating: '1'
       });
     }
+    console.log('Form submitted!');
+    handleCloseModal();
   };
 
 
@@ -100,32 +109,42 @@ const Products = () => {
           </div>
         </div>
       </div>
-      <form onSubmit={handleSubmit} className="product-form">
-        <input type="text" name="name" value={newProduct.name} placeholder="Name" onChange={handleInputChange} />
-        <select name="category" value={newProduct.category} onChange={handleInputChange}>
-          <option value="Electronics">Electronics</option>
-          <option value="Phones">Phones</option>
-          <option value="Television">Television</option>
-          <option value="Radio">Radio</option>
-          <option value="Phones">Phones</option>
-          <option value="Television">Television</option>
-          <option value="Radio">Radio</option>
-        </select>
-        <input type="text" name="description" value={newProduct.description} placeholder="Description" onChange={handleInputChange} />
-        <select name="grouping" value={newProduct.category} onChange={handleInputChange}>
-          <option value="trending">Trending</option>
-          <option value="Featured">Featured</option>
-          <option value="Flash Sales">Flash Sales</option>
-        </select>
-        <input type="text" name="image_url" value={newProduct.image_url} placeholder="Image URL" onChange={handleInputChange} />
-        <input type="number" name="price" value={newProduct.price} placeholder="Price" onChange={handleInputChange} />
-        <select name="rating" value={newProduct.rating} onChange={handleInputChange}>
-          {[1, 2, 3, 4, 5].map((num) => (
-            <option key={num} value={num}>{num}</option>
-          ))}
-        </select>
-        <button type="submit">Add Product</button>
-      </form>
+      <div>
+        <button onClick={handleOpenModal}>Add Product</button>
+        {showModal && (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close" onClick={handleCloseModal}>&times;</span>
+              <form onSubmit={handleSubmit} className="product-form">
+                <input type="text" name="name" value={newProduct.name} placeholder="Name" onChange={handleInputChange} />
+                <select name="category" value={newProduct.category} onChange={handleInputChange}>
+                  <option value="Electronics">Electronics</option>
+                  <option value="Phones">Phones</option>
+                  <option value="Television">Television</option>
+                  <option value="Radio">Radio</option>
+                  <option value="Phones">Phones</option>
+                  <option value="Television">Television</option>
+                  <option value="Radio">Radio</option>
+                </select>
+                <input type="text" name="description" value={newProduct.description} placeholder="Description" onChange={handleInputChange} />
+                <select name="grouping" value={newProduct.category} onChange={handleInputChange}>
+                  <option value="trending">Trending</option>
+                  <option value="Featured">Featured</option>
+                  <option value="Flash Sales">Flash Sales</option>
+                </select>
+                <input type="text" name="image_url" value={newProduct.image_url} placeholder="Image URL" onChange={handleInputChange} />
+                <input type="number" name="price" value={newProduct.price} placeholder="Price" onChange={handleInputChange} />
+                <select name="rating" value={newProduct.rating} onChange={handleInputChange}>
+                  {[1, 2, 3, 4, 5].map((num) => (
+                    <option key={num} value={num}>{num}</option>
+                  ))}
+                </select>
+                <button type="submit">Add Product</button>
+              </form>
+              </div>
+        </div>
+      )}
+      </div>
       <table className="product-table">
         <thead>
           <tr>

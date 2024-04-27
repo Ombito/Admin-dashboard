@@ -20,11 +20,11 @@
 .dashboard-stats-container {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  margin-top: -1.5%;
 }
 .dashboard-stat {
   display: flex;
-  width: 100%;
+  width: 17%;
   align-items: center;
   padding: 0px 40px;
   gap: 10px;

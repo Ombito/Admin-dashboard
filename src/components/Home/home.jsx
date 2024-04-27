@@ -103,6 +103,7 @@ const Home = () => {
           <div className="dashboard">
             <div className="chart-container">
               <Linegraph />
+              {/* <Piechart /> */}
               <Barchart />
             </div>
           </div>
@@ -133,22 +134,6 @@ const Home = () => {
               </tbody>
             </table>
           </div>
-        </div>
-        <div>
-          <div className="dashboard-top-products">
-            <h3>Top Products</h3>
-            <div style={{gap: '35px'}}>
-              {products.slice(0, 4).map((product) => (
-              <div key={product.id} className="top-products-div">   
-                <img src={product.image_url} height='65' width='80' alt="Product" />
-                <div>
-                  <h5>{product.name}</h5>
-                </div>
-              </div>  
-              ))}
-            </div>
-          </div>
-          <Piechart /> 
         </div>
       </div>
         
