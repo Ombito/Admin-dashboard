@@ -9,6 +9,7 @@ const Products = () => {
   const [groupingFilter, setGroupingFilter] = useState('All');
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const [newProduct, setNewProduct] = useState({
     name: '',
     category: 'Electronics',
@@ -56,12 +57,18 @@ const Products = () => {
     setGroupingFilter(e.target.value);
   };
 
+  const handleSearchInputChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
 
   const filteredProducts = products.filter(product => {
     if (categoryFilter !== 'All' && product.category !== categoryFilter) {
       return false;
     }
     if (groupingFilter !== 'All' && product.grouping !== groupingFilter) {
+      return false;
+    }
+    if (searchQuery && !product.name.toLowerCase().includes(searchQuery.toLowerCase())) {
       return false;
     }
     return true;
@@ -160,8 +167,17 @@ const Products = () => {
                 <button type="submit">Add Product</button>
               </form>
               </div>
-        </div>
-      )}
+            </div>
+          )}
+          <div className="search-bar">
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search by name..."
+              value={searchQuery}
+              onChange={handleSearchInputChange}
+            />
+          </div>
       </div>
       <table className="product-table">
         <thead>
