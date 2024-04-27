@@ -52,7 +52,7 @@ const Products = () => {
     if (categoryFilter !== 'All' && product.category !== categoryFilter) {
       return false;
     }
-    if (groupingFilter !== 'All' && product.category !== groupingFilter) {
+    if (groupingFilter !== 'All' && product.grouping !== groupingFilter) {
       return false;
     }
     return true;
@@ -65,7 +65,7 @@ const Products = () => {
     grouping: 'Trending',
     image_url: '',
     price: '',
-    rating: '1'
+    quantity: '1'
   });
 
 
@@ -81,12 +81,12 @@ const Products = () => {
       setProducts([...products, newProduct]);
       setNewProduct({
         name: '',
-        category: 'Electronics',
+        category: '',
         description: '',
-        grouping: 'Trending',
+        grouping: '',
         image_url: '',
         price: '',
-        rating: '1'
+        quantity: '1'
       });
     }
     console.log('Form submitted!');
@@ -118,16 +118,20 @@ const Products = () => {
               <form onSubmit={handleSubmit} className="product-form">
                 <input type="text" name="name" value={newProduct.name} placeholder="Name" onChange={handleInputChange} />
                 <select name="category" value={newProduct.category} onChange={handleInputChange}>
-                  <option value="Electronics">Electronics</option>
-                  <option value="Phones">Phones</option>
-                  <option value="Television">Television</option>
-                  <option value="Radio">Radio</option>
-                  <option value="Phones">Phones</option>
-                  <option value="Television">Television</option>
-                  <option value="Radio">Radio</option>
+                  <option value="Dairy Products">Dairy Products</option>
+                  <option value="Fruits">Fruits</option>
+                  <option value="Meat & Poultry">Meat & Poultry</option>
+                  <option value="Grains">Grains</option>
+                  <option value="Fresh Vegetabless">Fresh Vegetables</option>
+                  <option value="Fish & Seafood">TFish & Seafood</option>
+                  <option value="Honey Products">Honey Products</option>
+                  <option value="Sugarcane Products">Sugarcane Products</option>
+                  <option value="Nuts & Seeds">Nuts & Seeds</option>
+                  <option value="Beverages">Beverages</option>
+                  <option value="Other Produce">Other Produce</option>
                 </select>
                 <input type="text" name="description" value={newProduct.description} placeholder="Description" onChange={handleInputChange} />
-                <select name="grouping" value={newProduct.category} onChange={handleInputChange}>
+                <select name="grouping" value={newProduct.grouping} onChange={handleInputChange}>
                   <option value="trending">Trending</option>
                   <option value="Featured">Featured</option>
                   <option value="Flash Sales">Flash Sales</option>
@@ -153,10 +157,17 @@ const Products = () => {
               Category: 
               <select value={categoryFilter} onChange={handleCategoryFilterChange}>
                 <option value="All">All</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Phones">Phones</option>
-                <option value="Television">Television</option>
-                <option value="Radio">Radio</option>
+                <option value="Dairy Products">Dairy Products</option>
+                <option value="Fruits">Fruits</option>
+                <option value="Meat & Poultry">Meat & Poultry</option>
+                <option value="Grains">Grains</option>
+                <option value="Fresh Vegetabless">Fresh Vegetables</option>
+                <option value="Fish & Seafood">Fish & Seafood</option>
+                <option value="Honey Products">Honey Products</option>
+                <option value="Sugarcane Products">Sugarcane Products</option>
+                <option value="Nuts & Seeds">Nuts & Seeds</option>
+                <option value="Beverages">Beverages</option>
+                <option value="Other Produce">Other Produce</option>
               </select>
             </th>
             <th>Description</th>
