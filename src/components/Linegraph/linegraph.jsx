@@ -79,22 +79,6 @@ const Linegraph = () => {
         </div>
     );
 
-    const [userData, setUserData] = useState({
-        labels: UserData.map(data => data.year),
-        datasets: [{
-            label: 'Sale3 per Month',
-            data: UserData.map(data => data.worth),
-        }],
-    });
-    
-
-  return (
-    <div className="line">
-      <h3>Sales Overview</h3>
-      <Line data={userData} />
-    </div>
-  );
-
 };
 
 

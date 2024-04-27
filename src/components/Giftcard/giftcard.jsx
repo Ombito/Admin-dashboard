@@ -1,15 +1,11 @@
 import React from 'react';
 import './giftcard.css';
 import user from "../../Assets/user.jpg";
-<<<<<<< HEAD
 import { FaBell } from 'react-icons/fa';
-=======
->>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
 
 const Giftcards = () => {
   return (
     <div className="giftcards-container">
-<<<<<<< HEAD
       <div className="navbar-div">
         <h2>Giftcards & Vouchers</h2>
         <div className='sidebar-username'>
@@ -21,13 +17,6 @@ const Giftcards = () => {
             <img src={user} alt="avatar" />
             <h4>Admin</h4>
           </div>
-=======
-      <div>
-        <h2>Giftcards & Vouchers</h2>
-        <div className='sidebar-username'>
-          <img src={user} alt="avatar" />
-          <h4>Administrator</h4>
->>>>>>> 4a465f2bbb777fc8f713333db3a4c7c324818f04
         </div>
       </div>
       <div className="giftcards-content">
