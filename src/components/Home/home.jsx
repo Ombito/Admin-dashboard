@@ -11,6 +11,24 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
+  const [dashboardStats, setDashboardStats] = useState([]);
+
+  useEffect(() => {
+    const fetchDashboardStats = async () => {
+        try {
+            const response = await fetch('http://127.0.0.1:5555/dashboard-stats');
+            if (!response.ok) {
+                throw new Error('Failed to fetch dashboard statistics');
+            }
+            const data = await response.json();
+            setDashboardStats(data);
+        } catch (error) {
+            console.error('Error fetching dashboard statistics:', error);
+        }
+    };
+
+    fetchDashboardStats();
+}, []);
 
   useEffect(() => {
     const apiUrl = `http://127.0.0.1:5555/products`;
@@ -53,6 +71,22 @@ const Home = () => {
         setLoading(false);
       });
   }, []);
+
+
+  const DashboardStatItem = ({ icon, color, label, value }) => (
+  <div className="dashboard-stat">
+    <div>
+      {icon === 'FaMoneyBillAlt' && <FaMoneyBillAlt color={color} className="dashboard-icon" />}
+      {icon === 'FaShoppingCart' && <FaShoppingCart color={color} className="dashboard-icon" />}
+      {icon === 'FaDollarSign' && <FaDollarSign color={color} className="dashboard-icon" />}
+      {icon === 'FaUsers' && <FaUsers color={color} className="dashboard-icon" />}
+      <p>{label}</p>
+      <h3 style={{ color }}>{value}</h3>
+    </div>
+  </div>
+);
+
+
   return (
     <div className='home-summary'>
       <div className="navbar-div">
@@ -71,35 +105,16 @@ const Home = () => {
       <div style={{display: 'flex', width: '100%'}}>
         <div className="dashboard-hero">
           <div className="dashboard-stats-container">
-            <div className="dashboard-stat">
-              <FaMoneyBillAlt color='#85bc2b' className="dashboard-icon" />
-              <div>
-                <p>Total Sales</p>
-                <h3 style={{color:'#85bc2b'}}>230k</h3>
-              </div>
+            {dashboardStats.map((stat) => (
+              <DashboardStatItem
+                key={stat.id}
+                icon={stat.icon}
+                color={stat.color}
+                label={stat.label}
+                value={stat.value}
+              />
+            ))}
             </div>
-            <div className="dashboard-stat">
-              <FaShoppingCart color='orange' className="dashboard-icon" />
-              <div>
-                <p>Products Sold</p>
-                <h3 style={{color:'orange'}}>62,108</h3>
-              </div>
-            </div>
-            <div className="dashboard-stat">
-              <FaDollarSign color='red' className="dashboard-icon" />
-              <div>
-                <p>Total Earnings</p>
-                <h3 style={{color:'red'}}>$1,230</h3>
-              </div>
-            </div>
-            <div className="dashboard-stat">
-              <FaUsers color='purple' className="dashboard-icon" />
-              <div>
-                <p>Total Customers</p>
-                <h3  style={{color:'purple'}}>4k</h3>
-              </div>
-            </div>
-          </div>
           <div className="dashboard">
             <div className="chart-container">
               <Linegraph />
