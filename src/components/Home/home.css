@@ -50,6 +50,19 @@
 .dashboard-icon {
   font-size: 2rem;
 }
+
+.dashboard-stat div {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-stat p {
+  margin: 0;
+}
+
+.dashboard-stat h3 {
+  margin: 5px 0;
+}
 .dashboard-top-products {
   width: 270px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
