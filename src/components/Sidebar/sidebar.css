@@ -77,23 +77,28 @@
 }
 .sidebar-user-div {
   display: flex;
-  gap: 10px;
   align-items: center;
+  padding: 15px 0;
+  margin: 25px 0px;
   border-top: 1px solid gray;
-  padding: 0 10px;
+  padding: 0 10px 10px 10px;
 }
 .sidebar-user-div img {
   height: 50px;
   width: auto;
 }
 .sidebar-user-account {
-  display: 'flex'; 
-  /* justify-content: 'space-between'; */
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 .user-profile-details {
   display: block;
+}
+.user-profile-details h4{
+  margin: 10px;
 }
 .notification-icon {
   text-align: center;

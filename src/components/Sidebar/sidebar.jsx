@@ -43,7 +43,7 @@ const Sidebar = () => {
                 <h4>admin@admin</h4>
               </div>
               <div>
-                <FaSignOutAlt color='#ff9f40'/>
+                <FaSignOutAlt color='#ff9f40' fontSize='22'/>
               </div>
             </div>
           </div>
