@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaHome, FaUser, FaCog, FaClipboardList, FaShoppingCart, FaSignOutAlt, FaDollarSign, FaGift } from 'react-icons/fa';
+import { FaHome, FaUser, FaCog, FaClipboardList, FaShoppingCart, FaSignOutAlt, FaDollarSign, FaGift, FaHeadset } from 'react-icons/fa';
 import './sidebar.css'; 
 import logo from "../../Assets/banner.jpg";
 import user from "../../Assets/user.jpg";
@@ -27,22 +27,26 @@ const Sidebar = () => {
             <li onClick={() => handleNavigate('/products')}><FaShoppingCart color='purple'/><span>Products</span></li>
             <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/><span>Gift Cards</span></li>
             <li onClick={() => handleNavigate('/discounts')}><FaDollarSign color='gold'/><span>Discounts</span></li>
-            <li onClick={() => handleNavigate('/settings')}><FaCog color='#393564'/><span>Settings</span></li>
+            <li onClick={() => handleNavigate('/settings')}><FaCog color='#20c997'/><span>Settings</span></li>
           </ul>
         </div>
         <div className='sidebar-user'>
           <div className="support-ticket">
-            <button>Support Ticket</button>
+            {/* <button><FaHeadset color='#393564'/> Support Ticket</button> */}
+            <button className="support-ticket-button">
+              <FaHeadset className="support-ticket-icon" />
+              Support Ticket
+            </button>
           </div>
           <div className='sidebar-user-div'>
             <img src={user} alt='profile-icon' />
             <div className='sidebar-user-account'>
               <div className='user-profile-details'>
-                <h4>Admin</h4>
-                <h4>admin@admin</h4>
+                <h5>Admin</h5>
+                <h5>admin@admin</h5>
               </div>
               <div>
-                <FaSignOutAlt color='#ff9f40' fontSize='22'/>
+                <FaSignOutAlt color='#ff9f40' fontSize='22' marginRight='90px'/>
               </div>
             </div>
           </div>

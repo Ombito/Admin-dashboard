@@ -70,11 +70,32 @@
   flex-direction: column;
 }
 .support-ticket {
-  margin: auto;
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  margin: 20px; /* Add some margin */
 }
-.support-ticket button{
-  padding: 10px 25px;
+
+.support-ticket-button {
+  display: flex;
+  align-items: center; /* Center icon and text vertically */
+  background-color: #A45DB7; /* Dark background for the button */
+  color: white; /* White text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 15px; /* Padding for better spacing */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
+
+.support-ticket-button:hover {
+  background-color: #a45db7b8; /* Lighter shade on hover */
+}
+
+.support-ticket-icon {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+
 .sidebar-user-div {
   display: flex;
   align-items: center;
@@ -102,7 +123,7 @@
 .user-profile-details {
   display: block;
 }
-.user-profile-details h4{
+.user-profile-details h5{
   margin: 10px;
 }
 .notification-icon {

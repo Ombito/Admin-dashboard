@@ -3,7 +3,7 @@ import Barchart from '../Barchart/barchart';
 import Piechart from '../Piechart/piechart';
 import Linegraph from '../Linegraph/linegraph';
 import './home.css';
-import { FaMoneyBillAlt, FaShoppingCart, FaDollarSign, FaUsers } from 'react-icons/fa';
+import { FaMoneyBillAlt, FaShoppingCart, FaDollarSign, FaUsers, FaHome } from 'react-icons/fa';
 import user from "../../Assets/user.jpg";
 import { FaBell } from 'react-icons/fa';
 import data from '../data.json';
@@ -100,7 +100,9 @@ const Home = () => {
   return (
     <div className='home-summary'>
       <div className="navbar-div">
-        <h2>Dashboard</h2>
+        <div style={{display: 'flex', gap: '5px', alignItems: 'center'}}>
+          <FaHome color='#ff6384' fontSize={25}/><h2>Dashboard</h2>
+        </div>
         <div className='sidebar-username'>
           <div className="notification-icon-container">
             <FaBell className="notification-icon" />
@@ -128,7 +130,7 @@ const Home = () => {
           <div className="dashboard">
             <div className="chart-container">
               <Linegraph />
-              <Piechart />
+              {/* <Piechart /> */}
               <Barchart />
             </div>
           </div>
