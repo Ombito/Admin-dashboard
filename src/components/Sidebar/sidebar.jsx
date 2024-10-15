@@ -44,7 +44,7 @@ const Sidebar = () => {
         <div className='sidebar-hero'>
           <ul className="sidebar-menu">
             <li onClick={() => handleNavigate('/')}><FaHome color='#ff6384'/><span>Dashboard</span></li>
-            <li onClick={() => handleNavigate('/customers')}><FaUser color='#00aeee'/><span>Users</span></li>
+            <li onClick={() => handleNavigate('/customers')}><FaUser color='#00aeee'/><span>Customers</span></li>
             <li onClick={() => handleNavigate('/orders')}><FaClipboardList color='green'/><span>Orders</span></li>
             <li onClick={() => handleNavigate('/products')}><FaShoppingCart color='purple'/><span>Products</span></li>
             <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/><span>Gift Cards</span></li>
@@ -112,7 +112,7 @@ const Sidebar = () => {
             <img src={user} alt='profile-icon' />
             <div className='sidebar-user-account'>
               <div className='user-profile-details'>
-                <h5>Admin</h5>
+                <h5>Administrator</h5>
                 <h5>admin@admin</h5>
               </div>
               <div>

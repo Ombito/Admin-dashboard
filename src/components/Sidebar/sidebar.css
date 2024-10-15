@@ -80,8 +80,8 @@
   background-color: #A45DB7; 
   color: white; 
   border: none; 
-  border-radius: 5px; 
-  padding: 10px 15px; 
+  border-radius: 4px; 
+  padding: 10px 35px; 
   cursor: pointer; 
   transition: background-color 0.3s ease; 
 }
@@ -171,9 +171,9 @@
   align-items: center;
   justify-content: center;
   padding: 15px 0;
-  margin: 25px 0px;
+  margin: 5px 0px 25px 0;
   border-top: 1px solid gray;
-  padding: 0 10px 10px 10px;
+  padding: 5px 10px 5px 10px;
 }
 .sidebar-user-div:hover {
   cursor: pointer;
