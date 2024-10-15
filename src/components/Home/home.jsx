@@ -148,7 +148,7 @@ const Home = () => {
                 </tr>
               </thead>
               <tbody>
-              {orders.slice(0, 3).map(order => (
+              {orders.map(order => (
                 <tr key={order.id}>
                   <td>order.product</td>
                   <td>{order.address}</td>
