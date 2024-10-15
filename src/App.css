@@ -6,7 +6,7 @@
   flex-direction: row;
   height: auto;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .dashboard-landing {
   overflow: hidden;
@@ -17,6 +17,6 @@
 .content {
   width: 100%;
   position: relative;
-  padding: 0px;
-  margin-left: 300px;
+  padding: 0 0 0 20px;
+  margin-left: 270px;
 }
