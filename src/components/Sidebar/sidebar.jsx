@@ -10,6 +10,8 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [ticketTitle, setTicketTitle] = useState('');
+  const [ticketDescription, setTicketDescription] = useState('');
+
 
   const handleNavigate = (route) => {
     navigate(route);
@@ -23,12 +25,13 @@ const Sidebar = () => {
   const handleClose = () => {
     setIsOpen(false);
     setTicketTitle('');
+    setTicketDescription('');
     document.body.style.overflow = 'auto';
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Ticket submitted:', ticketTitle);
+    console.log('Ticket submitted:', { title:ticketTitle, description: ticketDescription });
     handleClose(); 
   };
 
@@ -51,7 +54,6 @@ const Sidebar = () => {
         </div>
         <div className='sidebar-user'>
           <div className="support-ticket">
-            {/* <button><FaHeadset color='#393564'/> Support Ticket</button> */}
             <button onClick={handleOpenTicket} className="support-ticket-button">
               <FaHeadset className="support-ticket-icon" />
               Support Ticket
@@ -65,14 +67,33 @@ const Sidebar = () => {
                     <form onSubmit={handleSubmit}>
                       <div className='supportTicket-form'>
                         <label htmlFor="ticket-title">Title:</label>
-                        <input
-                          type="text"
+                        <select
                           id="ticket-title"
                           value={ticketTitle}
                           onChange={(e) => setTicketTitle(e.target.value)}
                           required
+                        >
+                          <option value="" disabled>Select a title</option>
+                          <option value="Technical Issue">Technical Issue</option>
+                          <option value="Billing Inquiry">Billing Inquiry</option>
+                          <option value="Feature Request">Feature Request</option>
+                          <option value="Account Problem">Account Problem</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+
+                      <div className='supportTicket-form'>
+                        <label htmlFor="ticket-description">Description:</label>
+                        <textarea
+                          id="ticket-description"
+                          rows="5"
+                          value={ticketDescription}
+                          onChange={(e) => setTicketDescription(e.target.value)}
+                          placeholder="Please provide a detailed explanation of your issue."
+                          required
                         />
                       </div>
+                      
                       <div className="supportTicket-modal-buttons">
                         <button type="button" onClick={handleClose} className="supportTicket-cancelButton">
                           Cancel

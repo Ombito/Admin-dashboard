@@ -11,7 +11,7 @@
 .dashboard-landing {
   overflow: hidden;
   position: fixed;
-  height: fit-content;
+  z-index: 1001;
   height: 100%;
 }
 .content {
