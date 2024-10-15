@@ -128,7 +128,7 @@ const Home = () => {
           <div className="dashboard">
             <div className="chart-container">
               <Linegraph />
-              {/* <Piechart /> */}
+              <Piechart />
               <Barchart />
             </div>
           </div>

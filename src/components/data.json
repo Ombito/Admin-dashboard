@@ -62,6 +62,27 @@
         "total_amount": "30",
         "shipping_fees": "3"
       }
+    ],
+    "ordersPerMonth": [
+    { "month": "January", "orders_count": 120 },
+    { "month": "February", "orders_count": 150 },
+    { "month": "March", "orders_count": 180 },
+    { "month": "April", "orders_count": 130 },
+    { "month": "May", "orders_count": 170 },
+    { "month": "June", "orders_count": 160 }
+    ],
+    "topProducts": [
+    { "product_name": "Product 1", "num_orders": 50 },
+    { "product_name": "Product 2", "num_orders": 80 },
+    { "product_name": "Product 3", "num_orders": 65 },
+    { "product_name": "Product 4", "num_orders": 90 }
+    ],
+    "productCategories": [
+        { "category": "Electronics", "count": 30 },
+        { "category": "Clothing", "count": 45 },
+        { "category": "Food", "count": 20 },
+        { "category": "Books", "count": 15 }
     ]
+      
   }
   
