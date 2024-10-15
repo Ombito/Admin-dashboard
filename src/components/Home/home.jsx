@@ -112,7 +112,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div style={{display: 'flex', width: '100%'}}>
+      <div style={{display: 'flex', width: '100%', height: '100%'}}>
         <div className="dashboard-hero">
           <div className="dashboard-stats-container">
             {dashboardStats.map((stat) => (
@@ -120,8 +120,8 @@ const Home = () => {
                 key={stat.id}
                 icon={stat.icon}
                 color={stat.color}
-                label={stat.label}
                 value={stat.value}
+                label={stat.label}
               />
             ))}
             </div>
