@@ -8,7 +8,6 @@
 }
 .chart-container {
   display: flex;
-  /* justify-content: space-between; */
   width: 100%;
 }
 .navbar-div {
@@ -23,21 +22,11 @@
   justify-content: space-between;
   margin-top: -1.5%;
 }
-/* .dashboard-stat {
-  display: flex;
-  width: 17%;
-  align-items: center;
-  padding: 0px 40px;
-  justify-content: space-between;
-} */
-
-
 .dashboard-stats-container {
   display: flex;
   justify-content: space-between;
   margin: 0 3%;
 }
-
 .dashboard-stat {
   display: flex;
   width: 17%;
@@ -51,16 +40,13 @@
 .dashboard-icon {
   font-size: 2rem;
 }
-
 .dashboard-stat div {
   display: flex;
   flex-direction: column;
 }
-
 .dashboard-stat p {
   margin: 0;
 }
-
 .dashboard-stat h3 {
   margin: 5px 0;
 }
@@ -85,7 +71,6 @@
   padding: 8px;
   width: 120px;
 }
-
 .dashboard-icon {
   font-size: 2rem;
   margin-bottom: 20px;
