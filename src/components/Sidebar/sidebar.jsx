@@ -28,7 +28,6 @@ const Sidebar = () => {
             <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/><span>Gift Cards</span></li>
             <li onClick={() => handleNavigate('/discounts')}><FaDollarSign color='gold'/><span>Discounts</span></li>
             <li onClick={() => handleNavigate('/settings')}><FaCog color='#393564'/><span>Settings</span></li>
-            <li ><FaSignOutAlt color='#ff9f40'/><span>Logout</span></li>
           </ul>
         </div>
         <div className='sidebar-user'>

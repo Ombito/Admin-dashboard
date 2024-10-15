@@ -78,10 +78,15 @@
 .sidebar-user-div {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 15px 0;
   margin: 25px 0px;
   border-top: 1px solid gray;
   padding: 0 10px 10px 10px;
+}
+.sidebar-user-div:hover {
+  cursor: pointer;
+  background-color: #555;
 }
 .sidebar-user-div img {
   height: 50px;
