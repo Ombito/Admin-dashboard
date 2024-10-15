@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaHome, FaUser, FaCog, FaClipboardList, FaShoppingCart, FaSignOutAlt, FaDollarSign, FaGift, FaHeadset } from 'react-icons/fa';
 import './sidebar.css'; 
@@ -8,9 +8,28 @@ import user from "../../Assets/user.jpg";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const [ticketTitle, setTicketTitle] = useState('');
 
   const handleNavigate = (route) => {
     navigate(route);
+  };
+
+  const handleOpenTicket = () => {
+    setIsOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setTicketTitle('');
+    document.body.style.overflow = 'auto';
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Ticket submitted:', ticketTitle);
+    handleClose(); 
   };
 
   return (
@@ -33,10 +52,40 @@ const Sidebar = () => {
         <div className='sidebar-user'>
           <div className="support-ticket">
             {/* <button><FaHeadset color='#393564'/> Support Ticket</button> */}
-            <button className="support-ticket-button">
+            <button onClick={handleOpenTicket} className="support-ticket-button">
               <FaHeadset className="support-ticket-icon" />
               Support Ticket
             </button>
+            {isOpen && (
+              <>
+                <div className="supportTicket-overlay" onClick={handleClose}></div>
+                <div className="supportTicket-modal">
+                  <div className="supportTicket-modal-hero">
+                    <h2>Submit a Support Ticket</h2>
+                    <form onSubmit={handleSubmit}>
+                      <div className='supportTicket-form'>
+                        <label htmlFor="ticket-title">Title:</label>
+                        <input
+                          type="text"
+                          id="ticket-title"
+                          value={ticketTitle}
+                          onChange={(e) => setTicketTitle(e.target.value)}
+                          required
+                        />
+                      </div>
+                      <div className="supportTicket-modal-buttons">
+                        <button type="button" onClick={handleClose} className="supportTicket-cancelButton">
+                          Cancel
+                        </button>
+                        <button type="submit" className="supportTicket-submitButton">
+                          Submit
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                </>
+            )}
           </div>
           <div className='sidebar-user-div'>
             <img src={user} alt='profile-icon' />

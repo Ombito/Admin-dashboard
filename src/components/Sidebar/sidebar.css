@@ -86,13 +86,77 @@
   cursor: pointer; /* Pointer cursor on hover */
   transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
-
 .support-ticket-button:hover {
   background-color: #a45db7b8; /* Lighter shade on hover */
 }
-
 .support-ticket-icon {
   margin-right: 8px; /* Space between icon and text */
+}
+.supportTicket-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000; /* Ensure it's below the modal */
+}
+.supportTicket-modal {
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1001; /* Ensure it's above the overlay */
+  width: 400px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.supportTicket-modal-hero {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+}
+.supportTicket-modal-hero h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #333;
+}
+.supportTicket-form {
+  margin-bottom: 20px;
+}
+.supportTicket-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.supportTicket-modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.supportTicket-cancelButton {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+.supportTicket-submitButton {
+  background-color: #4CAF50; /* Green */
+  color: white;
 }
 
 
