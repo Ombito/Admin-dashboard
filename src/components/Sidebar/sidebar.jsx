@@ -112,7 +112,7 @@ const Sidebar = () => {
             <img src={user} alt='profile-icon' />
             <div className='sidebar-user-account'>
               <div className='user-profile-details'>
-                <h5>Admin</h5>
+                <h5>Administrator</h5>
                 <h5>admin@admin</h5>
               </div>
               <div>
