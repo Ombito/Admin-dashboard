@@ -72,26 +72,26 @@
 }
 .support-ticket {
   display: flex;
-  justify-content: center; /* Center the button horizontally */
-  margin: 20px; /* Add some margin */
+  justify-content: center; 
+  margin: 20px; 
 }
 
 .support-ticket-button {
   display: flex;
-  align-items: center; /* Center icon and text vertically */
-  background-color: #A45DB7; /* Dark background for the button */
-  color: white; /* White text color */
-  border: none; /* Remove default border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px 15px; /* Padding for better spacing */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  align-items: center; 
+  background-color: #A45DB7; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 15px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
 }
 .support-ticket-button:hover {
-  background-color: #a45db7b8; /* Lighter shade on hover */
+  background-color: #a45db7b8; 
 }
 .support-ticket-icon {
-  margin-right: 8px; /* Space between icon and text */
+  margin-right: 8px; 
 }
 .supportTicket-overlay {
   position: fixed;
@@ -167,6 +167,9 @@
 .supportTicket-submitButton {
   background-color: #4CAF50; 
   color: white;
+}
+.supportTicket-submitButton:hover {
+  background-color: #4caf4fc8; 
 }
 
 
