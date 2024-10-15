@@ -2,30 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto';
 import './barchart.css';
+import data from '../data.json';
+
 
 const Barchart = () => {
     const [productData, setProductData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchTopProducts = async () => {
-            try {
-                const apiUrl = `http://127.0.0.1:5555/top-products`;
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error(`Network response was not ok: ${response.status}`);
-                }
-                const { data } = await response.json();
-                console.log('Fetched orders:', data); 
-                setProductData(data);
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                setLoading(false);
-            }
-        };
+        // const fetchTopProducts = async () => {
+        //     try {
+        //         const apiUrl = `http://127.0.0.1:5555/top-products`;
+        //         const response = await fetch(apiUrl);
+        //         if (!response.ok) {
+        //             throw new Error(`Network response was not ok: ${response.status}`);
+        //         }
+        //         const { data } = await response.json();
+        //         console.log('Fetched orders:', data); 
+        //         setProductData(data);
+        //         setLoading(false);
+        //     } catch (error) {
+        //         console.error('Error fetching data:', error);
+        //         setLoading(false);
+        //     }
+        // };
 
-        fetchTopProducts();
+        // fetchTopProducts();
+
+        setProductData(data.topProducts);
+        setLoading(false);
     }, []);
 
     if (!productData || productData.length === 0) {

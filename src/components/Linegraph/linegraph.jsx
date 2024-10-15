@@ -2,30 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { Line } from "react-chartjs-2";
 import './linegraph.css';
 import { Chart as ChartJS } from 'chart.js/auto';
+import data from '../data.json';
+
 
 const Linegraph = () => {
     const [ordersData, setOrdersData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchOrdersData = async () => {
-            try {
-                const apiUrl = `http://127.0.0.1:5555/orders-per-month`;
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error(`Network response was not ok: ${response.status}`);
-                }
-                const data  = await response.json();
-                console.log('Fetched orders:', data); 
-                setOrdersData(data);
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                setLoading(false);
-            }
-        };
+        // const fetchOrdersData = async () => {
+        //     try {
+        //         const apiUrl = `http://127.0.0.1:5555/orders-per-month`;
+        //         const response = await fetch(apiUrl);
+        //         if (!response.ok) {
+        //             throw new Error(`Network response was not ok: ${response.status}`);
+        //         }
+        //         const data  = await response.json();
+        //         console.log('Fetched orders:', data); 
+        //         setOrdersData(data);
+        //         setLoading(false);
+        //     } catch (error) {
+        //         console.error('Error fetching data:', error);
+        //         setLoading(false);
+        //     }
+        // };
 
-        fetchOrdersData();
+        // fetchOrdersData();
+
+        setOrdersData(data.ordersPerMonth);
+        setLoading(false);
     }, []);
 
     

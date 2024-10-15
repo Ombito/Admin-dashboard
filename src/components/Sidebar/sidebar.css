@@ -1,5 +1,6 @@
 .sidebar {
-  width: 320px;
+  width: 270px;
+  height: 100%;
   background-color: #333;
   color: #fff;
   padding-top: 20px;
@@ -13,7 +14,7 @@
   justify-content: space-between;
   height: 100%;
   margin-top: 20%;
-  margin: 0 25px;
+  margin: 0px;
 }
 .sidebar-hero {
   display: flex;
@@ -64,11 +65,45 @@
   text-align: center;
 
 }
+.sidebar-user {
+  display: flex;
+  flex-direction: column;
+}
 .support-ticket {
   margin: auto;
 }
 .support-ticket button{
   padding: 10px 25px;
+}
+.sidebar-user-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0;
+  margin: 25px 0px;
+  border-top: 1px solid gray;
+  padding: 0 10px 10px 10px;
+}
+.sidebar-user-div:hover {
+  cursor: pointer;
+  background-color: #555;
+}
+.sidebar-user-div img {
+  height: 50px;
+  width: auto;
+}
+.sidebar-user-account {
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.user-profile-details {
+  display: block;
+}
+.user-profile-details h4{
+  margin: 10px;
 }
 .notification-icon {
   text-align: center;

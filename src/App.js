@@ -17,8 +17,10 @@ function App() {
   return (
     <div className='app'>
       {user ? (
-        <>
-          <Sidebar />
+        <div className='home-app'>
+          <div className='dashboard-landing'>
+            <Sidebar />
+          </div>
           <div className="content">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -31,7 +33,7 @@ function App() {
               <Route path="/signin" element={<SignIn setUser={setUser}/>} />
             </Routes>
           </div>
-        </>
+        </div>
       ) : (
         <SignIn setUser={setUser} />
       )}

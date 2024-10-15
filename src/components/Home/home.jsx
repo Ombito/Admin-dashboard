@@ -6,6 +6,7 @@ import './home.css';
 import { FaMoneyBillAlt, FaShoppingCart, FaDollarSign, FaUsers } from 'react-icons/fa';
 import user from "../../Assets/user.jpg";
 import { FaBell } from 'react-icons/fa';
+import data from '../data.json';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -14,62 +15,71 @@ const Home = () => {
   const [dashboardStats, setDashboardStats] = useState([]);
 
   useEffect(() => {
-    const fetchDashboardStats = async () => {
-        try {
-            const response = await fetch('http://127.0.0.1:5555/dashboard-stats');
-            if (!response.ok) {
-                throw new Error('Failed to fetch dashboard statistics');
-            }
-            const data = await response.json();
-            setDashboardStats(data);
-        } catch (error) {
-            console.error('Error fetching dashboard statistics:', error);
-        }
-    };
+    // const fetchDashboardStats = async () => {
+    //     try {
+    //         const response = await fetch('http://127.0.0.1:5555/dashboard-stats');
+    //         if (!response.ok) {
+    //             throw new Error('Failed to fetch dashboard statistics');
+    //         }
+    //         const data = await response.json();
+    //         setDashboardStats(data);
+    //     } catch (error) {
+    //         console.error('Error fetching dashboard statistics:', error);
+    //     }
+    // };
 
-    fetchDashboardStats();
+    // fetchDashboardStats();
+
+    setDashboardStats(data.dashboardStats);
+    setLoading(false);
 }, []);
 
   useEffect(() => {
-    const apiUrl = `http://127.0.0.1:5555/products`;
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log('Fetched products:', data); 
-        setProducts(data);
-        setLoading(false);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setLoading(false);
-      });
+    // const apiUrl = `http://127.0.0.1:5555/products`;
+    // fetch(apiUrl)
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error(`Network response was not ok: ${response.status}`);
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log('Fetched products:', data); 
+    //     setProducts(data);
+    //     setLoading(false);
+    //     console.log(data);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error fetching data:', error);
+    //     setLoading(false);
+    //   });
+
+    setProducts(data.products);
+    setLoading(false);
   }, []);
   
   useEffect(() => {
-    const apiUrl = `http://127.0.0.1:5555/orders`;
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log('Fetched orders:', data); 
-        setOrders(data);
-        setLoading(false);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setLoading(false);
-      });
+    // const apiUrl = `http://127.0.0.1:5555/orders`;
+    // fetch(apiUrl)
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error(`Network response was not ok: ${response.status}`);
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log('Fetched orders:', data); 
+    //     setOrders(data);
+    //     setLoading(false);
+    //     console.log(data);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error fetching data:', error);
+    //     setLoading(false);
+    //   });
+
+    setOrders(data.orders);
+    setLoading(false);
   }, []);
 
 
@@ -102,7 +112,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div style={{display: 'flex', width: '100%'}}>
+      <div style={{display: 'flex', width: '100%', height: '100%'}}>
         <div className="dashboard-hero">
           <div className="dashboard-stats-container">
             {dashboardStats.map((stat) => (
@@ -110,15 +120,15 @@ const Home = () => {
                 key={stat.id}
                 icon={stat.icon}
                 color={stat.color}
-                label={stat.label}
                 value={stat.value}
+                label={stat.label}
               />
             ))}
             </div>
           <div className="dashboard">
             <div className="chart-container">
               <Linegraph />
-              {/* <Piechart /> */}
+              <Piechart />
               <Barchart />
             </div>
           </div>

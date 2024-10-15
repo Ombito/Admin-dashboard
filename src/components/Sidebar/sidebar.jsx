@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaHome, FaUser, FaCog, FaClipboardList, FaShoppingCart, FaSignOutAlt, FaDollarSign, FaGift } from 'react-icons/fa';
 import './sidebar.css'; 
 import logo from "../../Assets/banner.jpg";
+import user from "../../Assets/user.jpg";
 
 
 const Sidebar = () => {
@@ -27,11 +28,24 @@ const Sidebar = () => {
             <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/><span>Gift Cards</span></li>
             <li onClick={() => handleNavigate('/discounts')}><FaDollarSign color='gold'/><span>Discounts</span></li>
             <li onClick={() => handleNavigate('/settings')}><FaCog color='#393564'/><span>Settings</span></li>
-            <li ><FaSignOutAlt color='#ff9f40'/><span>Logout</span></li>
           </ul>
         </div>
-        <div className="support-ticket">
-          <button>Support Ticket</button>
+        <div className='sidebar-user'>
+          <div className="support-ticket">
+            <button>Support Ticket</button>
+          </div>
+          <div className='sidebar-user-div'>
+            <img src={user} alt='profile-icon' />
+            <div className='sidebar-user-account'>
+              <div className='user-profile-details'>
+                <h4>Admin</h4>
+                <h4>admin@admin</h4>
+              </div>
+              <div>
+                <FaSignOutAlt color='#ff9f40' fontSize='22'/>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

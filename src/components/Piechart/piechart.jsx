@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS } from 'chart.js/auto';
 import './piechart.css';
+import data from '../data.json';
 
 const Piechart = () => {
 
@@ -12,16 +13,18 @@ const Piechart = () => {
     }, []);
 
     const fetchCategoryData = async () => {
-        try {
-            const response = await fetch('http://127.0.0.1:5555/product-categories');
-            if (!response.ok) {
-                throw new Error('Failed to fetch data');
-            }
-            const { data } = await response.json();
-            setCategoryData(data);
-        } catch (error) {
-            console.error('Error fetching product categories:', error);
-        }
+        // try {
+        //     const response = await fetch('http://127.0.0.1:5555/product-categories');
+        //     if (!response.ok) {
+        //         throw new Error('Failed to fetch data');
+        //     }
+        //     const { data } = await response.json();
+        //     setCategoryData(data);
+        // } catch (error) {
+        //     console.error('Error fetching product categories:', error);
+        // }
+
+        setCategoryData(data.productCategories);
     };
 
     const chartData = {
