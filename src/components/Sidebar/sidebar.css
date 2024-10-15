@@ -65,11 +65,35 @@
   text-align: center;
 
 }
+.sidebar-user {
+  display: flex;
+  flex-direction: column;
+}
 .support-ticket {
   margin: auto;
 }
 .support-ticket button{
   padding: 10px 25px;
+}
+.sidebar-user-div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-top: 1px solid gray;
+  padding: 0 10px;
+}
+.sidebar-user-div img {
+  height: 50px;
+  width: auto;
+}
+.sidebar-user-account {
+  display: 'flex'; 
+  /* justify-content: 'space-between'; */
+  align-items: center;
+  width: 100%;
+}
+.user-profile-details {
+  display: block;
 }
 .notification-icon {
   text-align: center;
