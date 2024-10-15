@@ -1,0 +1,67 @@
+{
+    "dashboardStats": [
+      {
+        "id": 1,
+        "icon": "FaMoneyBillAlt",
+        "color": "#FF5733",
+        "label": "Revenue",
+        "value": "$12,345"
+      },
+      {
+        "id": 2,
+        "icon": "FaShoppingCart",
+        "color": "#33FF57",
+        "label": "Sales",
+        "value": "678"
+      },
+      {
+        "id": 3,
+        "icon": "FaDollarSign",
+        "color": "#3357FF",
+        "label": "Profit",
+        "value": "$4,321"
+      },
+      {
+        "id": 4,
+        "icon": "FaUsers",
+        "color": "#F5A623",
+        "label": "Users",
+        "value": "1,234"
+      }
+    ],
+    "products": [
+      {
+        "id": 1,
+        "name": "Product 1",
+        "price": "$50"
+      },
+      {
+        "id": 2,
+        "name": "Product 2",
+        "price": "$30"
+      }
+    ],
+    "orders": [
+      {
+        "id": 1,
+        "product": "Product 1",
+        "price": "$50",
+        "order_date": "2024-09-15",
+        "address": "123 Street",
+        "status": "Shipped",
+        "total_amount": "50",
+        "shipping_fees": "5"
+      },
+      {
+        "id": 2,
+        "product": "Product 2",
+        "price": "$30",
+        "order_date": "2024-09-14",
+        "address": "456 Avenue",
+        "status": "Delivered",
+        "total_amount": "30",
+        "shipping_fees": "3"
+      }
+    ]
+  }
+  
