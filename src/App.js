@@ -10,6 +10,7 @@ import Giftcard from '../src/components/Giftcard/giftcard';
 import Settings from '../src/components/Settings/settings';
 import SignIn from '../src/components/Signin/signin';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa'; 
 
 function App() {
   const [user, setUser] = useState(true);
