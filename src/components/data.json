@@ -76,7 +76,7 @@
       "product": "Mug",
       "price": "$30",
       "order_date": "2024-09-16",
-      "address": "Kongowea, Kisauni",
+      "address": "Kongowea, Nyali Mombasa",
       "status": "Shipped",
       "total_amount": "20",
       "shipping_fees": "3"
@@ -126,7 +126,7 @@
       "product": "Ledger",
       "price": "$30",
       "order_date": "2024-09-15",
-      "address": "Makongeni, Thika",
+      "address": "Makongeni, Thika Kiambu",
       "status": "Delivered",
       "total_amount": "250",
       "shipping_fees": "3"
@@ -136,7 +136,7 @@
       "product": "Bot",
       "price": "$30",
       "order_date": "2024-09-15",
-      "address": "Dagoreti, Nairobi",
+      "address": "Satelite Dagoreti, Nairobi",
       "status": "Delivered",
       "total_amount": "120",
       "shipping_fees": "3"

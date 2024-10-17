@@ -137,67 +137,68 @@ const handleExportPDF = () => {
 
 
   return (
-    <div className='home-summary'>
-      <div className="navbar-div">
-        <div style={{display: 'flex', gap: '5px', alignItems: 'center'}}>
-          <FaHome color='#ff6384' fontSize={25}/><h2>Dashboard</h2>
-        </div>
-        <div onClick={handleExportPDF} className="export-button">
-          <FaFileExport className="export-icon" />
-          <span>Export Data</span>
-        </div>
-      </div>
-      <div ref={contentRef} className="dashboard-home-landing">
-        <div className="dashboard-hero">
-          <div className="dashboard-stats-container">
-            {dashboardStats.map((stat) => (
-              <DashboardStatItem
-                key={stat.id}
-                icon={stat.icon}
-                color={stat.color}
-                value={stat.value}
-                label={stat.label}
-                percentage={stat.percentage}
-              />
-            ))}
-            </div>
-          <div className="dashboard">
-            <div className="chart-container">
-              <Linegraph />
-              {/* <Piechart /> */}
-              <Barchart />
-            </div>
+    <div ref={contentRef} className='home-summary'>
+      <>
+        <div className="navbar-div">
+          <div style={{display: 'flex', gap: '5px', alignItems: 'center'}}>
+            <FaHome color='#ff6384' fontSize={25}/><h2>Dashboard</h2>
           </div>
-          <div className="recent-orders-container">
-            <h3>Recent Orders</h3>
-            <table className="dashboard-orders-table">
-              <thead>
-                <tr>
-                  <th>Order ID</th>
-                  <th>Address</th>
-                  <th>Order Date</th>
-                  <th>Price</th>
-                  <th>Product</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-              {orders.map(order => (
-                <tr key={order.id}>
-                  <td>{order.id}</td>
-                  <td>{order.address}</td>
-                  <td>{order.order_date}</td>
-                  <td>${order.total_amount}</td>
-                  <td>{order.product}</td>
-                  <td>{order.status}</td>
-                </tr>
+          <div onClick={handleExportPDF} className="export-button">
+            <FaFileExport className="export-icon" />
+            <span>Export Data</span>
+          </div>
+        </div>
+        <div className="dashboard-home-landing">
+          <div className="dashboard-hero">
+            <div className="dashboard-stats-container">
+              {dashboardStats.map((stat) => (
+                <DashboardStatItem
+                  key={stat.id}
+                  icon={stat.icon}
+                  color={stat.color}
+                  value={stat.value}
+                  label={stat.label}
+                  percentage={stat.percentage}
+                />
               ))}
-              </tbody>
-            </table>
+              </div>
+            <div className="dashboard">
+              <div className="chart-container">
+                <Linegraph />
+                {/* <Piechart /> */}
+                <Barchart />
+              </div>
+            </div>
+            <div className="recent-orders-container">
+              <h3>Recent Orders</h3>
+              <table className="dashboard-orders-table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Address</th>
+                    <th>Order Date</th>
+                    <th>Price</th>
+                    <th>Product</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {orders.map(order => (
+                  <tr key={order.id}>
+                    <td>{order.id}</td>
+                    <td>{order.address}</td>
+                    <td>{order.order_date}</td>
+                    <td>${order.total_amount}</td>
+                    <td>{order.product}</td>
+                    <td>{order.status}</td>
+                  </tr>
+                ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
-        
+          </>
       
     </div>
   )
