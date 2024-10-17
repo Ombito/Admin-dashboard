@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import './messages.css';
+import { useNavigate } from 'react-router-dom';
+
 
 const Messages = ({ notifications, markAsRead }) => {
-  
+  const navigate = useNavigate();
 
 const handleViewMore = (id) => {
-
     notifications.map(notif => 
         notif.id === id ? { ...notif, isRead: true } : notif
     );
-    alert(`Viewing notification from ${notifications.find(notif => notif.id === id).sender}: "${notifications.find(notif => notif.id === id).content}"`);
+    markAsRead(id);
+    navigate(`/messages/${id}`);
 };
 
 return (
