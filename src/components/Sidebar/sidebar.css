@@ -27,7 +27,7 @@
   padding: 0;
 }
 .sidebar-menu li {
-  padding: 15px 30px;
+  padding: 12px 30px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -40,7 +40,7 @@
   margin-right: 15px;
 }
 .logo {
-  height: 8vh;
+  height: 6vh;
   width: 5vw;
   margin: auto;
   display: flex;
