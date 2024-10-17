@@ -15,6 +15,7 @@ import SignIn from '../src/components/Signin/signin';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa'; 
 
+
 function App() {
   const [user, setUser] = useState(true);
   const location = useLocation();
@@ -25,6 +26,10 @@ function App() {
     { id: 3, sender: 'Support', content: 'Your support ticket has been resolved.', timestamp: '2024-10-15 12:00 PM', isRead: true },
     { id: 4, sender: 'System', content: 'Scheduled maintenance will occur tonight.', timestamp: '2024-10-14 9:00 AM', isRead: true },
 ]);
+
+useEffect(() => {
+  localStorage.setItem('notifications', JSON.stringify(notifications));
+}, [notifications]);
 
 const markAsRead = (id) => {
     setNotifications(notifications.map(notif => 
