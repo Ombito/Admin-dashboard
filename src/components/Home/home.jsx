@@ -3,7 +3,7 @@ import Barchart from '../Barchart/barchart';
 import Piechart from '../Piechart/piechart';
 import Linegraph from '../Linegraph/linegraph';
 import './home.css';
-import { FaMoneyBillAlt, FaShoppingCart, FaDollarSign, FaUsers, FaHome } from 'react-icons/fa';
+import { FaMoneyBillAlt, FaShoppingCart, FaDollarSign, FaUsers, FaHome, FaFileExport } from 'react-icons/fa';
 import user from "../../Assets/user.jpg";
 import { FaBell } from 'react-icons/fa';
 import data from '../data.json';
@@ -103,15 +103,9 @@ const Home = () => {
         <div style={{display: 'flex', gap: '5px', alignItems: 'center'}}>
           <FaHome color='#ff6384' fontSize={25}/><h2>Dashboard</h2>
         </div>
-        <div className='sidebar-username'>
-          <div className="notification-icon-container">
-            <FaBell className="notification-icon" />
-            <div className="notification-dot"></div>
-          </div>
-          <div className="admin-profile">
-            <img src={user} alt="avatar" />
-            <h4>Admin</h4>
-          </div>
+        <div className="export-button">
+          <FaFileExport className="export-icon" />
+          <span>Export Data</span>
         </div>
       </div>
       <div style={{display: 'flex', width: '100%', height: '100%'}}>

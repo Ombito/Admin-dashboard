@@ -14,6 +14,32 @@
   display: flex;
   justify-content: space-between;
 }
+.export-button {
+  display: flex; 
+  align-items: center; 
+  color: #ff6384;
+  border: 1px solid gray; 
+  border-radius: 4px; 
+  padding: 7px 10px; 
+  font-weight: bold;
+  cursor: pointer; 
+  margin: auto 0;
+  margin-right: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.export-button:hover {
+  background-color: #45a049;
+  color: #fff;
+  .export-icon {
+    color: #fff;
+  }
+}
+
+.export-icon {
+  color: #ff6384;
+  margin-right: 8px; 
+}
 .dashboard-hero {
   width: 100%;
 }
