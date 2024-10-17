@@ -26,11 +26,11 @@ h2 {
 }
 
 .unread {
-    background-color: #f9f9f9; 
+    background-color: #e8f5e9;  
 }
 
 .read {
-    background-color: #e8f5e9; 
+    background-color: #f9f9f9; 
 }
 
 .notification-item p {
@@ -42,15 +42,14 @@ h2 {
     color: #888; 
 }
 
-button {
-    background-color: #4caf50; 
-    color: white; 
-    border: none; 
-    border-radius: 5px; 
-    padding: 10px 15px;  
-    cursor: pointer; 
+.viewMore-button {
+    color: #ff9f40; 
+    border: none;  
+    font-size: 1rem; 
+    cursor: pointer;
+    width: fit-content; 
 }
 
-button:hover {
-    background-color: #45a049;
+.viewMore-button:hover {
+    text-decoration: underline;
 }

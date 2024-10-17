@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './messages.css';
 import { useNavigate } from 'react-router-dom';
-
+import user from "../../Assets/user.jpg";
 
 const Messages = ({ notifications, markAsRead }) => {
   const navigate = useNavigate();
@@ -16,19 +16,26 @@ const handleViewMore = (id) => {
 
 return (
     <div className="notifications-container">
-        <h2>Messages</h2>
+        <div className="navbar-div">
+            <h2>Messages</h2>
+            <div className='sidebar-username'>
+            <div className="admin-profile">
+                <img src={user} alt="avatar" />
+            </div>
+            </div>
+        </div>
         <div className="notifications-list">
             {notifications.map(notification => (
                 <div 
                     key={notification.id} 
                     className={`notification-item ${notification.isRead ? 'read' : 'unread'}`}
                 >
-                    <p><strong>From:</strong> {notification.sender}</p>
+                    <p><strong>{notification.sender}</strong></p>
                     <p>{notification.content}</p>
                     <p className="timestamp">{notification.timestamp}</p>
-                    <button onClick={() => handleViewMore(notification.id)}>
+                    <div className="viewMore-button" onClick={() => handleViewMore(notification.id)}>
                         {notification.isRead ? 'View Again' : 'View More'}
-                    </button>
+                    </div>
                 </div>
             ))}
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './messageDetails.css'
+import user from "../../Assets/user.jpg";
 
 const MessageDetails = ({ notifications }) => {
     const { id } = useParams(); 
