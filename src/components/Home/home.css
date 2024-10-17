@@ -12,9 +12,11 @@
 }
 .navbar-div {
   display: flex;
+  position: fixed;
   top: 0;
-  width: 100%;
+  width: 85%;
   z-index: 1000;
+  background-color: #fefefe;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
 }
@@ -48,7 +50,7 @@
   display: flex;
   width: 100%;
   height: 100%;
-  position: relative;
+  margin-top: 70px;
 }
 .dashboard-hero {
   width: 100%;
