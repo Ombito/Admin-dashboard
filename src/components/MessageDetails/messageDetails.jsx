@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './messageDetails.css'
 import user from "../../Assets/user.jpg";
+import { FaChevronLeft } from 'react-icons/fa';
+
 
 const MessageDetails = ({ notifications }) => {
     const { id } = useParams(); 
@@ -14,13 +16,20 @@ const MessageDetails = ({ notifications }) => {
 
     return (
         <div className="notification-details">
-            <h2>Message Details</h2>
-            <div>
-                <button onClick={() => navigate('/messages')}>Back to Messages</button>
+            <div className="navbar-div">
+                <h2>Message</h2>
+                <div className='sidebar-username'>
+                <div className="admin-profile">
+                    <img src={user} alt="avatar" />
+                </div>
+                </div>
             </div>
-            <p><strong>From:</strong> {notification.sender}</p>
-            <p><strong>Content:</strong> {notification.content}</p>
-            <p><strong>Timestamp:</strong> {notification.timestamp}</p>
+            <div className='notification-details-hero'>
+                <div className='back-to-notification' onClick={() => navigate('/messages')}><FaChevronLeft className="back-icon" /> BACK TO MESSAGES</div>
+                <p><strong> {notification.sender}</strong></p>
+                <p>{notification.content}</p>
+                <p>{notification.timestamp}</p>
+            </div>
         </div>
     );
 };
