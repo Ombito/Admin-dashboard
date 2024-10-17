@@ -5,28 +5,32 @@
       "icon": "FaMoneyBillAlt",
       "color": "#FF5733",
       "label": "Revenue",
-      "value": "$12,345"
+      "percentage": "27",
+      "value": "$28,684"
     },
     {
       "id": 2,
       "icon": "FaShoppingCart",
-      "color": "#33FF57",
+      "color": "green",
       "label": "Sales",
-      "value": "678"
+      "percentage": "-13",
+      "value": "972"
     },
     {
       "id": 3,
       "icon": "FaDollarSign",
       "color": "#3357FF",
       "label": "Profit",
-      "value": "$4,321"
+      "percentage": "58",
+      "value": "$6410"
     },
     {
       "id": 4,
       "icon": "FaUsers",
       "color": "#F5A623",
       "label": "Users",
-      "value": "1,234"
+      "percentage": "44",
+      "value": "17,591"
     }
   ],
   "products": [
