@@ -8,13 +8,15 @@ import user from "../../Assets/user.jpg";
 import { FaBell } from 'react-icons/fa';
 import data from '../data.json';
 import { useReactToPrint } from 'react-to-print';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
   const [dashboardStats, setDashboardStats] = useState([]);
-  const componentRef = useRef();
+  const contentRef = useRef();
 
   useEffect(() => {
     // const fetchDashboardStats = async () => {
@@ -84,10 +86,27 @@ const Home = () => {
     setLoading(false);
   }, []);
 
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-    documentTitle: 'Printed Document', 
-});
+
+const handleExportPDF = () => {
+  const input = contentRef.current; 
+
+  if (input) {
+    html2canvas(input)
+    .then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4'); 
+      const imgWidth = 210;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width; 
+
+      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight); 
+      pdf.save('download.pdf');
+    })
+    .catch((err) => console.error('Error generating PDF', err));
+  }
+    else {
+      console.error('Invalid element provided for capture');
+    }
+};
 
   const DashboardStatItem = ({ icon, color, label, value, percentage }) => {
     const isIncrease = percentage >= 0;
@@ -123,12 +142,12 @@ const Home = () => {
         <div style={{display: 'flex', gap: '5px', alignItems: 'center'}}>
           <FaHome color='#ff6384' fontSize={25}/><h2>Dashboard</h2>
         </div>
-        <div onClick={handlePrint} className="export-button">
+        <div onClick={handleExportPDF} className="export-button">
           <FaFileExport className="export-icon" />
           <span>Export Data</span>
         </div>
       </div>
-      <div ref={componentRef} className="dashboard-home-landing">
+      <div ref={contentRef} className="dashboard-home-landing">
         <div className="dashboard-hero">
           <div className="dashboard-stats-container">
             {dashboardStats.map((stat) => (
