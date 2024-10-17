@@ -51,7 +51,7 @@
   display: flex;
   width: 100%;
   height: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
   margin-top: 70px;
 }
 .dashboard-hero {
@@ -73,7 +73,7 @@
   flex-direction: column;
   flex: 1;
   width: 100%;
-  padding: 20px;
+  padding: 10px 20px;
   border-radius: 4px;
   box-shadow: 0 6px 8px rgba(0,0,0,0.2);
 }
@@ -81,7 +81,7 @@
   display: flex;
 }
 .dashboard-icon {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-right: 3px;
 }
 .statRatio-div {
@@ -93,7 +93,6 @@
 .dashboard-stat h3 {
   margin: 5px 0;
 }
-
 .statRatio-div {
   display: flex;
   justify-content: space-between;
@@ -108,33 +107,29 @@
   background-color: #d4edda; 
   border: 1px solid #c3e6cb; 
 }
-
 .statRatio-divs.decrease {
   background-color: #f8d7da; 
   border: 1px solid #f5c6cb;
 }
-
-
 .dashboard-top-products {
   width: 270px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding-left: 10px;
   margin-left: 15px;
 }
-.top-products-div {
-  display: flex;
-  gap: 15px;
-  padding-bottom: 10px;
+.recent-orders-container {
+  margin: 10px 0;
 }
-.orders-table {
-  width: 100%;
+.dashboard-orders-table {
+  width: 96%;
   border-collapse: collapse;
+  margin: auto;
 }
-.orders-table th,
-.orders-table td {
+.dashboard-orders-table th,
+.dashboard-orders-table td {
   border: 1px solid #ddd;
   padding: 4px;
-  width: 120px;
+  width: auto;
 }
 .dashboard-icon {
   font-size: 2rem;

@@ -149,9 +149,9 @@ const Home = () => {
               <Barchart />
             </div>
           </div>
-          <div className="chart-containe">
+          <div className="recent-orders-container">
             <h3>Recent Orders</h3>
-            <table className="product-table">
+            <table className="dashboard-orders-table">
               <thead>
                 <tr>
                   <th>Order ID</th>
@@ -170,7 +170,7 @@ const Home = () => {
                   <td>{order.order_date}</td>
                   <td>${order.total_amount}</td>
                   <td>{order.product}</td>
-                  <td>${order.shipping_fees}</td>
+                  <td>{order.status}</td>
                 </tr>
               ))}
               </tbody>
