@@ -155,21 +155,21 @@ const Home = () => {
               <thead>
                 <tr>
                   <th>Order ID</th>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Order Date</th>
                   <th>Address</th>
+                  <th>Order Date</th>
+                  <th>Price</th>
+                  <th>Product</th>
                   <th>Status</th>
                 </tr>
               </thead>
               <tbody>
               {orders.map(order => (
                 <tr key={order.id}>
-                  <td>order.product</td>
+                  <td>{order.id}</td>
                   <td>{order.address}</td>
                   <td>{order.order_date}</td>
-                  <td>order.user</td>
                   <td>${order.total_amount}</td>
+                  <td>{order.product}</td>
                   <td>${order.shipping_fees}</td>
                 </tr>
               ))}

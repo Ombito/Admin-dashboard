@@ -36,72 +36,87 @@
   "products": [
     {
       "id": 1,
-      "name": "Product 1",
+      "name": "Ledger",
       "price": "$50"
     },
     {
       "id": 2,
-      "name": "Product 2",
-      "price": "$30"
+      "name": "T-shirt",
+      "price": "$20"
+    },
+    {
+      "id": 3,
+      "name": "Cup",
+      "price": "$16"
+    },
+    {
+      "id": 2,
+      "name": "Book",
+      "price": "$45"
+    },
+    {
+      "id": 2,
+      "name": "Bot",
+      "price": "$550"
     }
   ],
   "orders": [
     {
       "id": 1,
-      "product": "Product 1",
-      "price": "$50",
+      "product": "Bot",
+      "price": "$110",
       "order_date": "2024-09-15",
-      "address": "123 Street",
+      "address": "Westlands, Suite 330",
       "status": "Shipped",
-      "total_amount": "50",
-      "shipping_fees": "5"
+      "total_amount": "120",
+      "shipping_fees": "10"
     },
     {
       "id": 2,
-      "product": "Product 2",
+      "product": "Mug",
       "price": "$30",
       "order_date": "2024-09-14",
-      "address": "456 Avenue",
+      "address": "Bamburi, Kisauni",
       "status": "Delivered",
       "total_amount": "30",
       "shipping_fees": "3"
     },
     {
       "id": 3,
-      "product": "Product 2",
+      "product": "T-shirt",
       "price": "$30",
       "order_date": "2024-09-14",
-      "address": "456 Avenue",
+      "address": "Langas, Eldoret",
       "status": "Delivered",
       "total_amount": "30",
       "shipping_fees": "3"
     },
     {
       "id": 4,
-      "product": "Product 2",
+      "product": "Ledger",
       "price": "$30",
       "order_date": "2024-09-14",
-      "address": "456 Avenue",
+      "address": "Kayole, Nakuru",
       "status": "Delivered",
       "total_amount": "30",
       "shipping_fees": "3"
     },
     {
       "id": 5,
-      "product": "Product 2",
+      "product": "Bot",
       "price": "$30",
       "order_date": "2024-09-14",
-      "address": "456 Avenue",
+      "address": "Nyali, Mombasa",
       "status": "Delivered",
       "total_amount": "30",
       "shipping_fees": "3"
     },
     {
       "id": 6,
-      "product": "Product 2",
+      "product": "Bot",
       "price": "$30",
       "order_date": "2024-09-14",
-      "address": "456 Avenue",
+      "address": "Kilimani, Nairobi",
       "status": "Delivered",
       "total_amount": "30",
       "shipping_fees": "3"
