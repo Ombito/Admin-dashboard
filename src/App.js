@@ -14,13 +14,19 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 
 function App() {
   const [user, setUser] = useState(true);
+  const location = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   
   return (
     <div className='app'>
       {user ? (
         <div className='home-app'>
           <div className='dashboard-landing'>
-            <Sidebar />
+          {location.pathname !== '/signin' && <Sidebar />}
           </div>
           <div className="content">
             <Routes>
