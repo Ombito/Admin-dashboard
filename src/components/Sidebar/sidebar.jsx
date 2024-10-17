@@ -13,6 +13,7 @@ const Sidebar = ({ notifications }) => {
   const [ticketDescription, setTicketDescription] = useState('');
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const unreadCount = notifications.filter(notif => !notif.isRead).length;
+  
 
 
   const handleNavigate = (route) => {
@@ -73,7 +74,9 @@ const handleLogoutClose = () => {
             <li onClick={() => handleNavigate('/')}><FaHome color='#ff6384'/><span>Dashboard</span></li>
             <li onClick={() => handleNavigate('/customers')}><FaUser color='#00aeee'/><span>Customers</span></li>
             <li onClick={() => handleNavigate('/orders')}><FaClipboardList color='green'/><span>Orders</span></li>
-            <li onClick={() => handleNavigate('/messages')}><FaEnvelope color='gold'/><span>Messages {unreadCount > 0 ? unreadCount : "no"}</span></li>
+            <li onClick={() => handleNavigate('/messages')}>      
+                <FaEnvelope color='gold'/><span>Messages {unreadCount > 0 && <span className="sidebar-messages-count">{unreadCount}</span> }</span>
+            </li>
             <li onClick={() => handleNavigate('/products')}><FaShoppingCart color='purple'/><span>Products</span></li>
             <li onClick={() => handleNavigate('/invoices')}><FaFileInvoice color='#4caf50'/><span>Invoices</span></li>
             <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/><span>Discounts</span></li>
