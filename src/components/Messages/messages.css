@@ -1,56 +1,56 @@
 .notifications-container {
-    max-width: 600px; /* Set a max width for the container */
-    margin: 20px auto; /* Center the container */
-    padding: 20px; /* Padding inside the container */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    background-color: #ffffff; /* White background */
+    width: 100%;
+    margin: 20px auto; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    background-color: #ffffff; 
 }
 
 h2 {
-    text-align: center; /* Center the heading */
-    color: #333; /* Dark gray color for text */
+    text-align: center; 
+    color: #333; 
 }
 
 .notifications-list {
-    margin-top: 20px; /* Space above the list */
+    margin-top: 20px; 
 }
 
 .notification-item {
-    padding: 15px; /* Padding inside each notification item */
-    border-bottom: 1px solid #eee; /* Light gray border between items */
+    padding: 15px; 
+    border-bottom: 1px solid #eee; 
 }
 
 .notification-item:last-child {
-    border-bottom: none; /* Remove border from last item */
+    border-bottom: none; 
 }
 
 .unread {
-    background-color: #f9f9f9; /* Light background for unread notifications */
+    background-color: #f9f9f9; 
 }
 
 .read {
-    background-color: #e8f5e9; /* Light green background for read notifications */
+    background-color: #e8f5e9; 
 }
 
 .notification-item p {
-    margin: 5px 0; /* Margin for paragraphs */
+    margin: 5px 0; 
 }
 
 .timestamp {
-    font-size: 0.85rem; /* Smaller font size for timestamp */
-    color: #888; /* Gray color for timestamp text */
+    font-size: 0.85rem; 
+    color: #888; 
 }
 
 button {
-    background-color: #4caf50; /* Green background for button */
-    color: white; /* White text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 15px; /* Padding inside button */
-    cursor: pointer; /* Pointer cursor on hover */
+    background-color: #4caf50; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 15px;  
+    cursor: pointer; 
 }
 
 button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
 }
