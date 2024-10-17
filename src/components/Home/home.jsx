@@ -108,7 +108,7 @@ const Home = () => {
           <span>Export Data</span>
         </div>
       </div>
-      <div style={{display: 'flex', width: '100%', height: '100%'}}>
+      <div className="dashboard-home-landing">
         <div className="dashboard-hero">
           <div className="dashboard-stats-container">
             {dashboardStats.map((stat) => (
