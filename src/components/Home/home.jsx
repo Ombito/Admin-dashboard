@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Barchart from '../Barchart/barchart';
 import Piechart from '../Piechart/piechart';
 import Linegraph from '../Linegraph/linegraph';
 import './home.css';
-import { FaMoneyBillAlt, FaShoppingCart, FaDollarSign, FaUsers, FaHome } from 'react-icons/fa';
+import { FaMoneyBillAlt, FaShoppingCart, FaDollarSign, FaUsers, FaHome, FaFileExport, FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import user from "../../Assets/user.jpg";
 import { FaBell } from 'react-icons/fa';
 import data from '../data.json';
+import { useReactToPrint } from 'react-to-print';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
   const [dashboardStats, setDashboardStats] = useState([]);
+  const componentRef = useRef();
 
   useEffect(() => {
     // const fetchDashboardStats = async () => {
@@ -82,19 +84,37 @@ const Home = () => {
     setLoading(false);
   }, []);
 
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: 'Printed Document', 
+});
 
-  const DashboardStatItem = ({ icon, color, label, value }) => (
+  const DashboardStatItem = ({ icon, color, label, value, percentage }) => {
+    const isIncrease = percentage >= 0;
+
+    return (
   <div className="dashboard-stat">
-    <div>
+    <div className="dashboard-analytics">
       {icon === 'FaMoneyBillAlt' && <FaMoneyBillAlt color={color} className="dashboard-icon" />}
       {icon === 'FaShoppingCart' && <FaShoppingCart color={color} className="dashboard-icon" />}
       {icon === 'FaDollarSign' && <FaDollarSign color={color} className="dashboard-icon" />}
       {icon === 'FaUsers' && <FaUsers color={color} className="dashboard-icon" />}
-      <p>{label}</p>
       <h3 style={{ color }}>{value}</h3>
     </div>
+    <div className='statRatio-div'>
+      <p>{label}</p>
+      <div className={`statRatio-divs ${isIncrease ? 'increase' : 'decrease'}`}>
+        {isIncrease ? (
+          <FaArrowUp className="stat-icon" style={{ color: 'green' }}/>
+        ) : (
+          <FaArrowDown className="stat-icon" style={{ color: 'red' }}/>
+        )}
+        <p>{percentage}%</p>
+      </div>
+    </div>
   </div>
-);
+    )
+};
 
 
   return (
@@ -103,18 +123,12 @@ const Home = () => {
         <div style={{display: 'flex', gap: '5px', alignItems: 'center'}}>
           <FaHome color='#ff6384' fontSize={25}/><h2>Dashboard</h2>
         </div>
-        <div className='sidebar-username'>
-          <div className="notification-icon-container">
-            <FaBell className="notification-icon" />
-            <div className="notification-dot"></div>
-          </div>
-          <div className="admin-profile">
-            <img src={user} alt="avatar" />
-            <h4>Admin</h4>
-          </div>
+        <div onClick={handlePrint} className="export-button">
+          <FaFileExport className="export-icon" />
+          <span>Export Data</span>
         </div>
       </div>
-      <div style={{display: 'flex', width: '100%', height: '100%'}}>
+      <div ref={componentRef} className="dashboard-home-landing">
         <div className="dashboard-hero">
           <div className="dashboard-stats-container">
             {dashboardStats.map((stat) => (
@@ -124,6 +138,7 @@ const Home = () => {
                 color={stat.color}
                 value={stat.value}
                 label={stat.label}
+                percentage={stat.percentage}
               />
             ))}
             </div>
@@ -134,28 +149,28 @@ const Home = () => {
               <Barchart />
             </div>
           </div>
-          <div className="chart-containe">
+          <div className="recent-orders-container">
             <h3>Recent Orders</h3>
-            <table className="product-table">
+            <table className="dashboard-orders-table">
               <thead>
                 <tr>
                   <th>Order ID</th>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Order Date</th>
                   <th>Address</th>
+                  <th>Order Date</th>
+                  <th>Price</th>
+                  <th>Product</th>
                   <th>Status</th>
                 </tr>
               </thead>
               <tbody>
               {orders.map(order => (
                 <tr key={order.id}>
-                  <td>order.product</td>
+                  <td>{order.id}</td>
                   <td>{order.address}</td>
                   <td>{order.order_date}</td>
-                  <td>order.user</td>
                   <td>${order.total_amount}</td>
-                  <td>${order.shipping_fees}</td>
+                  <td>{order.product}</td>
+                  <td>{order.status}</td>
                 </tr>
               ))}
               </tbody>

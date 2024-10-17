@@ -5,101 +5,160 @@
       "icon": "FaMoneyBillAlt",
       "color": "#FF5733",
       "label": "Revenue",
-      "value": "$12,345"
+      "percentage": "27",
+      "value": "$28,684"
     },
     {
       "id": 2,
       "icon": "FaShoppingCart",
-      "color": "#33FF57",
+      "color": "green",
       "label": "Sales",
-      "value": "678"
+      "percentage": "-13",
+      "value": "972"
     },
     {
       "id": 3,
       "icon": "FaDollarSign",
       "color": "#3357FF",
       "label": "Profit",
-      "value": "$4,321"
+      "percentage": "58",
+      "value": "$6410"
     },
     {
       "id": 4,
       "icon": "FaUsers",
       "color": "#F5A623",
       "label": "Users",
-      "value": "1,234"
+      "percentage": "44",
+      "value": "17,591"
     }
   ],
   "products": [
     {
       "id": 1,
-      "name": "Product 1",
+      "name": "Ledger",
       "price": "$50"
     },
     {
       "id": 2,
-      "name": "Product 2",
-      "price": "$30"
+      "name": "T-shirt",
+      "price": "$20"
+    },
+    {
+      "id": 3,
+      "name": "Cup",
+      "price": "$16"
+    },
+    {
+      "id": 2,
+      "name": "Book",
+      "price": "$45"
+    },
+    {
+      "id": 2,
+      "name": "Bot",
+      "price": "$550"
     }
   ],
   "orders": [
     {
       "id": 1,
-      "product": "Product 1",
-      "price": "$50",
-      "order_date": "2024-09-15",
-      "address": "123 Street",
+      "product": "Bot",
+      "price": "$110",
+      "order_date": "2024-09-16",
+      "address": "Westlands, Suite 330",
       "status": "Shipped",
-      "total_amount": "50",
-      "shipping_fees": "5"
+      "total_amount": "120",
+      "shipping_fees": "10"
     },
     {
       "id": 2,
-      "product": "Product 2",
+      "product": "Mug",
       "price": "$30",
-      "order_date": "2024-09-14",
-      "address": "456 Avenue",
-      "status": "Delivered",
-      "total_amount": "30",
+      "order_date": "2024-09-16",
+      "address": "Bamburi, Kisauni",
+      "status": "Shipped",
+      "total_amount": "20",
       "shipping_fees": "3"
     },
     {
       "id": 3,
-      "product": "Product 2",
+      "product": "T-shirt",
       "price": "$30",
-      "order_date": "2024-09-14",
-      "address": "456 Avenue",
-      "status": "Delivered",
+      "order_date": "2024-09-16",
+      "address": "Langas, Eldoret",
+      "status": "Shipped",
       "total_amount": "30",
       "shipping_fees": "3"
     },
     {
       "id": 4,
-      "product": "Product 2",
+      "product": "Ledger",
       "price": "$30",
-      "order_date": "2024-09-14",
-      "address": "456 Avenue",
-      "status": "Delivered",
-      "total_amount": "30",
+      "order_date": "2024-09-16",
+      "address": "Kayole, Nakuru",
+      "status": "Shipped",
+      "total_amount": "250",
       "shipping_fees": "3"
     },
     {
       "id": 5,
-      "product": "Product 2",
+      "product": "Bot",
       "price": "$30",
-      "order_date": "2024-09-14",
-      "address": "456 Avenue",
+      "order_date": "2024-09-15",
+      "address": "Nyali, Mombasa",
       "status": "Delivered",
-      "total_amount": "30",
+      "total_amount": "120",
       "shipping_fees": "3"
     },
     {
       "id": 6,
-      "product": "Product 2",
+      "product": "Ledger",
       "price": "$30",
-      "order_date": "2024-09-14",
-      "address": "456 Avenue",
+      "order_date": "2024-09-15",
+      "address": "Banana, Kiambu",
       "status": "Delivered",
-      "total_amount": "30",
+      "total_amount": "250",
+      "shipping_fees": "3"
+    },
+    {
+      "id": 7,
+      "product": "Ledger",
+      "price": "$30",
+      "order_date": "2024-09-15",
+      "address": "Makongeni, Thika",
+      "status": "Delivered",
+      "total_amount": "250",
+      "shipping_fees": "3"
+    },
+    {
+      "id": 8,
+      "product": "Bot",
+      "price": "$30",
+      "order_date": "2024-09-15",
+      "address": "Thogoto, Nairobi",
+      "status": "Delivered",
+      "total_amount": "120",
+      "shipping_fees": "3"
+    },
+    {
+      "id": 9,
+      "product": "Bot",
+      "price": "$30",
+      "order_date": "2024-09-15",
+      "address": "Ruaka, Nairobi",
+      "status": "Delivered",
+      "total_amount": "120",
+      "shipping_fees": "3"
+    },
+    {
+      "id": 10,
+      "product": "Ledger",
+      "price": "$30",
+      "order_date": "2024-09-15",
+      "address": "Kibos, Kisumu",
+      "status": "Delivered",
+      "total_amount": "250",
       "shipping_fees": "3"
     }
   ],
@@ -112,10 +171,10 @@
     { "month": "June", "orders_count": 160 }
   ],
   "topProducts": [
-    { "product_name": "Product 1", "num_orders": 50 },
-    { "product_name": "Product 2", "num_orders": 80 },
-    { "product_name": "Product 3", "num_orders": 65 },
-    { "product_name": "Product 4", "num_orders": 90 }
+    { "product_name": "Book", "num_orders": 50 },
+    { "product_name": "Battlr Bot", "num_orders": 80 },
+    { "product_name": "T-shirt", "num_orders": 65 },
+    { "product_name": "Ledger", "num_orders": 90 }
   ],
   "productCategories": [
     { "category": "Electronics", "count": 30 },

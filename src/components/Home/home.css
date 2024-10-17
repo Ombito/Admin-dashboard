@@ -12,37 +12,80 @@
 }
 .navbar-div {
   display: flex;
+  position: fixed;
+  top: 0;
+  padding: 0 10px;
+  width: 85%;
+  z-index: 1000;
+  background-color: #fefefe;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
 }
+.export-button {
+  display: flex; 
+  align-items: center; 
+  color: #ff6384;
+  border: 1px solid gray; 
+  border-radius: 4px; 
+  padding: 7px 10px; 
+  font-weight: bold;
+  cursor: pointer; 
+  margin: auto 0;
+  margin-right: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.export-button:hover {
+  background-color: #45a049;
+  color: #fff;
+  .export-icon {
+    color: #fff;
+  }
+}
+
+.export-icon {
+  color: #ff6384;
+  margin-right: 8px; 
+}
+.dashboard-home-landing {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  margin-top: 70px;
+}
 .dashboard-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   width: 100%;
 }
 .dashboard-stats-container {
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0;
+  width: 100%;
   justify-content: space-between;
-  margin-top: -1.5%;
-}
-.dashboard-stats-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 3%;
 }
 .dashboard-stat {
   display: flex;
-  width: 17%;
-  align-items: center;
-  padding: 10px 60px;
-  gap: 10px;
-  text-align: center;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  padding: 10px 20px;
   border-radius: 4px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+}
+.dashboard-analytics {
+  display: flex;
 }
 .dashboard-icon {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  margin-right: 3px;
 }
-.dashboard-stat div {
+.statRatio-div {
   display: flex;
-  flex-direction: column;
 }
 .dashboard-stat p {
   margin: 0;
@@ -50,26 +93,43 @@
 .dashboard-stat h3 {
   margin: 5px 0;
 }
+.statRatio-div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.statRatio-divs {
+  display: flex;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+.statRatio-divs.increase {
+  background-color: #d4edda; 
+  border: 1px solid #c3e6cb; 
+}
+.statRatio-divs.decrease {
+  background-color: #f8d7da; 
+  border: 1px solid #f5c6cb;
+}
 .dashboard-top-products {
   width: 270px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding-left: 10px;
   margin-left: 15px;
 }
-.top-products-div {
-  display: flex;
-  gap: 15px;
-  padding-bottom: 10px;
+.recent-orders-container {
+  margin: 10px 0;
 }
-.orders-table {
-  width: 100%;
+.dashboard-orders-table {
+  width: 96%;
   border-collapse: collapse;
+  margin: auto;
 }
-.orders-table th,
-.orders-table td {
+.dashboard-orders-table th,
+.dashboard-orders-table td {
   border: 1px solid #ddd;
   padding: 4px;
-  width: 120px;
+  width: auto;
 }
 .dashboard-icon {
   font-size: 2rem;

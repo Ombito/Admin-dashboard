@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaHome, FaUser, FaCog, FaClipboardList, FaShoppingCart, FaSignOutAlt, FaDollarSign, FaGift, FaHeadset } from 'react-icons/fa';
+import { FaHome, FaUser, FaCog, FaClipboardList, FaShoppingCart, FaSignOutAlt, FaDollarSign, FaFileInvoice, FaGift, FaHeadset, FaEnvelope } from 'react-icons/fa';
 import './sidebar.css'; 
 import logo from "../../Assets/banner.jpg";
 import user from "../../Assets/user.jpg";
@@ -11,7 +11,7 @@ const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [ticketTitle, setTicketTitle] = useState('');
   const [ticketDescription, setTicketDescription] = useState('');
-
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
   const handleNavigate = (route) => {
     navigate(route);
@@ -35,6 +35,30 @@ const Sidebar = () => {
     handleClose(); 
   };
 
+
+  const logoutToggleModal = () => {
+    setIsLogoutModalOpen(true);
+    document.body.style.overflow = 'hidden';
+}
+
+const handleLogout = () => {
+    console.log("User logged out");
+    setIsLogoutModalOpen(false);
+}
+
+const handleLogoutClose = () => {
+  setIsLogoutModalOpen(false);
+  document.body.style.overflow = 'auto';
+};
+
+// Close the modal when clicking outside of it
+// window.onclick = const(event) => {
+//     const modal = document.getElementById('logoutModal');
+//     if (event.target === modal) {
+//         toggleModal();
+//     }
+// };
+
   return (
     <div className="sidebar">
       <div>
@@ -46,9 +70,11 @@ const Sidebar = () => {
             <li onClick={() => handleNavigate('/')}><FaHome color='#ff6384'/><span>Dashboard</span></li>
             <li onClick={() => handleNavigate('/customers')}><FaUser color='#00aeee'/><span>Customers</span></li>
             <li onClick={() => handleNavigate('/orders')}><FaClipboardList color='green'/><span>Orders</span></li>
+            <li onClick={() => handleNavigate('/messages')}><FaEnvelope color='gold'/><span>Messages</span></li>
             <li onClick={() => handleNavigate('/products')}><FaShoppingCart color='purple'/><span>Products</span></li>
-            <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/><span>Gift Cards</span></li>
-            <li onClick={() => handleNavigate('/discounts')}><FaDollarSign color='gold'/><span>Discounts</span></li>
+            <li onClick={() => handleNavigate('/invoices')}><FaFileInvoice color='#4caf50'/><span>Invoices</span></li>
+            <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/><span>Discounts</span></li>
+            {/* <li onClick={() => handleNavigate('/discounts')}><FaDollarSign color='gold'/><span>Discounts</span></li> */}
             <li onClick={() => handleNavigate('/settings')}><FaCog color='#20c997'/><span>Settings</span></li>
           </ul>
         </div>
@@ -108,7 +134,21 @@ const Sidebar = () => {
                 </>
             )}
           </div>
-          <div className='sidebar-user-div'>
+
+          {isLogoutModalOpen && (
+            <div id="logoutModal" className="logout-modal">
+                  <div className="logout-modal-content">
+                    <span className="logout-close" onClick={handleLogoutClose}>&times;</span>
+                    <h2>Confirm Logout</h2>
+                    <p>Are you sure you want to log out?</p>
+                    <button className="confirmLogout" onClick={handleLogout}>Yes</button>
+                    <button className="cancelLogout" onClick={handleLogoutClose}>No</button>
+                  </div>
+                </div>
+
+          )}
+
+          <div onClick={logoutToggleModal} className='sidebar-user-div'>
             <img src={user} alt='profile-icon' />
             <div className='sidebar-user-account'>
               <div className='user-profile-details'>
@@ -117,9 +157,11 @@ const Sidebar = () => {
               </div>
               <div>
                 <FaSignOutAlt color='#ff9f40' fontSize='22' marginRight='90px'/>
+                
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
