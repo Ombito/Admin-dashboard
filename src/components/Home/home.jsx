@@ -137,8 +137,8 @@ const handleExportPDF = () => {
 
 
   return (
-    <div ref={contentRef} className='home-summary'>
-      <>
+    <div className='home-summary'>
+      <div ref={contentRef}>
         <div className="navbar-div">
           <div style={{display: 'flex', gap: '5px', alignItems: 'center'}}>
             <FaHome color='#ff6384' fontSize={25}/><h2>Dashboard</h2>
@@ -203,7 +203,7 @@ const handleExportPDF = () => {
             </div>
           </div>
         </div>
-          </>
+          </div>
       
     </div>
   )

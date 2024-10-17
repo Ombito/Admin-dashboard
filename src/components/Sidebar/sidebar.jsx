@@ -44,6 +44,7 @@ const Sidebar = () => {
 const handleLogout = () => {
     console.log("User logged out");
     setIsLogoutModalOpen(false);
+    navigate('/signin');
 }
 
 const handleLogoutClose = () => {
