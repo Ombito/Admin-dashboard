@@ -48,7 +48,7 @@
 }
 .sidebar-username {
   display: flex;
-  padding: 20px 20px;
+  padding: 15px 20px;
   gap: 25px;
   cursor: pointer;
   width: 100%;

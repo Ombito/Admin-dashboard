@@ -143,9 +143,14 @@ const handleExportPDF = () => {
           <div style={{display: 'flex', gap: '5px', alignItems: 'center'}}>
             <FaHome color='#ff6384' fontSize={25}/><h2>Dashboard</h2>
           </div>
-          <div onClick={handleExportPDF} className="export-button">
-            <FaFileExport className="export-icon" />
-            <span>Export Data</span>
+          <div className='sidebar-username'>
+            <div onClick={handleExportPDF} className="export-button">
+              <FaFileExport className="export-icon" />
+              <span>Export Data</span>
+            </div>
+            <div className="admin-profile">
+              <img src={user} alt="avatar" />
+          </div>
           </div>
         </div>
         <div className="dashboard-home-landing">
