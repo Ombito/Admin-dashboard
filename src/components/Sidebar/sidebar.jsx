@@ -11,7 +11,7 @@ const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [ticketTitle, setTicketTitle] = useState('');
   const [ticketDescription, setTicketDescription] = useState('');
-
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
   const handleNavigate = (route) => {
     navigate(route);
@@ -34,6 +34,30 @@ const Sidebar = () => {
     console.log('Ticket submitted:', { title:ticketTitle, description: ticketDescription });
     handleClose(); 
   };
+
+
+  const logoutToggleModal = () => {
+    setIsLogoutModalOpen(true);
+    document.body.style.overflow = 'hidden';
+}
+
+const handleLogout = () => {
+    // Your logout logic here
+    console.log("User logged out");
+    setIsLogoutModalOpen(false);
+}
+
+const handleLogoutClose = () => {
+  setIsLogoutModalOpen(false);
+};
+
+// Close the modal when clicking outside of it
+// window.onclick = const(event) => {
+//     const modal = document.getElementById('logoutModal');
+//     if (event.target === modal) {
+//         toggleModal();
+//     }
+// };
 
   return (
     <div className="sidebar">
@@ -110,7 +134,21 @@ const Sidebar = () => {
                 </>
             )}
           </div>
-          <div className='sidebar-user-div'>
+
+          {isLogoutModalOpen && (
+            <div id="logoutModal" className="logout-modal">
+                  <div className="logout-modal-content">
+                    <span className="logout-close" onClick={handleLogoutClose}>&times;</span>
+                    <h2>Confirm Logout</h2>
+                    <p>Are you sure you want to log out?</p>
+                    <button className="confirmLogout" onClick={handleLogout}>Yes</button>
+                    <button className="cancelLogout" onClick={handleLogoutClose}>No</button>
+                  </div>
+                </div>
+
+          )}
+
+          <div onClick={logoutToggleModal} className='sidebar-user-div'>
             <img src={user} alt='profile-icon' />
             <div className='sidebar-user-account'>
               <div className='user-profile-details'>
@@ -119,9 +157,11 @@ const Sidebar = () => {
               </div>
               <div>
                 <FaSignOutAlt color='#ff9f40' fontSize='22' marginRight='90px'/>
+                
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
