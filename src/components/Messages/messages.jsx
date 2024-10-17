@@ -5,11 +5,10 @@ const Messages = ({ notifications, markAsRead }) => {
   
 
 const handleViewMore = (id) => {
-    // Mark the notification as read
+
     notifications.map(notif => 
         notif.id === id ? { ...notif, isRead: true } : notif
     );
-    // Here you can also add logic to display more details about the notification
     alert(`Viewing notification from ${notifications.find(notif => notif.id === id).sender}: "${notifications.find(notif => notif.id === id).content}"`);
 };
 
