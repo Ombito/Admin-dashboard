@@ -42,13 +42,13 @@ const Sidebar = () => {
 }
 
 const handleLogout = () => {
-    // Your logout logic here
     console.log("User logged out");
     setIsLogoutModalOpen(false);
 }
 
 const handleLogoutClose = () => {
   setIsLogoutModalOpen(false);
+  document.body.style.overflow = 'auto';
 };
 
 // Close the modal when clicking outside of it
