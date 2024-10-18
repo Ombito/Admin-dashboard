@@ -1,7 +1,5 @@
 .notifications-container {
-    width: 100%;
-    margin: 20px auto; 
-    padding: 20px 10px; 
+    width: 100%; 
     border-radius: 8px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
     background-color: #ffffff; 
@@ -13,7 +11,8 @@ h2 {
 }
 
 .notifications-list {
-    margin-top: 20px; 
+    margin-top: 40px; 
+    padding: 20px 10px;
 }
 
 .notification-item {
@@ -48,6 +47,8 @@ h2 {
     font-size: 1rem; 
     cursor: pointer;
     width: fit-content; 
+    text-align: center;
+    align-items: center;
 }
 
 .viewMore-button:hover {

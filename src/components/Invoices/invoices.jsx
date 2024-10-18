@@ -37,9 +37,9 @@ const Invoices = () => {
     invoiceNumber: 'INV-12345',
     date: 'October 18, 2024',
     billingInfo: {
-        name: 'John Doe',
-        address: '123 Main St, Anytown, USA',
-        email: 'john.doe@example.com',
+        name: 'Kennedy Omondi',
+        address: 'Runda, Kiambu',
+        email: 'kennedyomondi@gmail.com',
     },
     items: [
         { description: 'Web Development Services', quantity: 10, price: 50 },
@@ -65,7 +65,7 @@ const generateInvoicePreview = () => {
       status: 'Pending'
   };
   setPreviewInvoice(newInvoice);
-  setInvoices([...invoices, newInvoice]); // Add to previous invoices
+  setInvoices([...invoices, newInvoice]); 
 };
 
 const generateInvoice = () => {
@@ -73,9 +73,9 @@ const generateInvoice = () => {
       invoiceNumber: `INV-${Math.floor(Math.random() * 10000)}`,
       date: new Date().toLocaleDateString(),
       billingInfo: {
-          name: 'John Doe',
-          address: '123 Main St, Anytown, USA',
-          email: 'john.doe@example.com',
+          name: 'Kennedy Omondi',
+          address: 'Runda, Kiambu',
+          email: 'kennedyomondi@gmail.com',
       },
       items: [
           { description: 'Web Development Services', quantity: 10, price: 50 },
@@ -85,7 +85,7 @@ const generateInvoice = () => {
       status: 'Pending'
   };
   setCurrentInvoice(newInvoice);
-  setInvoices([...invoices, newInvoice]); // Add to previous invoices
+  setInvoices([...invoices, newInvoice]); 
 };
 
 const calculateTotalInvoices = (items) => {
@@ -135,8 +135,8 @@ const InvoiceDocument = ({ invoice }) => (
               <Text>Payment Instructions:</Text>
               <Text>Please make the payment to the following account:</Text>
               <Text>Bank Name: Example Bank</Text>
-              <Text>Account Number: 123456789</Text>
-              <Text>Routing Number: 987654321</Text>
+              <Text>Account Number: 3891649557</Text>
+              <Text>Routing Number: 983476264</Text>
           </View>
 
           <Text className="footer">Thank you for your business!</Text>

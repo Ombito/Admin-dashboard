@@ -3,6 +3,7 @@ import './messages.css';
 import { useNavigate } from 'react-router-dom';
 import user from "../../Assets/user.jpg";
 
+
 const Messages = ({ notifications, markAsRead }) => {
   const navigate = useNavigate();
 
