@@ -1,0 +1,116 @@
+.invoice-container { 
+    margin: 20px auto; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    background-color: #ffffff; 
+}
+.invoice-hero {
+    margin-top: 70px;
+    padding: 10px 20px;
+}
+.invoice-title {
+    text-align: center; 
+    color: #333; 
+}
+
+.invoice-header {
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 20px; 
+}
+
+.billing-info {
+    text-align: right; 
+}
+
+.invoice-table {
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-bottom: 20px; 
+}
+
+.invoice-table th,
+.invoice-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.invoice-table th {
+    background-color: #f4f4f4; 
+}
+
+.total {
+    font-size: 20px; 
+    font-weight: bold; 
+}
+
+.payment-info {
+    margin-top: 20px;
+}
+
+.invoice-footer {
+    text-align: center; 
+    margin-top: 30px; 
+    color: #777; 
+}
+
+
+
+
+
+
+
+
+.generate-button {
+    display: block; /* Full width button */
+    margin: 20px auto; /* Center button horizontally */
+    padding: 10px 20px; /* Padding inside button */
+    background-color: #4caf50; /* Green background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.generate-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.current-invoice {
+    margin-top: 20px; /* Space above current invoice section */
+}
+
+.download-button {
+    display: flex; /* Flexbox for icon and text alignment */
+    align-items: center; /* Center items vertically */
+    padding: 10px; /* Padding inside button */
+    background-color: #007bff; /* Blue background for download button */
+    color: white; /* White text color */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.download-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.invoice-table {
+    width: 100%; /* Full width table */
+    border-collapse: collapse; /* Remove space between borders */
+    margin-top: 20px; /* Space above table */
+}
+
+.invoice-table th,
+.invoice-table td {
+    border: 1px solid #ddd; /* Light gray border */
+    padding: 10px; /* Padding inside cells */
+}
+
+.invoice-table th {
+    background-color: #f4f4f4; /* Light gray background for header */
+}
+
+.invoice-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Zebra striping for rows */
+}

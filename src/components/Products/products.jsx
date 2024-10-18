@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './products.css';
 import user from "../../Assets/user.jpg";
-import { FaBell } from 'react-icons/fa';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -120,13 +119,8 @@ const Products = () => {
       <div className="navbar-div">
         <h2>Product Management</h2>
         <div className='sidebar-username'>
-          <div className="notification-icon-container">
-            <FaBell className="notification-icon" />
-            <div className="notification-dot"></div>
-          </div>
           <div className="admin-profile">
             <img src={user} alt="avatar" />
-            <h4>Admin</h4>
           </div>
         </div>
       </div>

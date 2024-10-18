@@ -1,0 +1,16 @@
+.notification-details-hero {
+    margin-top: 70px;
+    padding: 10px 20px;
+}
+.back-to-notification {
+    color: #ff9f40; 
+    border: none;
+    font-weight: bold;  
+    font-size: 1rem; 
+    cursor: pointer;
+    width: fit-content; 
+}
+
+.back-to-notification:hover {
+    text-decoration: underline;
+}

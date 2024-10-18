@@ -31,13 +31,8 @@ const Settings = () => {
       <div className="navbar-div">
         <h2>Settings</h2>
         <div className='sidebar-username'>
-          <div className="notification-icon-container">
-            <FaBell className="notification-icon" />
-            <div className="notification-dot"></div>
-          </div>
           <div className="admin-profile">
             <img src={user} alt="avatar" />
-            <h4>Admin</h4>
           </div>
         </div>
       </div>
