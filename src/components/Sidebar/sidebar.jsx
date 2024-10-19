@@ -147,8 +147,10 @@ const handleLogoutClose = () => {
                     <span className="logout-close" onClick={handleLogoutClose}>&times;</span>
                     <h2>Confirm Logout</h2>
                     <p>Are you sure you want to log out?</p>
-                    <button className="confirmLogout" onClick={handleLogout}>Yes</button>
-                    <button className="cancelLogout" onClick={handleLogoutClose}>No</button>
+                    <div className="logout-modal-buttons">
+                      <button className="confirmLogout" onClick={handleLogout}>Yes</button>
+                      <button className="cancelLogout" onClick={handleLogoutClose}>No</button>
+                    </div>
                   </div>
                 </div>
 

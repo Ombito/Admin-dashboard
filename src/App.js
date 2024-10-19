@@ -23,8 +23,11 @@ function App() {
   const [notifications, setNotifications] = useState([
     { id: 1, sender: 'System', content: 'Your profile has been updated.', timestamp: '2024-10-17 10:30 AM', isRead: false },
     { id: 2, sender: 'Admin', content: 'New features have been added to your account.', timestamp: '2024-10-16 3:45 PM', isRead: false },
-    { id: 3, sender: 'Support', content: 'Your support ticket has been resolved.', timestamp: '2024-10-15 12:00 PM', isRead: true },
-    { id: 4, sender: 'System', content: 'Scheduled maintenance will occur tonight.', timestamp: '2024-10-14 9:00 AM', isRead: true },
+    { id: 3, sender: 'System', content: 'Scheduled maintenance will occur tonight.', timestamp: '2024-10-14 9:00 AM', isRead: true },
+    { id: 4, sender: 'Support', content: 'We’re here to help! Contact support if you have any questions.', timestamp: '2024-10-09 2:45 PM', isRead: false },
+    { id: 5, sender: 'System', content: 'New security updates are available. Please review them.', timestamp: '2024-10-08 9 AM', isRead: false },
+    { id: 6, sender:'System' ,content:'Explore your dashboard to see personalized recommendations.' ,timestamp:'2024 -10 -07 9 AM' ,isRead:false},
+    { id :7 ,sender:'Admin' ,content:'Set up two-factor authentication for added security.' ,timestamp:'2024 -10 -06 3 PM' ,isRead:false},
 ]);
 
 useEffect(() => {

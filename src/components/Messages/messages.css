@@ -1,13 +1,7 @@
 .notifications-container {
     width: 100%; 
-    border-radius: 8px; 
+    border-radius: 4px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-    background-color: #ffffff; 
-}
-
-h2 {
-    text-align: center; 
-    color: #333; 
 }
 
 .notifications-list {
@@ -17,7 +11,7 @@ h2 {
 
 .notification-item {
     padding: 15px; 
-    border-bottom: 1px solid #eee; 
+    border-bottom: 2px solid #eee; 
 }
 
 .notification-item:last-child {
