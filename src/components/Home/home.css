@@ -9,6 +9,8 @@
 .chart-container {
   display: flex;
   width: 100%;
+  margin: auto;
+  align-items: center;
 }
 .navbar-div {
   display: flex;
@@ -137,7 +139,7 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen  and (max-width: 1200px) {
   .navbar-div {
     width: 100%;
   }

@@ -65,7 +65,7 @@ const handleLogoutClose = () => {
 // };
 
   return (
-   <div>
+   <div className="sidebar-navigation-hero">
      <div className="sidebar">
       <div>
         <img className="logo" src={logo} alt="logo" />
@@ -178,7 +178,7 @@ const handleLogoutClose = () => {
 
     </div>
 
-<div className="hamburgerss" onClick={() => setNavbarIsOpen(!isNavbarOpen)}>
+<div className="hamburger" onClick={() => setNavbarIsOpen(!isNavbarOpen)}>
 {isNavbarOpen ? '✖' : '☰'}
 </div>
 
