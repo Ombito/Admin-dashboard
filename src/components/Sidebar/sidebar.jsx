@@ -178,7 +178,7 @@ const handleLogoutClose = () => {
 
     </div>
 
-<div className="hamburger" onClick={() => setNavbarIsOpen(!isNavbarOpen)}>
+<div className="hamburgerss" onClick={() => setNavbarIsOpen(!isNavbarOpen)}>
 {isNavbarOpen ? '✖' : '☰'}
 </div>
 

@@ -275,12 +275,11 @@
   color: #ff6384; 
 }
 
-
 .sidebar-menu-mobile {
-  display: block; 
+  display: none; 
   background-color: #fff;
   position: fixed;
-  top: 50px;
+  top: 65px;
   color: black;
   left: 0;
   width: 100%;
@@ -302,7 +301,6 @@
     display: none; 
     position: fixed;
     width: auto;
-    left: -250px; 
     transition: left .3s ease;
   }
   .hambuger {
@@ -310,6 +308,10 @@
     z-index: 1005;
     color: black;
     font-size: 30px;
+    font-weight: bold;
+  }
+  .sidebar-menu-mobile {
+    display: block;
   }
 
   
