@@ -5,10 +5,9 @@
 }
 
 .notifications-list {
-    margin-top: 40px; 
+    margin-top: 60px; 
     padding: 20px 10px;
 }
-
 .notification-item {
     padding: 15px; 
     border-bottom: 2px solid #eee; 

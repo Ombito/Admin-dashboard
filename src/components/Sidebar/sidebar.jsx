@@ -83,7 +83,7 @@ const handleLogoutClose = () => {
             </li>
             <li onClick={() => handleNavigate('/products')}><FaShoppingCart color='purple'/><span>Products</span></li>
             <li onClick={() => handleNavigate('/invoices')}><FaFileInvoice color='#4caf50'/><span>Invoices</span></li>
-            <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/><span>Discounts</span></li>
+            <li onClick={() => handleNavigate('/discounts')}><FaGift color='red'/><span>Discounts</span></li>
             {/* <li onClick={() => handleNavigate('/discounts')}><FaDollarSign color='gold'/><span>Discounts</span></li> */}
             <li onClick={() => handleNavigate('/settings')}><FaCog color='#20c997'/><span>Settings</span></li>
           </ul>
