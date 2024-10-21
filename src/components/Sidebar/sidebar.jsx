@@ -75,7 +75,7 @@ const handleLogoutClose = () => {
         <div className='sidebar-hero'>
           <ul className="sidebar-menu">
             <li onClick={() => handleNavigate('/')}><FaHome color='#ff6384'/><span>Dashboard</span></li>
-            <li onClick={() => handleNavigate('/customers')}><FaUser color='#00aeee'/><span>Customers</span></li>
+            <li onClick={() => handleNavigate('/customers')}><FaUser color='#00aeee'/><span>Users</span></li>
             <li onClick={() => handleNavigate('/orders')}><FaClipboardList color='green'/><span>Orders</span></li>
             <li onClick={() => handleNavigate('/messages')}>      
                 <FaEnvelope color='gold'/><span>Messages {unreadCount > 0 && <span className="sidebar-messages-count">{unreadCount}</span> }</span>
@@ -186,14 +186,14 @@ const handleLogoutClose = () => {
 {isNavbarOpen && (
   <div className="sidebar-menu-mobile">
     <ul className="mobile-sidebar-menu">
-      <li onClick={() => handleNavigate('/')}>Dashboard</li>
-      <li onClick={() => handleNavigate('/customers')}>Customers</li>
-      <li onClick={() => handleNavigate('/orders')}>Orders</li>
-      <li onClick={() => handleNavigate('/messages')}>Messages {unreadCount > 0 && `(${unreadCount})`}</li>
-      <li onClick={() => handleNavigate('/products')}>Products</li>
-      <li onClick={() => handleNavigate('/invoices')}>Invoices</li>
-      <li onClick={() => handleNavigate('/gift&vouchers')}>Discounts</li>
-      <li onClick={() => handleNavigate('/settings')}>Settings</li>
+      <li onClick={() => handleNavigate('/')}><FaHome color='#ff6384'/> Dashboard</li>
+      <li onClick={() => handleNavigate('/customers')}><FaUser color='#00aeee'/> Users</li>
+      <li onClick={() => handleNavigate('/orders')}><FaClipboardList color='green'/> Orders</li>
+      <li onClick={() => handleNavigate('/messages')}><FaEnvelope color='gold'/> Messages {unreadCount > 0 && `(${unreadCount})`}</li>
+      <li onClick={() => handleNavigate('/products')}><FaShoppingCart color='purple'/> Products</li>
+      <li onClick={() => handleNavigate('/invoices')}><FaFileInvoice color='#4caf50'/> Invoices</li>
+      <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/> Discounts</li>
+      <li onClick={() => handleNavigate('/settings')}> <FaCog color='#20c997'/> Settings</li>
     </ul>
   </div>
 )}
