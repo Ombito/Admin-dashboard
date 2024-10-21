@@ -135,3 +135,27 @@
   font-size: 2rem;
   margin-bottom: 20px;
 }
+
+
+@media screen and (max-width: 768px) {
+  .navbar-div {
+    width: 100%;
+  }
+  .chart-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .export-button {
+    display: none;
+  }
+  .dashboard-home-landing {
+    margin-top: 90px;
+    width: 100%;
+    padding: 0;
+  }
+  .dashboard-stats-container {
+    margin: 0 auto;
+    width: 95%;
+  }
+}

@@ -16,9 +16,19 @@
 }
 .content {
   width: 100%;
+  flex: 1;
   position: relative;
   padding: 20px;
   margin-left: 250px;
 }
 
 
+@media screen and (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    padding: 0;
+  }
+  .dashboard-landing {
+    top: 25px;
+  }
+}
