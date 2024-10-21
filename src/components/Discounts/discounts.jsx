@@ -26,7 +26,9 @@ const Discounts = () => {
   return (
     <div className="discounts-container">
       <div className="navbar-div">
-        <h2>Discounts</h2>
+        <div className="navbar-div-hero-section">
+          <h2>Discounts</h2>
+        </div>
         <div className='sidebar-username'>
           <div className="admin-profile">
             <img src={user} alt="avatar" />

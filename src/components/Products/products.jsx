@@ -117,7 +117,9 @@ const Products = () => {
   return (
     <div className="product-container">
       <div className="navbar-div">
-        <h2>Product Management</h2>
+        <div className="navbar-div-hero-section">
+          <h2>Products</h2>
+        </div>
         <div className='sidebar-username'>
           <div className="admin-profile">
             <img src={user} alt="avatar" />

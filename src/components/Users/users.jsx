@@ -90,7 +90,9 @@ const Users = () => {
   return (
     <div className="users-container">
       <div className="navbar-div">
-        <h2>User Management</h2>
+        <div className="navbar-div-hero-section">
+          <h2>Users</h2>
+        </div>
         <div className='sidebar-username'>
           <div className="admin-profile">
             <img src={user} alt="avatar" />
