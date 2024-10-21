@@ -189,7 +189,7 @@ const handleLogoutClose = () => {
       <li onClick={() => handleNavigate('/')}><FaHome color='#ff6384'/> Dashboard</li>
       <li onClick={() => handleNavigate('/customers')}><FaUser color='#00aeee'/> Users</li>
       <li onClick={() => handleNavigate('/orders')}><FaClipboardList color='green'/> Orders</li>
-      <li onClick={() => handleNavigate('/messages')}><FaEnvelope color='gold'/> Messages {unreadCount > 0 && `(${unreadCount})`}</li>
+      <li onClick={() => handleNavigate('/messages')}><FaEnvelope color='gold'/> Messages {unreadCount > 0 && <span className="sidebar-messages-count">{unreadCount}</span>}</li>
       <li onClick={() => handleNavigate('/products')}><FaShoppingCart color='purple'/> Products</li>
       <li onClick={() => handleNavigate('/invoices')}><FaFileInvoice color='#4caf50'/> Invoices</li>
       <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/> Discounts</li>
