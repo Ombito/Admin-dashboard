@@ -193,7 +193,7 @@ const handleLogoutClose = () => {
       <li onClick={() => handleNavigate('/messages')}><FaEnvelope color='gold'/> Messages {unreadCount > 0 && <span className="sidebar-messages-count">{unreadCount}</span>}</li>
       <li onClick={() => handleNavigate('/products')}><FaShoppingCart color='purple'/> Products</li>
       <li onClick={() => handleNavigate('/invoices')}><FaFileInvoice color='#4caf50'/> Invoices</li>
-      <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/> Discounts</li>
+      <li onClick={() => handleNavigate('/discounts')}><FaGift color='red'/> Discounts</li>
       <li onClick={() => handleNavigate('/settings')}> <FaCog color='#20c997'/> Settings</li>
     </ul>
   </div>
