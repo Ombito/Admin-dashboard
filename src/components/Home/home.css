@@ -138,9 +138,15 @@
 
 
 @media screen and (max-width: 768px) {
+  .navbar-div {
+    width: 100%;
+  }
   .chart-container {
     display: flex;
     flex-direction: column;
     width: 100%;
+  }
+  .export-button {
+    display: none;
   }
 }

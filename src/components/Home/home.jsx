@@ -141,7 +141,7 @@ const handleExportPDF = () => {
       <div ref={contentRef}>
         <div className="navbar-div">
           <div style={{display: 'flex', gap: '5px', alignItems: 'center'}}>
-            <FaHome color='#ff6384' fontSize={25}/><h2>Dashboard</h2>
+            <h2>Dashboard</h2>
           </div>
           <div className='sidebar-username'>
             <div onClick={handleExportPDF} className="export-button">
