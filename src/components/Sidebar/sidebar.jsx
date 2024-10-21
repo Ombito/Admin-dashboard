@@ -19,6 +19,7 @@ const Sidebar = ({ notifications }) => {
 
   const handleNavigate = (route) => {
     navigate(route);
+    setNavbarIsOpen(false);
   };
 
   const handleOpenTicket = () => {
