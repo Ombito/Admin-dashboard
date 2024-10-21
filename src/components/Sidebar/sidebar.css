@@ -263,13 +263,12 @@
 }
 
 .hambuger {
-  z-index: 1005;
+  display: none;
   color: black;
   font-size: 30px;
   cursor: pointer;
   top: 15px;
-  left: 15px;
-  display: block;
+  left: 15px; 
 }
 
 .hamburger:hover {
@@ -307,10 +306,10 @@
     transition: left .3s ease;
   }
   .hambuger {
+    display: block;
     z-index: 1005;
     color: black;
-    font-size: 3
-    50px;
+    font-size: 30px;
   }
 
   

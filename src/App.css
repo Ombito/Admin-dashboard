@@ -23,18 +23,9 @@
 }
 
 
-.sidebar-menu-mobile {
-  display: block; 
-  background-color: #fff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-}
-
 @media screen and (max-width: 768px) {
   .content {
     margin-left: 0;
+    padding: 0;
   }
 }
