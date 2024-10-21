@@ -67,8 +67,9 @@ const handleLogoutClose = () => {
   return (
    <div className="sidebar-navigation-hero">
      <div className="sidebar">
-      <div>
+      <div className="logo-container">
         <img className="logo" src={logo} alt="logo" />
+        <h3>Flap</h3>
       </div>
       <div className="sidebar-div">
         <div className='sidebar-hero'>
