@@ -140,7 +140,7 @@ const handleExportPDF = () => {
     <div className='home-summary'>
       <div ref={contentRef}>
         <div className="navbar-div">
-          <div style={{display: 'flex', gap: '5px', alignItems: 'center'}}>
+          <div className="navbar-div-hero-section">
             <h2>Dashboard</h2>
           </div>
           <div className='sidebar-username'>

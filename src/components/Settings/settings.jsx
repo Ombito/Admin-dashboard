@@ -29,7 +29,9 @@ const Settings = () => {
   return (
     <div className={`settings-container ${settings.theme === 'dark' ? 'dark-theme' : ''}`}>
       <div className="navbar-div">
-        <h2>Settings</h2>
+        <div className="navbar-div-hero-section">
+          <h2>Settings</h2>
+        </div>
         <div className='sidebar-username'>
           <div className="admin-profile">
             <img src={user} alt="avatar" />

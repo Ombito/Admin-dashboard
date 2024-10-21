@@ -9,6 +9,8 @@
 .chart-container {
   display: flex;
   width: 100%;
+  margin: auto;
+  align-items: center;
 }
 .navbar-div {
   display: flex;
@@ -20,6 +22,11 @@
   background-color: #fefefe;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
+}
+.navbar-div-hero-section {
+  display: flex; 
+  gap: 5px;
+  align-items: center; 
 }
 .export-button {
   display: flex; 
@@ -137,9 +144,12 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen  and (max-width: 1300px) {
   .navbar-div {
     width: 100%;
+  }
+  .navbar-div-hero-section {
+    margin-left: 18px;
   }
   .chart-container {
     display: flex;

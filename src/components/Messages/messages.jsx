@@ -18,7 +18,9 @@ const handleViewMore = (id) => {
 return (
     <div className="notifications-container">
         <div className="navbar-div">
-            <h2>Messages</h2>
+            <div className="navbar-div-hero-section">
+                <h2>Messages</h2>
+            </div>
             <div className='sidebar-username'>
             <div className="admin-profile">
                 <img src={user} alt="avatar" />

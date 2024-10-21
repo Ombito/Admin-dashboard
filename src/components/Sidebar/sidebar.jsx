@@ -19,6 +19,7 @@ const Sidebar = ({ notifications }) => {
 
   const handleNavigate = (route) => {
     navigate(route);
+    setNavbarIsOpen(false);
   };
 
   const handleOpenTicket = () => {
@@ -65,23 +66,24 @@ const handleLogoutClose = () => {
 // };
 
   return (
-   <div>
+   <div className="sidebar-navigation-hero">
      <div className="sidebar">
-      <div>
+      <div className="logo-container">
         <img className="logo" src={logo} alt="logo" />
+        <h3>Flap</h3>
       </div>
       <div className="sidebar-div">
         <div className='sidebar-hero'>
           <ul className="sidebar-menu">
             <li onClick={() => handleNavigate('/')}><FaHome color='#ff6384'/><span>Dashboard</span></li>
-            <li onClick={() => handleNavigate('/customers')}><FaUser color='#00aeee'/><span>Customers</span></li>
+            <li onClick={() => handleNavigate('/customers')}><FaUser color='#00aeee'/><span>Users</span></li>
             <li onClick={() => handleNavigate('/orders')}><FaClipboardList color='green'/><span>Orders</span></li>
             <li onClick={() => handleNavigate('/messages')}>      
                 <FaEnvelope color='gold'/><span>Messages {unreadCount > 0 && <span className="sidebar-messages-count">{unreadCount}</span> }</span>
             </li>
             <li onClick={() => handleNavigate('/products')}><FaShoppingCart color='purple'/><span>Products</span></li>
             <li onClick={() => handleNavigate('/invoices')}><FaFileInvoice color='#4caf50'/><span>Invoices</span></li>
-            <li onClick={() => handleNavigate('/gift&vouchers')}><FaGift color='red'/><span>Discounts</span></li>
+            <li onClick={() => handleNavigate('/discounts')}><FaGift color='red'/><span>Discounts</span></li>
             {/* <li onClick={() => handleNavigate('/discounts')}><FaDollarSign color='gold'/><span>Discounts</span></li> */}
             <li onClick={() => handleNavigate('/settings')}><FaCog color='#20c997'/><span>Settings</span></li>
           </ul>
@@ -178,21 +180,21 @@ const handleLogoutClose = () => {
 
     </div>
 
-<div className="hamburgerss" onClick={() => setNavbarIsOpen(!isNavbarOpen)}>
+<div className="hamburger" onClick={() => setNavbarIsOpen(!isNavbarOpen)}>
 {isNavbarOpen ? '✖' : '☰'}
 </div>
 
 {isNavbarOpen && (
   <div className="sidebar-menu-mobile">
     <ul className="mobile-sidebar-menu">
-      <li onClick={() => handleNavigate('/')}>Dashboard</li>
-      <li onClick={() => handleNavigate('/customers')}>Customers</li>
-      <li onClick={() => handleNavigate('/orders')}>Orders</li>
-      <li onClick={() => handleNavigate('/messages')}>Messages {unreadCount > 0 && `(${unreadCount})`}</li>
-      <li onClick={() => handleNavigate('/products')}>Products</li>
-      <li onClick={() => handleNavigate('/invoices')}>Invoices</li>
-      <li onClick={() => handleNavigate('/gift&vouchers')}>Discounts</li>
-      <li onClick={() => handleNavigate('/settings')}>Settings</li>
+      <li onClick={() => handleNavigate('/')}><FaHome color='#ff6384'/> Dashboard</li>
+      <li onClick={() => handleNavigate('/customers')}><FaUser color='#00aeee'/> Users</li>
+      <li onClick={() => handleNavigate('/orders')}><FaClipboardList color='green'/> Orders</li>
+      <li onClick={() => handleNavigate('/messages')}><FaEnvelope color='gold'/> Messages {unreadCount > 0 && <span className="sidebar-messages-count">{unreadCount}</span>}</li>
+      <li onClick={() => handleNavigate('/products')}><FaShoppingCart color='purple'/> Products</li>
+      <li onClick={() => handleNavigate('/invoices')}><FaFileInvoice color='#4caf50'/> Invoices</li>
+      <li onClick={() => handleNavigate('/discounts')}><FaGift color='red'/> Discounts</li>
+      <li onClick={() => handleNavigate('/settings')}> <FaCog color='#20c997'/> Settings</li>
     </ul>
   </div>
 )}

@@ -8,7 +8,6 @@
     margin-top: 40px; 
     padding: 20px 10px;
 }
-
 .notification-item {
     padding: 15px; 
     border-bottom: 2px solid #eee; 
@@ -47,4 +46,11 @@
 
 .viewMore-button:hover {
     text-decoration: underline;
+}
+
+
+@media screen and (max-width: 1300px) {
+    .notifications-list {
+        margin-top: 60px; 
+    }
 }
