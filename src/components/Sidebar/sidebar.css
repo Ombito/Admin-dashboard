@@ -120,7 +120,6 @@
   width: 600px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
-
 .supportTicket-modal-hero {
   background-color: white;
   color: black;
@@ -208,7 +207,6 @@
   text-align: center;
   margin: auto 0;
 }
-
 .logout-modal {
   display: flex; 
   position: fixed; 
@@ -219,7 +217,6 @@
   height: 100%; 
   background-color: rgba(0,0,0,0.5); 
 }
-
 .logout-modal-content {
   background-color: #fff;
   margin: 15% auto;
@@ -243,19 +240,12 @@
   font-size: 28px;
   font-weight: bold;
 }
-
 .logout-close:hover,
 .logout-close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
-
-/* button {
-  padding: 10px 20px;
-  margin-top: 10px;
-} */
-
 .confirmLogout {
   background-color: #ff9f40; 
   color: white;
@@ -270,4 +260,58 @@
 }
 .cancelLogout:hover {
   background-color: rgb(255, 0, 0); 
+}
+
+.hambuger {
+  z-index: 1005;
+  color: black;
+  font-size: 30px;
+  cursor: pointer;
+  top: 15px;
+  left: 15px;
+  display: block;
+}
+
+.hamburger:hover {
+  color: #ff6384; 
+}
+
+
+.sidebar-menu-mobile {
+  display: block; 
+  background-color: #fff;
+  position: fixed;
+  top: 50px;
+  color: black;
+  left: 0;
+  width: 100%;
+  height: auto; 
+  box-shadow: rgba(0,0,0,.2) -2px -2px; 
+}
+
+.mobile-sidebar-menu {
+  list-style-type: none;
+}
+
+.mobile-sidebar-menu li {
+  padding: 15px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none; 
+    position: fixed;
+    width: auto;
+    left: -250px; 
+    transition: left .3s ease;
+  }
+  .hambuger {
+    z-index: 1005;
+    color: black;
+    font-size: 3
+    50px;
+  }
+
+  
 }

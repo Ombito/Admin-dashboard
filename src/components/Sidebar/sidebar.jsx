@@ -8,6 +8,7 @@ import user from "../../Assets/user.jpg";
 
 const Sidebar = ({ notifications }) => {
   const navigate = useNavigate();
+  const [isNavbarOpen, setNavbarIsOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [ticketTitle, setTicketTitle] = useState('');
   const [ticketDescription, setTicketDescription] = useState('');
@@ -64,7 +65,8 @@ const handleLogoutClose = () => {
 // };
 
   return (
-    <div className="sidebar">
+   <div>
+     <div className="sidebar">
       <div>
         <img className="logo" src={logo} alt="logo" />
       </div>
@@ -172,7 +174,30 @@ const handleLogoutClose = () => {
           
         </div>
       </div>
+
+
     </div>
+
+<div className="hamburger" onClick={() => setNavbarIsOpen(!isNavbarOpen)}>
+{isNavbarOpen ? '✖' : '☰'}
+</div>
+
+{isNavbarOpen && (
+  <div className="sidebar-menu-mobile">
+    <ul className="mobile-sidebar-menu">
+      <li onClick={() => handleNavigate('/')}>Dashboard</li>
+      <li onClick={() => handleNavigate('/customers')}>Customers</li>
+      <li onClick={() => handleNavigate('/orders')}>Orders</li>
+      <li onClick={() => handleNavigate('/messages')}>Messages {unreadCount > 0 && `(${unreadCount})`}</li>
+      <li onClick={() => handleNavigate('/products')}>Products</li>
+      <li onClick={() => handleNavigate('/invoices')}>Invoices</li>
+      <li onClick={() => handleNavigate('/gift&vouchers')}>Discounts</li>
+      <li onClick={() => handleNavigate('/settings')}>Settings</li>
+    </ul>
+  </div>
+)}
+
+   </div>
   );
 };
 

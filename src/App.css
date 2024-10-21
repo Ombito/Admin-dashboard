@@ -16,9 +16,25 @@
 }
 .content {
   width: 100%;
+  flex: 1;
   position: relative;
   padding: 20px;
   margin-left: 250px;
 }
 
 
+.sidebar-menu-mobile {
+  display: block; 
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    margin-left: 0;
+  }
+}
