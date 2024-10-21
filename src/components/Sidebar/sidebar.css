@@ -298,6 +298,8 @@
 
 .mobile-sidebar-menu {
   list-style-type: none;
+  padding: 0 15px;
+  margin: 0;
 }
 
 .mobile-sidebar-menu li {
