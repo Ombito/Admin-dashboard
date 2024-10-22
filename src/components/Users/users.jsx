@@ -99,65 +99,68 @@ const Users = () => {
           </div>
         </div>
       </div>
-      <div className="button-container">
-        <button onClick={handleOpenModal}>Add User</button>
-          {showModal && (
-            <div className="modal">
-              <div className="modal-content">
-                <span className="close" onClick={handleCloseModal}>&times;</span>
-                <form onSubmit={handleSubmit} className="add-user-form">
-                  <div className="name-div">
-                    <input type="text" className="input" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                    <input type="text" className="input" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+      
+      <div className="users-hero-container">
+        <div className="button-container">
+          <button onClick={handleOpenModal}>Add User</button>
+            {showModal && (
+              <div className="modal">
+                <div className="modal-content">
+                  <span className="close" onClick={handleCloseModal}>&times;</span>
+                  <form onSubmit={handleSubmit} className="add-user-form">
+                    <div className="name-div">
+                      <input type="text" className="input" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                      <input type="text" className="input" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                    </div>
+                    <input type="email" className="input" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <input type="phone" className="input" placeholder="Phone number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+                    <input type="password" className="input" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <button type="submit">Add User</button>
+                  </form>
                   </div>
-                  <input type="email" className="input" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
-                  <input type="phone" className="input" placeholder="Phone number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
-                  <input type="password" className="input" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                  <button type="submit">Add User</button>
-                </form>
-                </div>
+            </div>
+          )}
+          <div className="search-bar">
+            <FaSearch className="search-icon" />
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search users..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            /> 
           </div>
-        )}
-        <div className="search-bar">
-          <FaSearch className="search-icon" />
-          <input
-            className="search-input"
-            type="text"
-            placeholder="Search users..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          /> 
         </div>
-      </div>
 
-      <table className="users-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email Address</th>
-            <th>Phone Number</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-        {users
-            .filter(user => {
-              return user.first_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                user.last_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                user.email.toLowerCase().includes(searchQuery.toLowerCase());
-            })
-            .map(filteredUser => (
-              <tr key={filteredUser.id}>
-                <td>{filteredUser.first_name} {filteredUser.last_name}</td>
-                <td>{filteredUser.email}</td>
-                <td>{filteredUser.phone_number}</td>
-                <td>
-                  <button onClick={() => handleRemoveUser(filteredUser.id)}>Remove</button>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+        <table className="users-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email Address</th>
+              <th>Phone Number</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          {users
+              .filter(user => {
+                return user.first_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                  user.last_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                  user.email.toLowerCase().includes(searchQuery.toLowerCase());
+              })
+              .map(filteredUser => (
+                <tr key={filteredUser.id}>
+                  <td>{filteredUser.first_name} {filteredUser.last_name}</td>
+                  <td>{filteredUser.email}</td>
+                  <td>{filteredUser.phone_number}</td>
+                  <td>
+                    <button onClick={() => handleRemoveUser(filteredUser.id)}>Remove</button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

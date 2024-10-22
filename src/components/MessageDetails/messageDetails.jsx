@@ -18,7 +18,7 @@ const MessageDetails = ({ notifications }) => {
         <div className="notification-details">
             <div className="navbar-div">
                 <div className="navbar-div-hero-section">
-                    <h2>Message</h2>
+                    <h2>Messages</h2>
                 </div>
                 <div className='sidebar-username'>
                 <div className="admin-profile">
