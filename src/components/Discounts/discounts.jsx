@@ -35,19 +35,54 @@ const Discounts = () => {
           </div>
         </div>
       </div>
-      <div className="discounts-list">
-        {discounts.map(discount => (
-          <div key={discount.id} className="discount-item">
-            <div className="discount-info">
-              <h3>{discount.name}</h3>
-              <p>Discount: {discount.discountPercentage}%</p>
-              <p>Status: {discount.isActive ? 'Active' : 'Inactive'}</p>
+      <div className='discounts-hero-container'>
+        <div className="discounts-list">
+          {discounts.map(discount => (
+            <div key={discount.id} className="discount-item">
+              <div className="discount-info">
+                <h3>{discount.name}</h3>
+                <p>Discount: {discount.discountPercentage}%</p>
+                <p>Status: {discount.isActive ? 'Active' : 'Inactive'}</p>
+              </div>
+              <button onClick={() => removeDiscount(discount.id)}>Remove</button>
             </div>
-            <button onClick={() => removeDiscount(discount.id)}>Remove</button>
+          ))}
+        </div>
+        <button className="add-discount-button">Add Discount</button>
+        <div className="giftcards-container">
+          <div className="giftcards-content">
+            <form className="giftcard-form">
+              <label htmlFor="giftcard-code">Giftcard Code:</label>
+              <input type="text" id="giftcard-code" name="giftcard-code" />
+              <label htmlFor="giftcard-value">Value:</label>
+              <input type="number" id="giftcard-value" name="giftcard-value" />
+              <button type="submit">Add Giftcard</button>
+            </form>
+
+            <table className="giftcard-table">
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Value</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>GC123456</td>
+                  <td>$50</td>
+                  <td>Active</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        ))}
+        </div>
       </div>
-      <button className="add-discount-button">Add Discount</button>
     </div>
   );
 };
