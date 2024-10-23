@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Barchart from '../Barchart/barchart';
 import Piechart from '../Piechart/piechart';
 import Linegraph from '../Linegraph/linegraph';
@@ -17,6 +18,27 @@ const Home = () => {
   const [orders, setOrders] = useState([]);
   const [dashboardStats, setDashboardStats] = useState([]);
   const contentRef = useRef();
+  const navigate = useNavigate();
+
+
+  const handleStatClick = (index) => {
+    switch (index) {
+      case 0:
+        navigate('/orders'); 
+        break;
+      case 1:
+        navigate('/orders'); 
+        break;
+      case 2:
+        navigate('/analytics'); 
+        break;
+      case 3:
+        navigate('/users'); 
+        break;
+      default:
+        break;
+    }
+  };
 
   useEffect(() => {
     // const fetchDashboardStats = async () => {
@@ -113,23 +135,26 @@ const handleExportPDF = () => {
 
     return (
   <div className="dashboard-stat">
-    <div className="dashboard-analytics">
-      {icon === 'FaMoneyBillAlt' && <FaMoneyBillAlt color={color} className="dashboard-icon" />}
-      {icon === 'FaShoppingCart' && <FaShoppingCart color={color} className="dashboard-icon" />}
-      {icon === 'FaDollarSign' && <FaDollarSign color={color} className="dashboard-icon" />}
-      {icon === 'FaUsers' && <FaUsers color={color} className="dashboard-icon" />}
-      <h3 style={{ color }}>{value}</h3>
-    </div>
-    <div className='statRatio-div'>
-      <p>{label}</p>
-      <div className={`statRatio-divs ${isIncrease ? 'increase' : 'decrease'}`}>
-        {isIncrease ? (
-          <FaArrowUp className="stat-icon" style={{ color: 'green' }}/>
-        ) : (
-          <FaArrowDown className="stat-icon" style={{ color: 'red' }}/>
-        )}
-        <p>{percentage}%</p>
+    <div>
+      <div className="dashboard-analytics">
+        {icon === 'FaMoneyBillAlt' && <FaMoneyBillAlt color={color} className="dashboard-icon" />}
+        {icon === 'FaShoppingCart' && <FaShoppingCart color={color} className="dashboard-icon" />}
+        {icon === 'FaDollarSign' && <FaDollarSign color={color} className="dashboard-icon" />}
+        {icon === 'FaUsers' && <FaUsers color={color} className="dashboard-icon" />}
+        <h3 style={{ color }}>{value}</h3>
       </div>
+      <div className='statRatio-div'>
+        <p>{label}</p>
+        <div className={`statRatio-divs ${isIncrease ? 'increase' : 'decrease'}`}>
+          {isIncrease ? (
+            <FaArrowUp className="stat-icon" style={{ color: 'green' }}/>
+          ) : (
+            <FaArrowDown className="stat-icon" style={{ color: 'red' }}/>
+          )}
+          <p>{percentage}%</p>
+        </div>
+      </div>
+      
     </div>
   </div>
     )
@@ -155,8 +180,8 @@ const handleExportPDF = () => {
         </div>
         <div className="dashboard-home-landing">
           <div className="dashboard-hero">
-            <div className="dashboard-stats-container">
-              {dashboardStats.map((stat) => (
+            <div className="dashboardStatistics">
+              {dashboardStats.map((stat, index) => (<div onClick={() => handleStatClick(index)} className="dashboard-stats-container">
                 <DashboardStatItem
                   key={stat.id}
                   icon={stat.icon}
@@ -164,9 +189,10 @@ const handleExportPDF = () => {
                   value={stat.value}
                   label={stat.label}
                   percentage={stat.percentage}
-                />
-              ))}
+                /> 
               </div>
+            ))}
+            </div>
             <div className="dashboard">
               <div className="chart-container">
                 <Linegraph />

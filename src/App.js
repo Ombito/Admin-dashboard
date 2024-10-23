@@ -59,7 +59,7 @@ const markAsRead = (id) => {
               <Route path="/orders" element={<Orders />} />
               <Route path="/messages" element={<Messages notifications={notifications} markAsRead={markAsRead}/>} />
               <Route path="/messages/:id" element={<MessageDetails notifications={notifications} />} />
-              <Route path="/customers" element={<Users />} />
+              <Route path="/users" element={<Users />} />
               <Route path="/discounts" element={<Discounts />} />
               <Route path="/invoices" element={<Invoices />} />
               <Route path="/gift&vouchers" element={<Giftcard />} />
