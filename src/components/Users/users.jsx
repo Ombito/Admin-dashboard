@@ -3,6 +3,8 @@ import './users.css';
 import user from "../../Assets/user.jpg";
 import { FaSearch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import data from '../data.json';
+
 
 const Users = () => {
   const [users, setUsers] = useState([]);
