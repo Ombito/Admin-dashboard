@@ -180,17 +180,19 @@ const handleExportPDF = () => {
         </div>
         <div className="dashboard-home-landing">
           <div className="dashboard-hero">
-            {dashboardStats.map((stat, index) => (<div onClick={() => handleStatClick(index)} className="dashboard-stats-container">
-              <DashboardStatItem
-                key={stat.id}
-                icon={stat.icon}
-                color={stat.color}
-                value={stat.value}
-                label={stat.label}
-                percentage={stat.percentage}
-              /> 
+            <div className="dashboardStatistics">
+              {dashboardStats.map((stat, index) => (<div onClick={() => handleStatClick(index)} className="dashboard-stats-container">
+                <DashboardStatItem
+                  key={stat.id}
+                  icon={stat.icon}
+                  color={stat.color}
+                  value={stat.value}
+                  label={stat.label}
+                  percentage={stat.percentage}
+                /> 
+              </div>
+            ))}
             </div>
-          ))}
             <div className="dashboard">
               <div className="chart-container">
                 <Linegraph />
