@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAlert } from '../../context/alertContext';
 import Barchart from '../Barchart/barchart';
 import Piechart from '../Piechart/piechart';
 import Linegraph from '../Linegraph/linegraph';
@@ -13,6 +14,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 const Home = () => {
+  const { showAlert } = useAlert();
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
@@ -121,7 +123,8 @@ const handleExportPDF = () => {
       const imgHeight = (canvas.height * imgWidth) / canvas.width; 
 
       pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight); 
-      pdf.save('download.pdf');
+      pdf.save('analytics.pdf');
+      showAlert('success', 'pdf downloaded successfully.');
     })
     .catch((err) => console.error('Error generating PDF', err));
   }

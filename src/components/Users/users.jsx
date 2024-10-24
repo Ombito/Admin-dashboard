@@ -23,24 +23,25 @@ const Users = () => {
   };
 
   useEffect(() => {
-    const apiUrl = `http://127.0.0.1:5555/users`;
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log('Fetched users:', data); 
-        setUsers(data);
-        setLoading(false);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setLoading(false);
-      });
+    // const apiUrl = `http://127.0.0.1:5555/users`;
+    // fetch(apiUrl)
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error(`Network response was not ok: ${response.status}`);
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log('Fetched users:', data); 
+    //     setUsers(data);
+    //     setLoading(false);
+    //     console.log(data);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error fetching data:', error);
+    //     setLoading(false);
+    //   });
+    setUsers(data.users);
   }, []);
 
   const handleOpenModal = () => {
@@ -104,7 +105,7 @@ const Users = () => {
       
       <div className="users-hero-container">
         <div className="button-container">
-          <button onClick={handleOpenModal}>Add User</button>
+          {/* <button onClick={handleOpenModal}>Add User</button>
             {showModal && (
               <div className="modal">
                 <div className="modal-content">
@@ -121,7 +122,7 @@ const Users = () => {
                   </form>
                   </div>
             </div>
-          )}
+          )} */}
           <div className="search-bar">
             <FaSearch className="search-icon" />
             <input
