@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa'; 
+import { AlertProvider } from './context/alertContext';
 import Sidebar from '../src/components/Sidebar/sidebar';
 import Home from '../src/components/Home/home';
 import Products from '../src/components/Products/products';
@@ -12,8 +15,6 @@ import MessageDetails from '../src/components/MessageDetails/messageDetails';
 import Invoices from '../src/components/Invoices/invoices';
 import Settings from '../src/components/Settings/settings';
 import SignIn from '../src/components/Signin/signin';
-import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa'; 
 
 
 function App() {
@@ -46,7 +47,8 @@ const markAsRead = (id) => {
 
   
   return (
-    <div className='app'>
+    <AlertProvider>
+      <div className='app'>
       {user ? (
         <div className='home-app'>
           <div className='dashboard-landing'>
@@ -68,10 +70,11 @@ const markAsRead = (id) => {
             </Routes>
           </div>
         </div>
-      ) : (
-        <SignIn setUser={setUser} />
-      )}
-    </div>
+        ) : (
+          <SignIn setUser={setUser} />
+        )}
+      </div>
+    </AlertProvider>
   )
 }
 
