@@ -27,6 +27,7 @@
   display: flex; 
   gap: 5px;
   align-items: center; 
+  width: 100%;
 }
 .export-button {
   display: flex; 
