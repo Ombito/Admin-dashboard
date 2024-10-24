@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './users.css';
+import { useAlert } from '../../context/alertContext';
 import user from "../../Assets/user.jpg";
 import { FaSearch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
@@ -18,6 +19,7 @@ const Users = () => {
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { showAlert } = useAlert();
   const handleNavigation = (route) => {
     navigate(route);
   };
@@ -86,6 +88,7 @@ const Users = () => {
     if (confirmDelete) {
       const updatedUsers = users.filter(user => user.id !== id);
       setUsers(updatedUsers);
+      showAlert('success', 'User removed successfully.');
     }
   };
 
