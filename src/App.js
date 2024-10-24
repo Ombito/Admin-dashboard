@@ -8,6 +8,7 @@ import Home from '../src/components/Home/home';
 import Products from '../src/components/Products/products';
 import Orders from '../src/components/Orders/orders';
 import Users from '../src/components/Users/users';
+import UserDetails from '../src/components/UserDetails/userDetails';
 import Discounts from '../src/components/Discounts/discounts';
 import Giftcard from '../src/components/Giftcard/giftcard';
 import Messages from '../src/components/Messages/messages';
@@ -62,6 +63,7 @@ const markAsRead = (id) => {
               <Route path="/messages" element={<Messages notifications={notifications} markAsRead={markAsRead}/>} />
               <Route path="/messages/:id" element={<MessageDetails notifications={notifications} />} />
               <Route path="/users" element={<Users />} />
+              <Route path="/user-details" element={<UserDetails />} />
               <Route path="/discounts" element={<Discounts />} />
               <Route path="/invoices" element={<Invoices />} />
               <Route path="/gift&vouchers" element={<Giftcard />} />

@@ -83,8 +83,13 @@ const Users = () => {
     }
   };
 
+  const handleUserClick = (userDetails) => {
+    navigate('/user-details', { state: { user: userDetails } });
+  };
+
+
    const handleRemoveUser = (id) => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this user?');
+    const confirmDelete = window.confirm('Are you sure you want to remove this user?');
     if (confirmDelete) {
       const updatedUsers = users.filter(user => user.id !== id);
       setUsers(updatedUsers);
@@ -144,7 +149,7 @@ const Users = () => {
               <th>Name</th>
               <th>Email Address</th>
               <th>Phone Number</th>
-              <th>Action</th>
+              <th>Role</th>
             </tr>
           </thead>
           <tbody>
@@ -155,13 +160,14 @@ const Users = () => {
                   user.email.toLowerCase().includes(searchQuery.toLowerCase());
               })
               .map(filteredUser => (
-                <tr key={filteredUser.id}>
+                <tr key={filteredUser.id} onClick={() => handleUserClick(filteredUser)}>
                   <td>{filteredUser.first_name} {filteredUser.last_name}</td>
                   <td>{filteredUser.email}</td>
                   <td>{filteredUser.phone_number}</td>
-                  <td>
+                  <td>User</td>
+                  {/* <td>
                     <button onClick={() => handleRemoveUser(filteredUser.id)}>Remove</button>
-                  </td>
+                  </td> */}
                 </tr>
               ))}
           </tbody>

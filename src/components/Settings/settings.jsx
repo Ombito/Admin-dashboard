@@ -11,7 +11,6 @@ const Settings = () => {
     language: 'english',
   });
 
-
   const handleThemeChange = () => {
     const newTheme = settings.theme === 'light' ? 'dark' : 'light';
     setSettings({ ...settings, theme: newTheme });
