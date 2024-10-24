@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './products.css';
 import user from "../../Assets/user.jpg";
 import data from '../data.json';
+import { useAlert } from '../../context/alertContext';
 
 
 const Products = () => {
+  const { showAlert } = useAlert();
   const [products, setProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [groupingFilter, setGroupingFilter] = useState('All');
@@ -113,6 +115,7 @@ const Products = () => {
       });
     }
     console.log('Form submitted!');
+    showAlert('success', 'Product added successfully.');
     handleCloseModal();
   };
 
