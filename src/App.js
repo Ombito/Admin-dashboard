@@ -21,6 +21,9 @@ import SignIn from '../src/components/Signin/signin';
 function App() {
   const [user, setUser] = useState(true);
   const location = useLocation();
+  const [theme, setTheme] = useState('light');
+  const [settingsNotifications, setSettingsNotifications] = useState(true);
+  const [language, setLanguage] = useState('english');
 
   const [notifications, setNotifications] = useState([
     { id: 1, sender: 'System', content: 'Your profile has been updated.', timestamp: '2024-10-17 10:30 AM', isRead: false },
@@ -47,6 +50,37 @@ const markAsRead = (id) => {
   }, [location.pathname]);
 
   
+
+  useEffect(() => {
+    const localTheme = window.localStorage.getItem('theme');
+    // const localNotifications = window.localStorage.getItem('notifications') === 'true';
+    const localLanguage = window.localStorage.getItem('language') || 'english';
+
+    if (localTheme) {
+      setTheme(localTheme);
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(prefersDark ? 'dark' : 'light');
+    }
+
+    // setNotifications(localNotifications);
+    setLanguage(localLanguage);
+  }, []);
+
+  useEffect(() => {
+    document.body.className = theme; // Apply the theme class to the body
+    window.localStorage.setItem('theme', theme); // Save the theme preference
+    // window.localStorage.setItem('notifications', settingsNotifications); // Save notification preference
+    window.localStorage.setItem('language', language); // Save language preference
+  }, [theme, notifications, language]);
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+
+
+
   return (
     <AlertProvider>
       <div className='app'>
@@ -67,7 +101,7 @@ const markAsRead = (id) => {
               <Route path="/discounts" element={<Discounts />} />
               <Route path="/invoices" element={<Invoices />} />
               <Route path="/gift&vouchers" element={<Giftcard />} />
-              <Route path="/settings" element={<Settings />} />
+              <Route path="/settings" element={<Settings theme={theme} toggleTheme={toggleTheme} settingsNotifications={settingsNotifications} setSettingsNotifications={setSettingsNotifications} language={language} setLanguage={setLanguage} />} />
               <Route path="/signin" element={<SignIn setUser={setUser}/>} />
             </Routes>
           </div>

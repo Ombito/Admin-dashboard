@@ -4,29 +4,40 @@ import user from "../../Assets/user.jpg";
 import { FaBell } from 'react-icons/fa';
 
 
-const Settings = () => {
-  const [settings, setSettings] = useState({
-    theme: 'light',
-    notifications: true,
-    language: 'english',
-  });
+// const Settings = () => {
+//   const [settings, setSettings] = useState({
+//     theme: 'light',
+//     notifications: true,
+//     language: 'english',
+//   });
 
-  const handleThemeChange = () => {
-    const newTheme = settings.theme === 'light' ? 'dark' : 'light';
-    setSettings({ ...settings, theme: newTheme });
-  };
+//   const handleThemeChange = () => {
+//     const newTheme = settings.theme === 'light' ? 'dark' : 'light';
+//     setSettings({ ...settings, theme: newTheme });
+//   };
 
+//   const handleNotificationsToggle = () => {
+//     setSettings({ ...settings, notifications: !settings.notifications });
+//   };
+
+//   const handleLanguageChange = (e) => {
+//     const newLanguage = e.target.value;
+//     setSettings({ ...settings, language: newLanguage });
+//   };
+
+
+const Settings = ({ theme, toggleTheme, settingsNotifications, setSettingsNotifications, language, setLanguage }) => {
   const handleNotificationsToggle = () => {
-    setSettings({ ...settings, notifications: !settings.notifications });
+    setSettingsNotifications(prev => !prev);
   };
 
   const handleLanguageChange = (e) => {
-    const newLanguage = e.target.value;
-    setSettings({ ...settings, language: newLanguage });
+    setLanguage(e.target.value);
   };
 
+  
   return (
-    <div className={`settings-container ${settings.theme === 'dark' ? 'dark-theme' : ''}`}>
+    <div className={`settings-container ${theme === 'dark' ? 'dark-theme' : ''}`}>
       <div className="navbar-div">
         <div className="navbar-div-hero-section">
           <h2>Settings</h2>
@@ -39,19 +50,19 @@ const Settings = () => {
       </div>
       <div className="setting-option">
         <label>Theme:</label>
-        <button onClick={handleThemeChange}>{settings.theme === 'light' ? 'Dark' : 'Light'}</button>
+        <button onClick={toggleTheme}>{theme === 'light' ? 'Dark' : 'Light'}</button>
       </div>
       <div className="setting-option">
         <label>Notifications:</label>
         <input
           type="checkbox"
-          checked={settings.notifications}
+          checked={settingsNotifications}
           onChange={handleNotificationsToggle}
         />
       </div>
       <div className="setting-option">
         <label>Language:</label>
-        <select value={settings.language} onChange={handleLanguageChange}>
+        <select value={language} onChange={handleLanguageChange}>
           <option value="english">English</option>
           <option value="spanish">Spanish</option>
         </select>
