@@ -8,6 +8,15 @@
   width: 100%;
   overflow: hidden;
 }
+body.dark {
+  background-color: #121212; /* Dark background */
+  color: white; /* Light text */
+}
+body.dark .navbar-div {
+  background-color: #333; /* Dark navbar */
+}
+
+
 .dashboard-landing {
   overflow: hidden;
   position: fixed;
