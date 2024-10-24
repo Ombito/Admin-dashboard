@@ -9,11 +9,11 @@
   overflow: hidden;
 }
 body.dark {
-  background-color: #121212; /* Dark background */
+  background-color: #121212; 
   color: white; /* Light text */
 }
 body.dark .navbar-div {
-  background-color: #333; /* Dark navbar */
+  background-color: #333; 
 }
 
 

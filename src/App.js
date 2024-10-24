@@ -69,9 +69,9 @@ const markAsRead = (id) => {
 
   useEffect(() => {
     document.body.className = theme; // Apply the theme class to the body
-    window.localStorage.setItem('theme', theme); // Save the theme preference
-    // window.localStorage.setItem('notifications', settingsNotifications); // Save notification preference
-    window.localStorage.setItem('language', language); // Save language preference
+    window.localStorage.setItem('theme', theme); 
+    // window.localStorage.setItem('notifications', settingsNotifications); 
+    window.localStorage.setItem('language', language); 
   }, [theme, notifications, language]);
 
   const toggleTheme = () => {
