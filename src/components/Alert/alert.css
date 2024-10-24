@@ -3,10 +3,10 @@
     position: fixed;
     display: flex;
     align-items: center;
-    right: 10px;
+    right: 3px;
     min-width: 250px;
     padding: 15px;
-    border-radius: 3px;
+    border-radius: 1px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     animation: slideIn 0.5s ease-in-out;

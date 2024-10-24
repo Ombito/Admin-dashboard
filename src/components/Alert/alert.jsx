@@ -59,6 +59,19 @@ const Alert = ({ type, message, duration = 5000, onClose }) => {
     }
   };
 
+  const getProgressColor = () => {
+    switch (type) {
+      case 'success':
+        return { backgroundColor: 'green' };
+      case 'warning':
+        return { backgroundColor: 'orange' };
+      case 'error':
+        return { backgroundColor: 'red' };
+      default:
+        return {};
+    }
+  };
+
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress(prev => {
@@ -88,7 +101,7 @@ const Alert = ({ type, message, duration = 5000, onClose }) => {
           {message}
         </div>
       </div>
-      <div className="alert-progress" style={{ width: `${100 - progress}%` }} />
+      <div className="alert-progress" style={{ width: `${100 - progress}%`, ...getProgressColor() }} />
     </div>
   );
 };
