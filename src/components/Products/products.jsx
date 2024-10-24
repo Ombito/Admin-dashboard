@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './products.css';
 import user from "../../Assets/user.jpg";
+import data from '../data.json';
+
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -20,24 +22,25 @@ const Products = () => {
   });
 
   useEffect(() => {
-    const apiUrl = `http://127.0.0.1:5555/products`;
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log('Fetched products:', data); 
-        setProducts(data);
-        setLoading(false);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setLoading(false);
-      });
+    // const apiUrl = `http://127.0.0.1:5555/products`;
+    // fetch(apiUrl)
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error(`Network response was not ok: ${response.status}`);
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log('Fetched products:', data); 
+    //     setProducts(data);
+    //     setLoading(false);
+    //     console.log(data);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error fetching data:', error);
+    //     setLoading(false);
+    //   });
+    setProducts(data.products);
   }, []);
 
   const handleOpenModal = () => {
