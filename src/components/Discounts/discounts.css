@@ -24,7 +24,7 @@
   align-items: center;
 }
 .discount-item:hover {
-  background-color: #f5f5f5;
+  cursor: pointer;
 }
 .discount-info {
   flex: 1;

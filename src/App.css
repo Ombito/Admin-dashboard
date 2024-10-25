@@ -72,7 +72,13 @@ body.dark .logout-close,
 .logout-close:focus {
   color: white;
 }
-
+body.dark .giftcard-table th {
+  background-color: #121212; 
+}
+body.dark .giftcard-table tr:hover {
+  cursor: pointer;
+  background-color: #333; 
+}
 
 
 
