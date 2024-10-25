@@ -1,7 +1,7 @@
 .notifications-container {
     width: 100%; 
     border-radius: 4px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  */
 }
 
 .notifications-list {
@@ -10,6 +10,7 @@
 }
 .notification-item {
     padding: 15px; 
+    cursor: pointer;
     border-bottom: 2px solid #eee; 
 }
 
@@ -21,14 +22,16 @@
     background-color: #e8f5e9;  
 }
 
-.read {
+/* .read {
     background-color: #f9f9f9; 
-}
+} */
 
 .notification-item p {
     margin: 5px 0; 
 }
-
+.message-sender {
+    font-weight: bold;
+}
 .timestamp {
     font-size: 0.85rem; 
     color: #888; 
