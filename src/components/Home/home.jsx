@@ -32,7 +32,7 @@ const Home = () => {
         navigate('/orders'); 
         break;
       case 2:
-        navigate('/analytics'); 
+        navigate('/products'); 
         break;
       case 3:
         navigate('/users'); 

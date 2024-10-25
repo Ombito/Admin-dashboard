@@ -49,7 +49,7 @@ const markAsRead = (id) => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  
+
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem('theme');
@@ -68,7 +68,7 @@ const markAsRead = (id) => {
   }, []);
 
   useEffect(() => {
-    document.body.className = theme; // Apply the theme class to the body
+    document.body.className = theme;
     window.localStorage.setItem('theme', theme); 
     // window.localStorage.setItem('notifications', settingsNotifications); 
     window.localStorage.setItem('language', language); 
