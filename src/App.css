@@ -17,7 +17,7 @@ body.dark .navbar-div {
 }
 body.dark input {
   background-color: #121212; 
-  /* color: white;  */
+  color: white; 
 }
 .dashboard-landing {
   overflow: hidden;
