@@ -11,8 +11,15 @@
 .settings-container {
     height: 100vh;
     overflow-y: hidden;
-    margin-top: 70px;
+    margin-top: 60px;
     transition: background-color 0.3s ease;
+}
+.settings-hero-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 20px;
+    height: 100%;
 }
 /* .dark-theme {
     background-color: #333;

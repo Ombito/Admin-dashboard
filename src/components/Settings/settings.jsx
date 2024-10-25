@@ -48,24 +48,26 @@ const Settings = ({ theme, toggleTheme, settingsNotifications, setSettingsNotifi
           </div>
         </div>
       </div>
-      <div className="setting-option">
-        <label>Theme:</label>
-        <button onClick={toggleTheme}>{theme === 'light' ? 'Dark' : 'Light'}</button>
-      </div>
-      <div className="setting-option">
-        <label>Notifications:</label>
-        <input
-          type="checkbox"
-          checked={settingsNotifications}
-          onChange={handleNotificationsToggle}
-        />
-      </div>
-      <div className="setting-option">
-        <label>Language:</label>
-        <select value={language} onChange={handleLanguageChange}>
-          <option value="english">English</option>
-          <option value="spanish">Spanish</option>
-        </select>
+      <div className="settings-hero-container">
+        <div className="setting-option">
+          <label>Theme:</label>
+          <button onClick={toggleTheme}>{theme === 'light' ? 'Dark' : 'Light'}</button>
+        </div>
+        <div className="setting-option">
+          <label>Notifications:</label>
+          <input
+            type="checkbox"
+            checked={settingsNotifications}
+            onChange={handleNotificationsToggle}
+          />
+        </div>
+        <div className="setting-option">
+          <label>Language:</label>
+          <select value={language} onChange={handleLanguageChange}>
+            <option value="english">English</option>
+            <option value="spanish">Spanish</option>
+          </select>
+        </div>
       </div>
     </div>
   );
