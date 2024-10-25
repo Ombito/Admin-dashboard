@@ -26,9 +26,12 @@
 .product-table th {
   background-color: #f2f2f2;
 }
-.product-table tr:nth-child(even) {
+.product-table tr:hover {
   background-color: #f2f2f2;
 } 
+/* .product-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}  */
 .product-table tbody {
   display: block;
   max-height: 700px; 
