@@ -7,13 +7,13 @@ const Discounts = () => {
   const discounts = [
     {
       id: 1,
-      name: 'Spring Sale',
+      name: 'Christmas & New Year Sale',
       discountPercentage: 20,
       isActive: true
     },
     {
       id: 2,
-      name: 'Summer Clearance',
+      name: 'Easter Clearance',
       discountPercentage: 30,
       isActive: false
     },
@@ -48,7 +48,6 @@ const Discounts = () => {
             </div>
           ))}
         </div>
-        <button className="add-discount-button">Add Discount</button>
         <div className="giftcards-container">
           <div className="giftcards-content">
             <form className="giftcard-form">
