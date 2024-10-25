@@ -28,6 +28,8 @@ body.dark .navbar-div {
   padding: 20px;
   margin-left: 250px;
 }
+
+
 body.dark .users-table th {
   background-color: #121212; 
 }
@@ -55,6 +57,20 @@ body.dark .message-sender {
 body.dark .unread { 
   background-color: green;
 }
+body.dark .logout-modal-content {
+  background-color: #121212; 
+  color: white;
+}
+/* body.dark .logout-modal {
+  background-color: #333; 
+} */
+body.dark .logout-close:hover,
+.logout-close:focus {
+  color: white;
+}
+
+
+
 @media screen and (max-width: 1300px) {
   .content {
     margin-left: 0;
