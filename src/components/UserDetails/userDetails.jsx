@@ -26,14 +26,14 @@ const UserDetails = () => {
             <p className="role">Role: <span>User</span></p>
           </div>
           <div className="user-info">
-            <p><strong>Email:</strong> {user.email}</p>
-            <p><strong>Phone Number:</strong> {user.phone_number}</p>
-            <p><strong>Date of Birth:</strong> {user.date_of_birth || 'N/A'}</p>
-            <p><strong>Address:</strong> {user.address || 'N/A'}</p>
-            <p><strong>City:</strong> {user.city || 'N/A'}</p>
-            <p><strong>State:</strong> {user.state || 'N/A'}</p>
-            <p><strong>Zip Code:</strong> {user.zip_code || 'N/A'}</p>
-            <p><strong>Country:</strong> {user.country || 'N/A'}</p>
+            <p>{user.email}</p>
+            <p>{user.phone_number}</p>
+            <p>{user.date_of_birth || 'N/A'}</p>
+            <p>{user.address || 'N/A'}</p>
+            <p>{user.city || 'N/A'}</p>
+            <p>{user.state || 'N/A'}</p>
+            <p>{user.zip_code || 'N/A'}</p>
+            <p>{user.country || 'N/A'}</p>
           </div>
         </div>
       ) : (
