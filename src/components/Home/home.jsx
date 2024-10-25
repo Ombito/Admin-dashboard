@@ -154,7 +154,7 @@ const handleExportPDF = () => {
           ) : (
             <FaArrowDown className="stat-icon" style={{ color: 'red' }}/>
           )}
-          <p>{percentage}%</p>
+          <p className='statRatio-div-percentage'>{percentage}%</p>
         </div>
       </div>
       

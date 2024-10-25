@@ -116,8 +116,8 @@
 }
 .statRatio-divs {
   display: flex;
-  padding: 2px 5px;
-  border-radius: 5px;
+  padding: 1px;
+  border-radius: 3px;
 }
 .statRatio-divs.increase {
   background-color: #d4edda; 
@@ -126,6 +126,15 @@
 .statRatio-divs.decrease {
   background-color: #f8d7da; 
   border: 1px solid #f5c6cb;
+}
+.stat-icon {
+  font-weight: bold;
+  font-size: 12px;
+  margin: auto;
+}
+.statRatio-div-percentage {
+  font-weight: bold;
+  font-size: 13px;
 }
 .dashboard-top-products {
   width: 270px;

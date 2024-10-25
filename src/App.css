@@ -34,6 +34,12 @@ body.dark input {
 }
 
 
+body.dark .dashboard-stat {
+  border: 1px solid gray;
+}
+body.dark .statRatio-div-percentage {
+  color: black
+}
 body.dark .users-table th {
   background-color: #121212; 
 }
