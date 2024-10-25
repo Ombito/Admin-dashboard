@@ -15,6 +15,10 @@ body.dark {
 body.dark .navbar-div {
   background-color: #333; 
 }
+body.dark input {
+  background-color: #121212; 
+  /* color: white;  */
+}
 .dashboard-landing {
   overflow: hidden;
   position: fixed;
@@ -64,10 +68,11 @@ body.dark .logout-modal-content {
 /* body.dark .logout-modal {
   background-color: #333; 
 } */
-body.dark .logout-close:hover,
+body.dark .logout-close,
 .logout-close:focus {
   color: white;
 }
+
 
 
 

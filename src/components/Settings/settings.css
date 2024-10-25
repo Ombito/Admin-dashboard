@@ -12,13 +12,12 @@
     height: 100vh;
     overflow-y: hidden;
     margin-top: 70px;
-    background-color: #f9f9f9;
     transition: background-color 0.3s ease;
 }
-.dark-theme {
+/* .dark-theme {
     background-color: #333;
     color: #fff;
-}
+} */
 .setting-option {
     margin-bottom: 10px;
 }
