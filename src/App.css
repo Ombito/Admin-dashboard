@@ -15,8 +15,6 @@ body.dark {
 body.dark .navbar-div {
   background-color: #333; 
 }
-
-
 .dashboard-landing {
   overflow: hidden;
   position: fixed;
@@ -30,7 +28,13 @@ body.dark .navbar-div {
   padding: 20px;
   margin-left: 250px;
 }
-
+body.dark .users-table th {
+  background-color: #121212; 
+}
+body.dark .users-table tr:hover {
+  cursor: pointer;
+  background-color: #333; 
+}
 
 @media screen and (max-width: 1300px) {
   .content {
