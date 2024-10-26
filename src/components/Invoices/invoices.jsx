@@ -17,6 +17,7 @@ const Invoices = () => {
         items: [{ description: '', quantity: 1, price: 0 }],
     });
     const [previewInvoice, setPreviewInvoice] = useState(null);
+    const [selectedInvoices, setSelectedInvoices] = useState([]);
   
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -106,6 +107,26 @@ const generateInvoice = () => {
 const calculateTotalInvoices = (items) => {
   return items.reduce((total, item) => total + item.quantity * item.price, 0);
 };
+
+
+const handleInvoiceCheckboxChange = (invoiceNumber) => {
+    setSelectedInvoices((prevSelected) =>
+      prevSelected.includes(invoiceNumber)
+        ? prevSelected.filter(id => id !== invoiceNumber)
+        : [...prevSelected, invoiceNumber]
+    );
+  };
+
+
+const handleSelectAllChange = (e) => {
+    if (e.target.checked) {
+      const allInvoiceNumbers = invoices.map(invoice => invoice.invoiceNumber);
+      setSelectedInvoices(allInvoiceNumbers);
+    } else {
+      setSelectedInvoices([]);
+    }
+  };
+
 
 const InvoiceDocument = ({ invoice }) => (
   <Document>
@@ -335,6 +356,13 @@ return (
                 <table className="invoice-table">
                     <thead>
                         <tr>
+                            <th>
+                                <input
+                                type="checkbox"
+                                checked={selectedInvoices.length === invoices.length}
+                                onChange={handleSelectAllChange}
+                                />
+                            </th>
                             <th>Invoice Number</th>
                             <th>Date</th>
                             <th>Amount</th>
@@ -344,6 +372,13 @@ return (
                     <tbody>
                         {invoices.map((invoice, index) => (
                             <tr key={index}>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedInvoices.includes(invoice.invoiceNumber)}
+                                        onChange={() => handleInvoiceCheckboxChange(invoice.invoiceNumber)}
+                                    />
+                                    </td>
                                 <td>{invoice.invoiceNumber}</td>
                                 <td>{invoice.date}</td>
                                 <td>${(invoice.items.reduce((total, item) => total + item.quantity * item.price, 0)).toFixed(2)}</td>
