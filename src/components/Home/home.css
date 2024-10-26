@@ -83,6 +83,7 @@
 }
 .dashboard-stats-container:hover {
   cursor: pointer;
+  transform: translateY(-0.2em);
 }
 .dashboard-stat {
   display: flex;
