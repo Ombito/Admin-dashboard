@@ -356,7 +356,7 @@ return (
     </div>
 
       
-  </div> // End of invoice-container
+  </div> 
 );
 };
 

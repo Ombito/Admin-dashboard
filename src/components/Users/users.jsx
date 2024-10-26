@@ -23,6 +23,7 @@ const Users = () => {
   const handleNavigation = (route) => {
     navigate(route);
   };
+  const [selectedUsers, setSelectedUsers] = useState([]);
 
   useEffect(() => {
     // const apiUrl = `http://127.0.0.1:5555/users`;
@@ -97,6 +98,30 @@ const Users = () => {
     }
   };
 
+  const handleCheckboxChange = (userId) => {
+    setSelectedUsers(prevSelected => {
+      if (prevSelected.includes(userId)) {
+        return prevSelected.filter(id => id !== userId); 
+      } else {
+        return [...prevSelected, userId]; 
+      }
+    });
+  };
+
+  const handleSelectAllChange = (e) => {
+    if (e.target.checked) {
+      const allUserIds = users.map(user => user.id);
+      setSelectedUsers(allUserIds);
+    } else {
+      setSelectedUsers([]);
+    }
+  };
+
+  const filteredUsers = users.filter(user =>
+    user.first_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.last_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.email.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className="users-container">
@@ -146,6 +171,13 @@ const Users = () => {
         <table className="users-table">
           <thead>
             <tr>
+              <th>
+                <input
+                  type="checkbox"
+                  checked={selectedUsers.length === filteredUsers.length}
+                  onChange={handleSelectAllChange}
+                />
+              </th>
               <th>Name</th>
               <th>Email Address</th>
               <th>Phone Number</th>
@@ -153,23 +185,24 @@ const Users = () => {
             </tr>
           </thead>
           <tbody>
-          {users
-              .filter(user => {
-                return user.first_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                  user.last_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                  user.email.toLowerCase().includes(searchQuery.toLowerCase());
-              })
-              .map(filteredUser => (
-                <tr key={filteredUser.id} onClick={() => handleUserClick(filteredUser)}>
-                  <td>{filteredUser.first_name} {filteredUser.last_name}</td>
-                  <td>{filteredUser.email}</td>
-                  <td>{filteredUser.phone_number}</td>
-                  <td>User</td>
-                  {/* <td>
-                    <button onClick={() => handleRemoveUser(filteredUser.id)}>Remove</button>
-                  </td> */}
-                </tr>
-              ))}
+            {filteredUsers.map(filteredUser => (
+              <tr key={filteredUser.id} onClick={() => handleUserClick(filteredUser)}>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={selectedUsers.includes(filteredUser.id)}
+                    onChange={(e) => {
+                      e.stopPropagation();
+                      handleCheckboxChange(filteredUser.id);
+                    }}
+                  />
+                </td>
+                <td>{filteredUser.first_name} {filteredUser.last_name}</td>
+                <td>{filteredUser.email}</td>
+                <td>{filteredUser.phone_number}</td>
+                <td>User</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
