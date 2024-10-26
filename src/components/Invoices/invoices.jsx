@@ -294,11 +294,6 @@ return (
 {formData.items.map((item, index) => (
         <div key={index} className="invoice-item">
           <div className="description-container">
-            {index === 0 && (
-              <button type="button" className="add-invoice-btn" onClick={addNewItem}>
-                ➕
-              </button>
-            )}
             <input
               type="text"
               name={`item-${index}-description`}
@@ -321,36 +316,43 @@ return (
             value={item.price}
             onChange={handleInputChange}
           />
+          
+          <button type="button" className="add-invoice-btn" onClick={addNewItem}>
+                ➕
+              </button>
         </div>
       ))}
+  
+              
+            
             
          
             <button className="add-item-button" onClick={addItem}>Add Item</button>
 
-            <h2>Previous Invoices</h2>
-            <table className="invoice-table">
-                <thead>
-                    <tr>
-                        <th>Invoice Number</th>
-                        <th>Date</th>
-                        <th>Amount</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {invoices.map((invoice, index) => (
-                        <tr key={index}>
-                            <td>{invoice.invoiceNumber}</td>
-                            <td>{invoice.date}</td>
-                            {/* Calculate total amount for previous invoices */}
-                            <td>${(invoice.items.reduce((total, item) => total + item.quantity * item.price, 0)).toFixed(2)}</td>
-                            <td>{invoice.status}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-
         </div> {/* End of invoice-form */}
+        <div>
+                <h2>Previous Invoices</h2>
+                <table className="invoice-table">
+                    <thead>
+                        <tr>
+                            <th>Invoice Number</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {invoices.map((invoice, index) => (
+                            <tr key={index}>
+                                <td>{invoice.invoiceNumber}</td>
+                                <td>{invoice.date}</td>
+                                <td>${(invoice.items.reduce((total, item) => total + item.quantity * item.price, 0)).toFixed(2)}</td>
+                                <td>{invoice.status}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
     </div>
 
       
