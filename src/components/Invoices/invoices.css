@@ -113,3 +113,73 @@
 .invoice-table tr:nth-child(even) {
     /* background-color: #f9f9f9;  */
 }
+
+
+
+.invoice-form {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .invoice-form h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .invoice-form input[type="text"],
+  .invoice-form input[type="email"],
+  .invoice-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .invoice-item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  
+  .description-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .add-invoice-btn {
+    background-color: green;
+    border: none;
+    color: black;
+    padding: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  
+  .invoice-item input {
+    margin-bottom: 10px;
+  }
+  
+  @media (min-width: 600px) {
+    .invoice-item {
+      flex-direction: row;
+      gap: 10px;
+    }
+  
+    .description-container input {
+      flex: 1;
+    }
+  }

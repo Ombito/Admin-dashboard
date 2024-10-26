@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import './invoices.css';
+import { useAlert } from '../../context/alertContext';
 import user from "../../Assets/user.jpg";
 import { FaDownload } from 'react-icons/fa';
 import { PDFDownloadLink, Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 
 
 const Invoices = () => {
-  const [invoices, setInvoices] = useState([]);
-  const [currentInvoice, setCurrentInvoice] = useState(null);
-  const [formData, setFormData] = useState({
-    name: '',
-    address: '',
-    email: '',
-    items: [{ description: '', quantity: 1, price: 0 }],
-  });
-  const [previewInvoice, setPreviewInvoice] = useState(null);
+    const { showAlert } = useAlert();
+    const [invoices, setInvoices] = useState([]);
+    const [currentInvoice, setCurrentInvoice] = useState(null);
+    const [formData, setFormData] = useState({
+        name: '',
+        address: '',
+        email: '',
+        items: [{ description: '', quantity: 1, price: 0 }],
+    });
+    const [previewInvoice, setPreviewInvoice] = useState(null);
   
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -32,6 +34,19 @@ const Invoices = () => {
   const addItem = () => {
     setFormData({ ...formData, items: [...formData.items, { description: '', quantity: 1, price: 0 }] });
 };
+
+const addNewItem = () => {
+    const lastItem = formData.items[formData.items.length - 1];
+    if (!lastItem.description || !lastItem.quantity || !lastItem.price) {
+        showAlert('error', 'Please fill in all fields of the current item before adding another.');
+      return;
+    }
+    setFormData({
+      ...formData,
+      items: [...formData.items, { description: '', quantity: '', price: '' }],
+    });
+  };
+
 
   const invoiceData = {
     invoiceNumber: 'INV-12345',
@@ -253,16 +268,14 @@ return (
             </>
         )}
 
-        {/* Invoice Form Section */}
+
         <div className="invoice-form">
             <h2>Create New Invoice</h2>
-            {/* Input Fields */}
             {['name', 'address', 'email'].map((field) => (
                 <input key={field} type={field === 'email' ? 'email' : 'text'} name={field} placeholder={field.charAt(0).toUpperCase() + field.slice(1)} onChange={handleInputChange} />
             ))}
 
-            {/* Items Input Fields */}
-            {formData.items.map((item, index) => (
+            {/* {formData.items.map((item, index) => (
                 <div key={index} className="invoice-item">
                     {['description', 'quantity', 'price'].map((field) => (
                         <input
@@ -275,12 +288,45 @@ return (
                         />
                     ))}
                 </div>
-            ))}
+            ))} */}
+
+
+{formData.items.map((item, index) => (
+        <div key={index} className="invoice-item">
+          <div className="description-container">
+            {index === 0 && (
+              <button type="button" className="add-invoice-btn" onClick={addNewItem}>
+                ➕
+              </button>
+            )}
+            <input
+              type="text"
+              name={`item-${index}-description`}
+              placeholder="Description"
+              value={item.description}
+              onChange={handleInputChange}
+            />
+          </div>
+          <input
+            type="number"
+            name={`item-${index}-quantity`}
+            placeholder="Quantity"
+            value={item.quantity}
+            onChange={handleInputChange}
+          />
+          <input
+            type="number"
+            name={`item-${index}-price`}
+            placeholder="Price"
+            value={item.price}
+            onChange={handleInputChange}
+          />
+        </div>
+      ))}
             
-            {/* Add Item Button */}
+         
             <button className="add-item-button" onClick={addItem}>Add Item</button>
 
-            {/* Previous Invoices Section */}
             <h2>Previous Invoices</h2>
             <table className="invoice-table">
                 <thead>
