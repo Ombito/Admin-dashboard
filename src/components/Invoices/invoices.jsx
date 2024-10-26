@@ -38,7 +38,7 @@ const Invoices = () => {
 const addNewItem = () => {
     const lastItem = formData.items[formData.items.length - 1];
     if (!lastItem.description || !lastItem.quantity || !lastItem.price) {
-        showAlert('error', 'Please fill in all fields of the current item before adding another.');
+        showAlert('error', 'Please fill in all fields before adding another description.');
       return;
     }
     setFormData({
@@ -327,9 +327,9 @@ return (
             
             
          
-            <button className="add-item-button" onClick={addItem}>Add Item</button>
+            {/* <button className="add-item-button" onClick={addItem}>Add Item</button> */}
 
-        </div> {/* End of invoice-form */}
+        </div>
         <div>
                 <h2>Previous Invoices</h2>
                 <table className="invoice-table">
