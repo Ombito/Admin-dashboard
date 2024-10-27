@@ -121,9 +121,9 @@ const handleSelectAllChange = (e) => {
           </View>
           <View style={styles.billingInfo}>
             <Text style={styles.billingTitle}>Billing Information</Text>
-            <Text style={styles.invoiceText}>{invoice.billingInfo.name}</Text>
-            <Text style={styles.invoiceText}>{invoice.billingInfo.address}</Text>
-            <Text style={styles.invoiceText}>{invoice.billingInfo.email}</Text>
+            <Text>{invoice.billingInfo.name}</Text>
+            <Text>{invoice.billingInfo.address}</Text>
+            <Text>{invoice.billingInfo.email}</Text>
           </View>
         </View>
 
@@ -150,11 +150,11 @@ const handleSelectAllChange = (e) => {
         </View>
 
         <View style={styles.paymentInfo}>
-          <Text>Payment Instructions:</Text>
+          <Text>Payment Instructions</Text>
           <Text>Please make the payment to the following account:</Text>
-          <Text>Bank Name: Example Bank</Text>
-          <Text>Account Number: 123456789</Text>
-          <Text>Routing Number: 987654321</Text>
+          <Text>Bank Name: Stanbic Bank</Text>
+          <Text>Account Number: 0010455697543</Text>
+          <Text>Routing Number: 4918472</Text>
         </View>
 
         {/* Footer */}
@@ -271,7 +271,7 @@ const handleSelectAllChange = (e) => {
                         <h3>Payment Instructions</h3>
                         <p>Please make the payment to the following account:</p>
                         <p>Bank Name: Stanbic Bank</p>
-                        <p>Account Number: 001455697543</p>
+                        <p>Account Number: 0010455697543</p>
                         <p>Routing Number: 4918472</p>
                     </div>
 
@@ -356,10 +356,11 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       marginBottom: 20,
+      paddingVertical: 8,
     },
     invoiceNumber: {
       fontSize: 16,
-      fontWeight: 'bold',
+      fontWeight: 'bolder',
     },
     billingInfo: {
       textAlign: 'right',
@@ -368,12 +369,12 @@ const styles = StyleSheet.create({
     },
     billingTitle: {
       fontSize: 14,
-      fontWeight: 'bold',
+      fontWeight: 'bolder',
       marginBottom: 5,
     },
     table: {
       width: '100%',
-      borderCollapse: 'collapse',
+    //   borderCollapse: 'collapse',
       marginBottom: 20,
       marginTop:'20px',
     },
@@ -392,7 +393,7 @@ const styles = StyleSheet.create({
          fontWeight:'bold'
      },
      paymentInfo:{
-         marginTop:'20px',
+         marginTop:'30px',
          gap: '10px',
      },
      footer:{
