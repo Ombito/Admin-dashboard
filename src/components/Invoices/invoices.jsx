@@ -136,7 +136,7 @@ const handleSelectAllChange = (e) => {
           </View>
           {invoice.items.map((item, index) => (
             <View key={index} style={styles.tableRow}>
-              <Text >{item.description}</Text>
+              <Text style={styles.description}>{item.description}</Text>
               <Text>{item.quantity}</Text>
               <Text>${item.price.toFixed(2)}</Text>
               <Text>${(item.quantity * item.price).toFixed(2)}</Text>
@@ -175,6 +175,20 @@ const handleSelectAllChange = (e) => {
                 <div className="admin-profile">
                 <img src={user} alt="avatar" />
                 </div>
+            </div>
+        </div>
+        <div className="analytics-section">
+            <div className="analytics-card">
+                <h3>Total Invoices</h3>
+                <p>{invoices.length}</p>
+            </div>
+            <div className="analytics-card">
+                <h3>Paid Invoices</h3>
+                <p>{invoices.filter(invoice => invoice.status === 'Paid').length}</p>
+            </div>
+            <div className="analytics-card">
+                <h3>Pending Invoices</h3>
+                <p>{invoices.filter(invoice => invoice.status === 'Pending').length}</p>
             </div>
         </div>
         <div className="invoice-hero">
@@ -342,6 +356,7 @@ const styles = StyleSheet.create({
       fontFamily: 'Helvetica',
       fontSize: 12,
       color: 'black',
+      paddingVertical: 8,
     },
     Text: {
         padding: 20,
@@ -372,6 +387,12 @@ const styles = StyleSheet.create({
       fontSize: 14,
       fontWeight: 'bolder',
       marginBottom: 5,
+    },
+    description:{
+        width:'fit-content', 
+        whiteSpace:'nowrap', 
+        overflow:'hidden', 
+        textOverflow:'ellipsis', 
     },
     table: {
       width: '100%',
