@@ -173,7 +173,7 @@ const handleSelectAllChange = (e) => {
                 <div className="current-invoice">
                     <div className="invoice-header">
                         <div>
-                            <h2>Invoice No: {currentInvoice.invoiceNumber}</h2>
+                            <h2>Invoice Number: {currentInvoice.invoiceNumber}</h2>
                             <p>Date: {currentInvoice.date}</p>
                         </div>
                         <div className="billing-info">
@@ -214,9 +214,9 @@ const handleSelectAllChange = (e) => {
                     <div className="payment-info">
                         <h3>Payment Instructions</h3>
                         <p>Please make the payment to the following account:</p>
-                        <p>Bank Name: Example Bank</p>
-                        <p>Account Number: 123456789</p>
-                        <p>Routing Number: 987654321</p>
+                        <p>Bank Name: Stanbic Bank</p>
+                        <p>Account Number: 001455697543</p>
+                        <p>Routing Number: 4918472</p>
                     </div>
 
                     <footer className="invoice-footer">
@@ -224,7 +224,7 @@ const handleSelectAllChange = (e) => {
                     </footer>
 
                     <button className="download-button" onClick={downloadInvoice}>
-                            Download Invoice
+                            Download Invoice <FaDownload style={{marginLeft: '5px'}}/>
                     </button>
                 </div>
             )}
