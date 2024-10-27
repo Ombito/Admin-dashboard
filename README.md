@@ -21,18 +21,18 @@ This Admin Dashboard is a powerful web application designed to provide administr
 This project is built using the following technologies:
 
 - **Frontend**:
-  - React
-  - CSS3 
+  - HTML5
+  - CSS
   - JavaScript (with React library)
 
 - **Backend**:
-  - Node.js / Express.js
-  - Database (MongoDB, MySQL, PostgreSQL)
+  - Flask
+  - Database (PostgreSQL)
 
 - **Tools**:
   - Webpack / Babel for module bundling
   - Git for version control
-  - Docker for containerization (optional)
+  - Docker for containerization
 
 ## Installation
 
