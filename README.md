@@ -20,16 +20,16 @@ This Admin Dashboard is a powerful web application designed to provide administr
 
 This project is built using the following technologies:
 
-- **Frontend**:
+- **Frontend**
   - HTML5
   - CSS
   - JavaScript (with React library)
 
-- **Backend**:
+- **Backend**
   - Flask
   - Database (PostgreSQL)
 
-- **Tools**:
+- **Tools**
   - Webpack / Babel for module bundling
   - Git for version control
   - Docker for containerization
@@ -38,25 +38,25 @@ This project is built using the following technologies:
 
 To set up the Admin Dashboard locally, follow these steps:
 
-1. Clone the repository:
+1. Clone the repository
    ```bash
-   git clone https://github.com/Ombito/admin-dashboard.git
+   git clone https://github.com/Ombito/Admin-dashboard.git
    ```
 
-2. Navigate to the project directory:
+2. Navigate to the project directory
    ```bash
-   cd admin-dashboard
+   cd Admin-dashboard
    ```
 
-3. Install dependencies:
+3. Install dependencies
    ```bash
    npm install
    ```
 
-4. Set up environment variables:
+4. Set up environment variables
    Create a `.env` file in the root directory and add your configuration settings.
 
-5. Start the development server:
+5. Start the development server
    ```bash
    npm start
    ```
@@ -67,8 +67,7 @@ To set up the Admin Dashboard locally, follow these steps:
 
 Once the dashboard is running, you can log in with the following credentials:
 
-- **Admin User**: 
-  - Email: admin@admin.com
+  - Username: admin@admin
   - Password: admin543
 
 Explore the various sections of the dashboard to manage users, view statistics, and configure settings.
@@ -76,7 +75,7 @@ Explore the various sections of the dashboard to manage users, view statistics, 
 
 ## Contributing
 
-Contributions are welcome! If you have suggestions or improvements, please fork the repository and submit a pull request. 
+Contributions are welcome. If you have suggestions or improvements, please fork the repository and submit a pull request. 
 
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature/YourFeature`).
@@ -91,9 +90,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For questions or feedback, feel free to reach out:
+For questions or feedback feel free to reach out:
 
 - **Email**: me@alvinombito.com
 
 
----
