@@ -1,6 +1,3 @@
-.invoice-container { 
-    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  */
-}
 .analytics-section {
     display: flex;
     justify-content: space-between;
@@ -103,7 +100,10 @@
 .invoice-table th {
     /* background-color: #f4f4f4;  */
 }
-
+.checkbox-tr {
+    display: flex;
+    justify-content: center;
+}
 .total {
     font-size: 20px; 
     font-weight: bold; 

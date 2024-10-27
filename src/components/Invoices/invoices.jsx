@@ -162,7 +162,6 @@ const handleSelectAllChange = (e) => {
           <Text>Routing Number: 4918472</Text>
         </View>
 
-        {/* Footer */}
         <Text style={styles.footer}>Thank you for your business!</Text>
       </Page>
     </Document>
@@ -338,7 +337,7 @@ const handleSelectAllChange = (e) => {
                     <tbody>
                         {invoices.map((invoice, index) => (
                             <tr key={index}>
-                                <td>
+                                <td className='checkbox-tr'>
                                     <input
                                         type="checkbox"
                                         checked={selectedInvoices.includes(invoice.invoiceNumber)}
