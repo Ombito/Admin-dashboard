@@ -1,34 +1,36 @@
 .invoice-container { 
-    margin: 20px auto; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  */
 }
 .analytics-section {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    width: 90%;
+    margin: auto;
+    margin-top: 70px;
 }
 
 .analytics-card {
-    background-color: #f4f4f4;
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    flex-grow: 1; /* Allow cards to grow equally */
-    margin-right: 10px; /* Space between cards */
+    flex-grow: 1; 
+    cursor: pointer;
+    margin-right: 15px; 
 }
 
 .analytics-card:last-child {
-    margin-right: 0; /* Remove right margin for last card */
+    margin-right: 0; 
 }
 
 .analytics-card h3 {
-    margin-bottom: 10px; /* Space below heading */
+    margin: 3px; 
 }
 
 .analytics-card p {
-    font-size: 24px; /* Larger font for values */
-    font-weight: bold; /* Bold values */
+    font-size: 24px; 
+    font-weight: bold; 
+    margin: 7px; 
 }
 .invoice-hero {
     margin-top: 70px;
@@ -209,16 +211,16 @@ a:-webkit-any-link {
   
   @media (max-width: 600px) {
     .analytics-section {
-        flex-direction: column; /* Stack cards vertically on small screens */
-        align-items:center; /* Center align cards */
-        gap :10px; /* Add space between stacked cards */
+        flex-direction: column; 
+        align-items:center;
+        gap :10px; 
      }
  
      .analytics-card {
-        width :100%; /* Full width on small screens */
-        margin-right :0; /* Reset right margin */
-        text-align:center; /* Center align text in cards */
-        padding :10px; /* Reduce padding for smaller screens */
+        width :100%;
+        margin-right :0; 
+        text-align:center; 
+        padding: 10px; 
      }
     .invoice-item {
       flex-direction: row;

@@ -85,7 +85,9 @@ body.dark .giftcard-table tr:hover {
   cursor: pointer;
   background-color: #333; 
 }
-
+body.dark .analytics-card {
+  border: 1px solid gray;
+}
 
 
 @media screen and (max-width: 1300px) {
