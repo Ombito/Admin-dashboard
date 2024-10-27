@@ -361,6 +361,7 @@ const styles = StyleSheet.create({
     invoiceNumber: {
       fontSize: 16,
       fontWeight: 'bolder',
+      marginBottom:'10px',
     },
     billingInfo: {
       textAlign: 'right',
