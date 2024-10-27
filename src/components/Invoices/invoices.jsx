@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './invoices.css';
 import { useAlert } from '../../context/alertContext';
 import user from "../../Assets/user.jpg";
 import { FaDownload } from 'react-icons/fa';
 import { PDFDownloadLink, Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+import data from '../data.json';
 
 
 const Invoices = () => {
@@ -20,6 +21,10 @@ const Invoices = () => {
 
   
 
+    useEffect(() => {
+        setInvoices(data.invoices);
+    }, []);
+  
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 

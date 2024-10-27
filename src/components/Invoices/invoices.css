@@ -19,6 +19,9 @@
     margin-right: 15px; 
 }
 
+.analytics-card:hover {
+    transform: scaleY(1.02);
+}
 .analytics-card:last-child {
     margin-right: 0; 
 }

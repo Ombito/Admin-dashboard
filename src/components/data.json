@@ -209,6 +209,36 @@
     { "category": "Clothing", "count": 45 },
     { "category": "Food", "count": 20 },
     { "category": "Books", "count": 15 }
-  ]    
+  ] ,
+  "invoices": [
+    {
+      "invoiceNumber": "INV-1234",
+      "date": "2023-10-01",
+      "billingInfo": {
+        "name": "John Doe",
+        "address": "123 Elm Street, Springfield, IL",
+        "email": "john.doe@example.com"
+      },
+      "items": [
+        { "description": "Consulting Services", "quantity": 2, "price": 150.00 },
+        { "description": "Website Development", "quantity": 1, "price": 1200.00 }
+      ],
+      "status": "Paid"
+    },
+    {
+      "invoiceNumber": "INV-5678",
+      "date": "2023-10-05",
+      "billingInfo": {
+        "name": "Jane Smith",
+        "address": "456 Maple Avenue, Springfield, IL",
+        "email": "jane.smith@example.com"
+      },
+      "items": [
+        { "description": "Graphic Design", "quantity": 3, "price": 200.00 },
+        { "description": "SEO Optimization", "quantity": 1, "price": 300.00 }
+      ],
+      "status": "Pending"
+    }
+  ]   
   }
   
