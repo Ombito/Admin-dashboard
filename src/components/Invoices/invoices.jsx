@@ -121,9 +121,9 @@ const handleSelectAllChange = (e) => {
           </View>
           <View style={styles.billingInfo}>
             <Text style={styles.billingTitle}>Billing Information</Text>
-            <Text>{invoice.billingInfo.name}</Text>
-            <Text>{invoice.billingInfo.address}</Text>
-            <Text>{invoice.billingInfo.email}</Text>
+            <Text style={styles.invoiceText}>{invoice.billingInfo.name}</Text>
+            <Text style={styles.invoiceText}>{invoice.billingInfo.address}</Text>
+            <Text style={styles.invoiceText}>{invoice.billingInfo.email}</Text>
           </View>
         </View>
 
@@ -136,7 +136,7 @@ const handleSelectAllChange = (e) => {
           </View>
           {invoice.items.map((item, index) => (
             <View key={index} style={styles.tableRow}>
-              <Text>{item.description}</Text>
+              <Text >{item.description}</Text>
               <Text>{item.quantity}</Text>
               <Text>${item.price.toFixed(2)}</Text>
               <Text>${(item.quantity * item.price).toFixed(2)}</Text>
@@ -149,11 +149,9 @@ const handleSelectAllChange = (e) => {
           <Text>${calculateTotal().toFixed(2)}</Text>
         </View>
 
-        {/* Optional payment instructions */}
         <View style={styles.paymentInfo}>
           <Text>Payment Instructions:</Text>
           <Text>Please make the payment to the following account:</Text>
-          {/* Replace with actual payment details */}
           <Text>Bank Name: Example Bank</Text>
           <Text>Account Number: 123456789</Text>
           <Text>Routing Number: 987654321</Text>
@@ -345,6 +343,9 @@ const styles = StyleSheet.create({
       fontSize: 12,
       color: 'black',
     },
+    Text: {
+        padding: 20,
+    },
     title: {
       fontSize: 24,
       marginBottom: 20,
@@ -363,6 +364,7 @@ const styles = StyleSheet.create({
     billingInfo: {
       textAlign: 'right',
       paddingVertical: 8,
+      gap: '5px',
     },
     billingTitle: {
       fontSize: 14,
@@ -390,7 +392,8 @@ const styles = StyleSheet.create({
          fontWeight:'bold'
      },
      paymentInfo:{
-         marginTop:'20px'
+         marginTop:'20px',
+         gap: '10px',
      },
      footer:{
          marginTop:'20px',
