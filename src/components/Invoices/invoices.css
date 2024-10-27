@@ -54,6 +54,37 @@
     text-align: right; 
 }
 
+.invoices-controls-hero {
+    display: flex;
+    justify-content: space-between;
+}
+
+.invoices-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.add-invoice-button {
+    padding: 10px 15px; /* Button padding */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.add-invoice-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.search-invoices {
+    padding: 10px; /* Input padding */
+    border: 1px solid #ccc; /* Input border */
+    border-radius: 5px; /* Rounded corners */
+    width: 200px; /* Fixed width for input */
+}
+
+
 .invoice-table {
     width: 100%; 
     border-collapse: collapse; 

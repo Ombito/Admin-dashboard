@@ -312,7 +312,13 @@ const handleSelectAllChange = (e) => {
             )}
 
             <div>
-                <h2>Previous Invoices</h2>
+                <div class="invoices-controls-hero">
+                    <h2>Previous Invoices</h2>
+                    <div className="invoices-controls">
+                        <button className="add-invoice-button">Add Invoice</button>
+                        <input type='text' className="search-invoices" placeholder='Search invoices...' />
+                    </div>
+                </div>
                 <table className="invoice-table">
                     <thead>
                         <tr>
