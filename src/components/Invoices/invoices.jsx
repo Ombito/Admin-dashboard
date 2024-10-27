@@ -110,6 +110,63 @@ const handleSelectAllChange = (e) => {
   };
 
 
+  const InvoiceDocument = ({ invoice }) => (
+    <Document>
+      <Page size="A4" style={styles.page}>
+        <Text style={styles.title}>INVOICE</Text>
+        <View style={styles.header}>
+          <View>
+            <Text style={styles.invoiceNumber}>Invoice Number: {invoice.invoiceNumber}</Text>
+            <Text>Date: {invoice.date}</Text>
+          </View>
+          <View style={styles.billingInfo}>
+            <Text style={styles.billingTitle}>Billing Information</Text>
+            <Text>{invoice.billingInfo.name}</Text>
+            <Text>{invoice.billingInfo.address}</Text>
+            <Text>{invoice.billingInfo.email}</Text>
+          </View>
+        </View>
+
+        <View style={styles.table}>
+          <View style={styles.tableRow}>
+            <Text style={styles.tableHeader}>Description</Text>
+            <Text style={styles.tableHeader}>Quantity</Text>
+            <Text style={styles.tableHeader}>Price</Text>
+            <Text style={styles.tableHeader}>Total</Text>
+          </View>
+          {invoice.items.map((item, index) => (
+            <View key={index} style={styles.tableRow}>
+              <Text>{item.description}</Text>
+              <Text>{item.quantity}</Text>
+              <Text>${item.price.toFixed(2)}</Text>
+              <Text>${(item.quantity * item.price).toFixed(2)}</Text>
+            </View>
+          ))}
+        </View>
+
+        <View style={styles.total}>
+          <Text>Total Amount Due:</Text>
+          <Text>${calculateTotal().toFixed(2)}</Text>
+        </View>
+
+        {/* Optional payment instructions */}
+        <View style={styles.paymentInfo}>
+          <Text>Payment Instructions:</Text>
+          <Text>Please make the payment to the following account:</Text>
+          {/* Replace with actual payment details */}
+          <Text>Bank Name: Example Bank</Text>
+          <Text>Account Number: 123456789</Text>
+          <Text>Routing Number: 987654321</Text>
+        </View>
+
+        {/* Footer */}
+        <Text style={styles.footer}>Thank you for your business!</Text>
+      </Page>
+    </Document>
+  );
+
+
+
   return (
     <div className="invoice-container">
         <div className="navbar-div">
@@ -171,7 +228,8 @@ const handleSelectAllChange = (e) => {
 
             {currentInvoice && (
                 <div className="current-invoice">
-                    <div className="invoice-header">
+                     <h2 style={{textAlign: 'center'}}>INVOICE</h2>
+                    <div className="invoice-header">         
                         <div>
                             <h2>Invoice Number: {currentInvoice.invoiceNumber}</h2>
                             <p>Date: {currentInvoice.date}</p>
@@ -223,9 +281,16 @@ const handleSelectAllChange = (e) => {
                         Thank you for your business!
                     </footer>
 
-                    <button className="download-button" onClick={downloadInvoice}>
-                            Download Invoice <FaDownload style={{marginLeft: '5px'}}/>
-                    </button>
+                    <PDFDownloadLink document={<InvoiceDocument invoice={currentInvoice} />} fileName={`${currentInvoice.invoiceNumber}.pdf`}>
+                {({ loading }) => (
+                  loading ? 
+                  "Loading document..." : 
+                  (<button className="download-button">
+                    Download Invoice 
+                    <FaDownload style={{ marginLeft: '5px' }} />
+                  </button>)
+                )}
+              </PDFDownloadLink>
                 </div>
             )}
 
@@ -271,5 +336,66 @@ const handleSelectAllChange = (e) => {
     </div>
   );
 };
+
+
+const styles = StyleSheet.create({
+    page: {
+      padding: 20,
+      fontFamily: 'Helvetica',
+      fontSize: 12,
+      color: 'black',
+    },
+    title: {
+      fontSize: 24,
+      marginBottom: 20,
+      textAlign: 'center',
+      fontWeight: 'bold',
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginBottom: 20,
+    },
+    invoiceNumber: {
+      fontSize: 16,
+      fontWeight: 'bold',
+    },
+    billingInfo: {
+      textAlign: 'right',
+      paddingVertical: 8,
+    },
+    billingTitle: {
+      fontSize: 14,
+      fontWeight: 'bold',
+      marginBottom: 5,
+    },
+    table: {
+      width: '100%',
+      borderCollapse: 'collapse',
+      marginBottom: 20,
+      marginTop:'20px',
+    },
+    tableRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      paddingVertical: 8,
+    },
+    tableHeader: {
+      fontWeight:'bold',
+      
+     },
+     total:{
+         marginTop:'20px',
+         fontWeight:'bold'
+     },
+     paymentInfo:{
+         marginTop:'20px'
+     },
+     footer:{
+         marginTop:'20px',
+         textAlign:'center'
+     }
+  });
 
 export default Invoices;
