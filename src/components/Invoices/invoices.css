@@ -76,7 +76,12 @@
 }
 
 .current-invoice {
-    margin-top: 20px; 
+    margin: 60px auto; 
+    width: 80%;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .download-button {
@@ -88,12 +93,16 @@
     border-radius: 4px; 
     border: none; 
     cursor: pointer;
+    width: fit-content;
 }
 
 .download-button:hover {
     background-color: #0056b3; 
 }
-
+a:-webkit-any-link {
+    text-decoration: none;
+    width: auto;
+}
 .invoice-table {
     width: 100%; 
     border-collapse: collapse;
@@ -167,17 +176,19 @@
     font-weight: bold;
   }
   
-  
   .invoice-item input {
     margin-bottom: 10px;
   }
   
-  @media (min-width: 600px) {
+  @media (max-width: 600px) {
     .invoice-item {
       flex-direction: row;
       gap: 10px;
     }
-  
+    .current-invoice {
+        width: 95%;
+        padding: 10px;
+    }
     .description-container input {
       flex: 1;
     }
