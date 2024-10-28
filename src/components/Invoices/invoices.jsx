@@ -18,12 +18,17 @@ const Invoices = () => {
         items: [{ description: '', quantity: 1, price: 0 }],
     });
     const [selectedInvoices, setSelectedInvoices] = useState([]);
-
+    const [createInvoiceModal, setCreateInvoiceModal] = useState(false);
   
 
     useEffect(() => {
         setInvoices(data.invoices);
     }, []);
+
+    const invoiceToggleModal = () => {
+      setCreateInvoiceModal(true);
+      // document.body.style.overflow = 'hidden';
+  }
   
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -196,7 +201,9 @@ const handleSelectAllChange = (e) => {
             </div>
         </div>
         <div className="invoice-hero">
-            <div className="invoice-form">
+        {createInvoiceModal && (
+          <div className="invoice-form">
+              
                 <h2>Create New Invoice</h2>
                 {['name', 'address', 'email'].map((field) => (
                     <input
@@ -240,7 +247,9 @@ const handleSelectAllChange = (e) => {
                 <button className="generate-button" onClick={generateInvoice}>
                     Generate New Invoice
                 </button>
+                
             </div>
+          )}
 
             {currentInvoice && (
                 <div className="current-invoice">
@@ -314,7 +323,7 @@ const handleSelectAllChange = (e) => {
                 <div class="invoices-controls-hero">
                     <h2>Previous Invoices</h2>
                     <div className="invoices-controls">
-                        <button className="add-invoice-button">Add Invoice</button>
+                        <button onClick={invoiceToggleModal} className="add-invoice-button">Add Invoice</button>
                         <input type='text' className="search-invoices" placeholder='Search invoices...' />
                     </div>
                 </div>
