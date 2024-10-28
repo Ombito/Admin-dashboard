@@ -268,12 +268,15 @@ a:-webkit-any-link {
         text-align:center; 
         padding: 10px; 
      }
+     .invoice-hero {
+        padding: 0px;
+    }
     .invoice-item {
       flex-direction: row;
       gap: 10px;
     }
     .current-invoice {
-        width: 95%;
+        width: 100%;
         padding: 10px;
     }
     .description-container input {
