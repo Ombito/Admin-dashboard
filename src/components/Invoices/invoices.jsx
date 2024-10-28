@@ -27,7 +27,7 @@ const Invoices = () => {
 
     const invoiceToggleModal = () => {
       setCreateInvoiceModal(true);
-      // document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'auto';
   }
   
   const handleInvoiceClose = () => {
@@ -75,6 +75,7 @@ const Invoices = () => {
         status: 'Pending'
       };
 
+      setCreateInvoiceModal(false);
       setCurrentInvoice(newInvoice);
       setInvoices((prevInvoices) => [...prevInvoices, newInvoice]);
 
@@ -206,7 +207,8 @@ const handleSelectAllChange = (e) => {
         </div>
         <div className="invoice-hero">
         {createInvoiceModal && (
-          <div className="invoice-form">
+          <div className="invoice-form-content">
+            <div className="invoice-form">
               <span className="logout-close" onClick={handleInvoiceClose}>&times;</span>
                 <h2>Create New Invoice</h2>
                 {['name', 'address', 'email'].map((field) => (
@@ -253,6 +255,7 @@ const handleSelectAllChange = (e) => {
                 </button>
                 
             </div>
+          </div>
           )}
 
             {currentInvoice && (
