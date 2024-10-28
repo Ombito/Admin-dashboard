@@ -197,7 +197,8 @@ a:-webkit-any-link {
     top: 0;
     width: 100%; 
     height: 100%; 
-    background-color: rgba(0,0,0,0.5); 
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 253, 253, 0.797); 
   }
 .invoice-form {
     background-color: #fff;
