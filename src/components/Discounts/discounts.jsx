@@ -35,17 +35,17 @@ const handleInputChange = (e) => {
   };
 
   const addDiscount = (e) => {
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault(); 
     if (newDiscount.name && newDiscount.discountPercentage) {
       const newDiscountEntry = {
-        id: discounts.length + 1, // Simple ID assignment
+        id: discounts.length + 1, 
         name: newDiscount.name,
         discountPercentage: parseFloat(newDiscount.discountPercentage),
         code: newDiscount.code,
-        isActive: true // Default to active
+        isActive: true 
       };
       setDiscounts([...discounts, newDiscountEntry]);
-      setNewDiscount({ name: '', discountPercentage: '' }); // Reset form fields
+      setNewDiscount({ name: '', discountPercentage: '' }); 
     } else {
       alert("Please fill in all fields.");
     }
