@@ -41,6 +41,8 @@
 .discount-form {
   display: flex;
   flex-direction: column;
+  margin: auto;
+  width: 80%;
 }
 
 .discount-form label {
@@ -88,5 +90,8 @@ button:hover {
     width: 100%;
     padding: 0;
     margin: auto;
+  }
+  .discount-form {
+    width: 90%;
   }
 }

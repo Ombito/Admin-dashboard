@@ -4,6 +4,7 @@ import user from "../../Assets/user.jpg";
 
 
 const Discounts = () => {
+  const [createDiscountModal, setCreateDiscountModal] = useState(false);
   const [discounts, setDiscounts] = useState([
     {
       id: 1,
@@ -24,7 +25,11 @@ const Discounts = () => {
     discountPercentage: '',
   });
 
-  const handleInputChange = (e) => {
+  const discountToggleModal = () => {
+    setCreateDiscountModal(true);
+    document.body.style.overflow = 'auto';
+}
+const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewDiscount({ ...newDiscount, [name]: value });
   };
@@ -49,6 +54,11 @@ const Discounts = () => {
   const removeDiscount = (id) => {
     setDiscounts(discounts.filter(discount => discount.id !== id));
     console.log(`Remove discount with ID: ${id}`);
+  };
+  
+  const handleDiscountClose = () => {
+    setCreateDiscountModal(false);
+    document.body.style.overflow = 'auto';
   };
 
   return (
@@ -79,6 +89,7 @@ const Discounts = () => {
         <div className="discounts-container">
           <div className="discounts-content">
             <form className="discount-form" onSubmit={addDiscount}>
+            <span className="logout-close" onClick={handleDiscountClose}>&times;</span>
               <label htmlFor="discount-code">Giftcard Code:</label>
               <input type="text" id="discount-code" name="code"value={newDiscount.code} onChange={handleInputChange} required />
               <label htmlFor="discount-name">Giftcard Name:</label>
