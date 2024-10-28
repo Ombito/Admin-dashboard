@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './discounts.css';
 import user from "../../Assets/user.jpg";
 
 
 const Discounts = () => {
-  const discounts = [
+  const [discounts, setDiscounts] = useState([
     {
       id: 1,
       name: 'Christmas & New Year Sale',
@@ -17,9 +17,36 @@ const Discounts = () => {
       discountPercentage: 30,
       isActive: false
     },
-  ];
+  ]);
 
+  const [newDiscount, setNewDiscount] = useState({
+    name: '',
+    discountPercentage: '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewDiscount({ ...newDiscount, [name]: value });
+  };
+
+  const addDiscount = (e) => {
+    e.preventDefault(); // Prevent form submission
+    if (newDiscount.name && newDiscount.discountPercentage) {
+      const newDiscountEntry = {
+        id: discounts.length + 1, // Simple ID assignment
+        name: newDiscount.name,
+        discountPercentage: parseFloat(newDiscount.discountPercentage),
+        isActive: true // Default to active
+      };
+      setDiscounts([...discounts, newDiscountEntry]);
+      setNewDiscount({ name: '', discountPercentage: '' }); // Reset form fields
+    } else {
+      alert("Please fill in all fields.");
+    }
+  };
+  
   const removeDiscount = (id) => {
+    setDiscounts(discounts.filter(discount => discount.id !== id));
     console.log(`Remove discount with ID: ${id}`);
   };
 
@@ -48,14 +75,23 @@ const Discounts = () => {
             </div>
           ))}
         </div>
-        <div className="giftcards-container">
-          <div className="giftcards-content">
-            <form className="giftcard-form">
-              <label htmlFor="giftcard-code">Giftcard Code:</label>
-              <input type="text" id="giftcard-code" name="giftcard-code" />
-              <label htmlFor="giftcard-value">Value:</label>
-              <input type="number" id="giftcard-value" name="giftcard-value" />
-              <button type="submit">Add Giftcard</button>
+        <div className="discounts-container">
+          <div className="discounts-content">
+            <form className="discount-form">
+              <label htmlFor="discount-code">Giftcard Code:</label>
+              <input type="text" id="discount-code" name="code"value={newDiscount.code} onChange={handleInputChange} required />
+              <label htmlFor="discount-name">Giftcard Name:</label>
+              <input 
+                type="text" 
+                id="discount-name" 
+                name="name" 
+                value={newDiscount.name}
+                onChange={handleInputChange} 
+                required 
+              />
+              <label htmlFor="discount-value">Value:</label>
+              <input type="number" id="discount-value" name="discount-value" value={newDiscount.discountPercentage} onChange={handleInputChange} required/>
+              <button type="submit">Add Discount</button>
             </form>
 
             <table className="giftcard-table">
@@ -68,15 +104,18 @@ const Discounts = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>GC123456</td>
-                  <td>$50</td>
-                  <td>Active</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
+                {discounts.map((discount) => (
+                  <tr key={discount.id}>
+                    <td>{discount.code}</td>
+                    <td>{discount.name}</td>
+                    <td>{discount.discountPercentage}%</td>
+                    <td>{discount.isActive ? 'Active' : 'Inactive'}</td>
+                    <td>
+                      <button>Edit</button>
+                      <button onClick={() => removeDiscount(discount.id)}>Delete</button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
