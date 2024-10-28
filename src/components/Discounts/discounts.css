@@ -37,6 +37,23 @@
 .discount-info p {
   margin: 0;
 }
+
+.discount-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.discount-form label {
+  margin-top: 10px;
+}
+
+.discount-form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+
 button {
   padding: 8px 16px;
   color: #fff;

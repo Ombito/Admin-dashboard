@@ -36,6 +36,7 @@ const Discounts = () => {
         id: discounts.length + 1, // Simple ID assignment
         name: newDiscount.name,
         discountPercentage: parseFloat(newDiscount.discountPercentage),
+        code: newDiscount.code,
         isActive: true // Default to active
       };
       setDiscounts([...discounts, newDiscountEntry]);
@@ -77,7 +78,7 @@ const Discounts = () => {
         </div>
         <div className="discounts-container">
           <div className="discounts-content">
-            <form className="discount-form">
+            <form className="discount-form" onSubmit={addDiscount}>
               <label htmlFor="discount-code">Giftcard Code:</label>
               <input type="text" id="discount-code" name="code"value={newDiscount.code} onChange={handleInputChange} required />
               <label htmlFor="discount-name">Giftcard Name:</label>
@@ -90,7 +91,7 @@ const Discounts = () => {
                 required 
               />
               <label htmlFor="discount-value">Value:</label>
-              <input type="number" id="discount-value" name="discount-value" value={newDiscount.discountPercentage} onChange={handleInputChange} required/>
+              <input type="number" id="discount-value" name="discountPercentage" value={newDiscount.discountPercentage} onChange={handleInputChange} required/>
               <button type="submit">Add Discount</button>
             </form>
 
@@ -98,6 +99,7 @@ const Discounts = () => {
               <thead>
                 <tr>
                   <th>Code</th>
+                  <th>Name</th>
                   <th>Value</th>
                   <th>Status</th>
                   <th>Action</th>
@@ -111,7 +113,6 @@ const Discounts = () => {
                     <td>{discount.discountPercentage}%</td>
                     <td>{discount.isActive ? 'Active' : 'Inactive'}</td>
                     <td>
-                      <button>Edit</button>
                       <button onClick={() => removeDiscount(discount.id)}>Delete</button>
                     </td>
                   </tr>
