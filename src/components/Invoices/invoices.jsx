@@ -30,6 +30,10 @@ const Invoices = () => {
       // document.body.style.overflow = 'hidden';
   }
   
+  const handleInvoiceClose = () => {
+    setCreateInvoiceModal(false);
+    document.body.style.overflow = 'auto';
+  };
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
@@ -203,7 +207,7 @@ const handleSelectAllChange = (e) => {
         <div className="invoice-hero">
         {createInvoiceModal && (
           <div className="invoice-form">
-              
+              <span className="logout-close" onClick={handleInvoiceClose}>&times;</span>
                 <h2>Create New Invoice</h2>
                 {['name', 'address', 'email'].map((field) => (
                     <input
