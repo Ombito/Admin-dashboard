@@ -7,13 +7,15 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  padding: 0 10px;
-  margin-top: 70px;
+  margin: auto;
+  margin-top: 80px;
 }
 .discounts-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
+  width: 95%;
+  margin: auto;
 }
 .discount-item {
   border: 1px solid #ccc;
@@ -58,4 +60,16 @@ button:hover {
 }
 .add-discount-button:hover {
   background-color: #d32f2f;
+}
+
+
+@media (max-width: 600px) {
+  .discounts-hero-container {
+    width: 95%;
+  }
+  .discounts-list {
+    width: 100%;
+    padding: 0;
+    margin: auto;
+  }
 }

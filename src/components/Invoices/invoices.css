@@ -6,7 +6,6 @@
     margin: auto;
     margin-top: 75px;
 }
-
 .analytics-card {
     border-radius: 4px;
     padding: 15px;
@@ -15,18 +14,15 @@
     cursor: pointer;
     margin-right: 15px; 
 }
-
 .analytics-card:hover {
     transform: scaleY(1.02);
 }
 .analytics-card:last-child {
     margin-right: 0; 
 }
-
 .analytics-card h3 {
     margin: 3px; 
 }
-
 .analytics-card p {
     font-size: 24px; 
     font-weight: bold; 
@@ -39,29 +35,24 @@
     text-align: center; 
     color: #333; 
 }
-
 .invoice-header {
     display: flex;
     justify-content: space-between; 
     margin-bottom: 20px; 
 }
-
 .billing-info {
     text-align: right; 
 }
-
 .invoices-controls-hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 40px;
 }
-
 .invoices-controls {
     display: flex;
     gap: 10px;
 }
-
 .add-invoice-button {
     padding: 10px 15px; 
     background-color: #007bff; 
@@ -71,19 +62,15 @@
     border-radius: 5px; 
     cursor: pointer; 
 }
-
 .add-invoice-button:hover {
     background-color: #0056b3; 
 }
-
 .search-invoices {
     padding: 10px; 
     border: 1px solid #ccc; 
     border-radius: 5px; 
     width: 200px; 
 }
-
-
 .checkbox-tr {
     display: flex;
     justify-content: center;
@@ -92,7 +79,6 @@
     font-size: 20px; 
     font-weight: bold; 
 }
-
 .payment-info {
     margin-top: 20px;
 }
