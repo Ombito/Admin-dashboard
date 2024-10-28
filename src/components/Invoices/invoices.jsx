@@ -180,7 +180,7 @@ const filteredInvoices = invoices.filter(invoice =>
           <Text>Please make the payment to the following account:</Text>
           <Text>Bank Name: Stanbic Bank</Text>
           <Text>Account Number: 0010455697543</Text>
-          <Text>Routing Number: 4918472</Text>
+          <Text>Branch: Town Center</Text>
         </View>
 
         <Text style={styles.footer}>Thank you for your business!</Text>
@@ -317,7 +317,7 @@ const filteredInvoices = invoices.filter(invoice =>
                         <p>Please make the payment to the following account:</p>
                         <p>Bank Name: Stanbic Bank</p>
                         <p>Account Number: 0010455697543</p>
-                        <p>Routing Number: 4918472</p>
+                        <p>Branch: Town Center</p>
                     </div>
 
                     <footer className="invoice-footer">

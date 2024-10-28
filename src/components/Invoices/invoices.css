@@ -4,7 +4,7 @@
     margin-bottom: 20px;
     width: 90%;
     margin: auto;
-    margin-top: 70px;
+    margin-top: 75px;
 }
 
 .analytics-card {
@@ -84,21 +84,6 @@
 }
 
 
-.invoice-table {
-    width: 100%; 
-    border-collapse: collapse; 
-    margin-bottom: 20px; 
-}
-
-.invoice-table th,
-.invoice-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-}
-
-.invoice-table th {
-    /* background-color: #f4f4f4;  */
-}
 .checkbox-tr {
     display: flex;
     justify-content: center;
@@ -171,21 +156,12 @@ a:-webkit-any-link {
 .invoice-table {
     width: 100%; 
     border-collapse: collapse;
-    margin-top: 20px; 
 }
 
 .invoice-table th,
 .invoice-table td {
     border: 1px solid #ddd; 
     padding: 10px; 
-}
-
-.invoice-table th {
-    /* background-color: #f4f4f4;  */
-}
-
-.invoice-table tr:nth-child(even) {
-    /* background-color: #f9f9f9;  */
 }
 
 
@@ -261,6 +237,7 @@ a:-webkit-any-link {
         flex-direction: column; 
         align-items:center;
         gap :10px; 
+        margin-top: 90px;
      }
  
      .analytics-card {
@@ -271,14 +248,23 @@ a:-webkit-any-link {
      }
      .invoice-hero {
         padding: 0px;
+        width: 95%;
+        margin: auto;
+        overflow-x: auto;
+    }
+    .invoice-form {
+        background-color: #fff;
+        margin: auto;
+        width: 85%;
+        padding: 10px;
     }
     .invoice-item {
       flex-direction: row;
       gap: 10px;
     }
     .current-invoice {
-        width: 100%;
-        padding: 10px;
+        width: 95%;
+        padding: 5px;
     }
     .description-container input {
       flex: 1;
@@ -287,5 +273,8 @@ a:-webkit-any-link {
         display: flex;
         flex-direction: column;
         align-items: start;
+    }
+    .invoice-table {
+        margin: 20px 0;
     }
   }
