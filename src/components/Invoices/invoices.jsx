@@ -19,7 +19,7 @@ const Invoices = () => {
     });
     const [selectedInvoices, setSelectedInvoices] = useState([]);
     const [createInvoiceModal, setCreateInvoiceModal] = useState(false);
-  
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         setInvoices(data.invoices);
@@ -95,6 +95,10 @@ const Invoices = () => {
     return formData.items.reduce((total, item) => total + item.quantity * item.price, 0);
   };
 
+  // const calculateTotalInvoices = (items) => {
+  //   return items.reduce((total, item) => total + item.quantity * item.price, 0);
+  // };
+
   const downloadInvoice = () => {
     if (!currentInvoice) return;
   
@@ -124,6 +128,13 @@ const handleSelectAllChange = (e) => {
     }
   };
 
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+};
+
+const filteredInvoices = invoices.filter(invoice =>
+    invoice.invoiceNumber.toLowerCase().includes(searchTerm.toLowerCase())
+);
 
   const InvoiceDocument = ({ invoice }) => (
     <Document>
@@ -161,7 +172,7 @@ const handleSelectAllChange = (e) => {
 
         <View style={styles.total}>
           <Text>Total Amount Due:</Text>
-          <Text>${calculateTotal().toFixed(2)}</Text>
+          <Text>${(invoice.items.reduce((total, item) => total + item.quantity * item.price, 0)).toFixed(2)}</Text>
         </View>
 
         <View style={styles.paymentInfo}>
@@ -286,19 +297,19 @@ const handleSelectAllChange = (e) => {
                         </thead>
                         <tbody>
                             {currentInvoice.items.map((item, index) => (
-                                <tr key={index}>
+                              <tr key={index}>
                                 <td>{item.description || "N/A"}</td>
                                 <td>{item.quantity || 0}</td>
                                 <td>${item.price.toFixed(2) || "0.00"}</td>
-                                <td>${(item.quantity * item.price).toFixed(2) || "0.00"}</td>
-                                </tr>
+                                <td>${(item.quantity * item.price).toFixed(2) }</td>
+                              </tr>
                             ))}
                         </tbody>
                     </table>
 
                     <div className="total">
                         <h3>Total Amount Due:</h3>
-                        <p>${calculateTotal().toFixed(2)}</p>
+                        <p>${(currentInvoice.items.reduce((total, item) => total + item.quantity * item.price, 0)).toFixed(2)}</p>
                     </div>
 
                     <div className="payment-info">
@@ -314,15 +325,15 @@ const handleSelectAllChange = (e) => {
                     </footer>
 
                     <PDFDownloadLink document={<InvoiceDocument invoice={currentInvoice} />} fileName={`${currentInvoice.invoiceNumber}.pdf`}>
-                {({ loading }) => (
-                  loading ? 
-                  "Loading document..." : 
-                  (<button className="download-button">
-                    Download Invoice 
-                    <FaDownload style={{ marginLeft: '5px' }} />
-                  </button>)
-                )}
-              </PDFDownloadLink>
+                      {({ loading }) => (
+                        loading ? 
+                        "Loading document..." : 
+                        (<button className="download-button" disabled={loading}>
+                          Download Invoice 
+                          <FaDownload style={{ marginLeft: '5px' }} />
+                        </button>)
+                      )}
+                    </PDFDownloadLink>
                 </div>
             )}
 
@@ -331,7 +342,7 @@ const handleSelectAllChange = (e) => {
                     <h2>Previous Invoices</h2>
                     <div className="invoices-controls">
                         <button onClick={invoiceToggleModal} className="add-invoice-button">Add Invoice</button>
-                        <input type='text' className="search-invoices" placeholder='Search invoices...' />
+                        <input type='text' className="search-invoices" placeholder='Search invoices...' value={searchTerm} onChange={handleSearchChange}/>
                     </div>
                 </div>
                 <table className="invoice-table">
@@ -351,7 +362,7 @@ const handleSelectAllChange = (e) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {invoices.map((invoice, index) => (
+                        {filteredInvoices.map((invoice, index) => (
                             <tr key={index}>
                                 <td className='checkbox-tr'>
                                     <input
