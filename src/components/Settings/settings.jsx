@@ -65,7 +65,7 @@ const Settings = ({ theme, toggleTheme, settingsNotifications, setSettingsNotifi
           <label>Language:</label>
           <select value={language} onChange={handleLanguageChange}>
             <option value="english">English</option>
-            <option value="spanish">Spanish</option>
+            <option value="swahili">Swahili</option>
           </select>
         </div>
       </div>

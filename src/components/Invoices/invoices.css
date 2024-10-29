@@ -46,7 +46,7 @@
 .invoices-controls-hero {
     display: flex;
     margin-top: 40px;
-    width: 100%;
+    padding: 0 10px;
     justify-content: space-between;
 }
 .invoices-controls {
