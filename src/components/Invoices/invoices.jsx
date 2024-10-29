@@ -328,7 +328,7 @@ const filteredInvoices = invoices.filter(invoice =>
                       {({ loading }) => (
                         loading ? 
                         "Loading document..." : 
-                        (<button className="download-button" disabled={loading}>
+                        (<button className="download-button">
                           Download Invoice 
                           <FaDownload style={{ marginLeft: '5px' }} />
                         </button>)

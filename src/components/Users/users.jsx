@@ -24,6 +24,7 @@ const Users = () => {
     navigate(route);
   };
   const [selectedUsers, setSelectedUsers] = useState([]);
+  const [createUsersModal, setCreateUsersModal] = useState(false);
 
   useEffect(() => {
     // const apiUrl = `http://127.0.0.1:5555/users`;
@@ -54,6 +55,10 @@ const Users = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -117,6 +122,12 @@ const Users = () => {
     }
   };
 
+  const usersToggleModal = () => {
+    setCreateUsersModal(true);
+    document.body.style.overflow = 'auto';
+}
+
+
   const filteredUsers = users.filter(user =>
     user.first_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     user.last_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -156,17 +167,19 @@ const Users = () => {
                   </div>
             </div>
           )} */}
-          <div className="search-bar">
-            <FaSearch className="search-icon" />
-            <input
-              className="search-input"
-              type="text"
-              placeholder="Search users..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            /> 
-          </div>
         </div>
+
+        <div className="invoices-controls-hero">
+                    <h2>All Users</h2>
+                    <div className="invoices-controls">
+                        <button onClick={usersToggleModal} className="add-invoice-button">Add User</button>
+                        
+                        <div className="search-bar">
+            <FaSearch className="search-icon" />
+            <input type='text' className="search-input" placeholder='Search users...' value={searchQuery} onChange={handleSearchChange}/>
+            </div>
+                    </div>
+                </div>
 
         <table className="users-table">
           <thead>
