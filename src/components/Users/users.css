@@ -5,6 +5,7 @@
 .users-hero-container {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   padding: 0 10px;
   margin-top: 30px;
 }
@@ -75,3 +76,8 @@
   justify-content: space-between;
 }
   
+@media screen and (max-width: 768px) {
+  .users-hero-container {
+      padding: 0; 
+  }
+}
