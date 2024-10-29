@@ -47,6 +47,7 @@ const handleInputChange = (e) => {
       };
       setDiscounts([...discounts, newDiscountEntry]);
       setNewDiscount({ name: '', discountPercentage: '' }); 
+      setCreateDiscountModal(false);
     } else {
       alert("Please fill in all fields.");
     }
@@ -109,9 +110,9 @@ const handleInputChange = (e) => {
               <div className='discount-modal-content'>
                 <form className="discount-form" onSubmit={addDiscount}>
                   <span className="close" onClick={handleDiscountClose}>&times;</span>
-                  <label htmlFor="discount-code">Giftcard Code:</label>
+                  <label htmlFor="discount-code">Giftcard Code</label>
                   <input type="text" id="discount-code" name="code"value={newDiscount.code} onChange={handleInputChange} required />
-                  <label htmlFor="discount-name">Giftcard Name:</label>
+                  <label htmlFor="discount-name">Giftcard Name</label>
                   <input 
                     type="text" 
                     id="discount-name" 
@@ -120,9 +121,9 @@ const handleInputChange = (e) => {
                     onChange={handleInputChange} 
                     required 
                   />
-                  <label htmlFor="discount-value">Value:</label>
+                  <label htmlFor="discount-value">Value</label>
                   <input type="number" id="discount-value" name="discountPercentage" value={newDiscount.discountPercentage} onChange={handleInputChange} required/>
-                  <button type="submit">Add Discount</button>
+                  <button className="discount-button" type="submit">Add Discount</button>
                 </form>
               </div>
             </div>

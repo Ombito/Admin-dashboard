@@ -24,11 +24,11 @@
 }
 .discount-modal-content {
   background-color: #fff;
-  padding: 0px 20px 0px 20px;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   max-width: 400px;
   width: 100%;
+  padding: 20px;
   margin: auto;
 }
 
@@ -64,11 +64,12 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-  width: 80%;
+  width: 100%;
 }
 
 .discount-form label {
   margin-top: 10px;
+  width: fit-content;
 }
 
 .discount-form input {
@@ -78,15 +79,16 @@
 }
 
 
-button {
+.discount-button {
   padding: 8px 16px;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   background-color: green;
+  margin-top: 20px;
 }
-button:hover {
+.discount-button:hover {
   background-color: #d32f2f;
 }
 .add-discount-button {
@@ -107,6 +109,9 @@ button:hover {
 @media (max-width: 600px) {
   .discounts-hero-container {
     width: 95%;
+  }
+  .discount-modal-content {
+    width: 85%;
   }
   .discounts-list {
     width: 100%;
