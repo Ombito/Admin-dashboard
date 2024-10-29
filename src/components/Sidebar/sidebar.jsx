@@ -4,7 +4,7 @@ import { FaHome, FaUser, FaCog, FaClipboardList, FaShoppingCart, FaSignOutAlt, F
 import { useAlert } from '../../context/alertContext';
 import './sidebar.css'; 
 import logo from "../../Assets/banner.jpg";
-import logo1 from "../../Assets/milmax.png";
+import logo1 from "../../Assets/logo3.png";
 import user from "../../Assets/user.jpg";
 
 
@@ -74,8 +74,10 @@ const handleLogoutClose = () => {
    <div className="sidebar-navigation-hero">
      <div className="sidebar">
       <div className="logo-container">
-        <img className="logo" src={logo1} alt="logo" />
-        {/* <h3>Flap</h3> */}
+        {/* <img className="logo" src={logo1} alt="logo" /> */}
+        <div className="brand-container">
+          <h1>Flap</h1>
+      </div>
       </div>
       <div className="sidebar-div">
         <div className='sidebar-hero'>
