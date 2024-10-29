@@ -3,7 +3,7 @@ import './products.css';
 import user from "../../Assets/user.jpg";
 import data from '../data.json';
 import { useAlert } from '../../context/alertContext';
-
+import { FaSearch } from 'react-icons/fa';
 
 const Products = () => {
   const { showAlert } = useAlert();
@@ -47,6 +47,7 @@ const Products = () => {
 
   const handleOpenModal = () => {
     setShowModal(true);
+    document.body.style.overflow = 'auto';
   };
 
   const handleCloseModal = () => {
@@ -61,7 +62,11 @@ const Products = () => {
     setGroupingFilter(e.target.value);
   };
 
-  const handleSearchInputChange = (e) => {
+//   const productsToggleModal = () => {
+//     setCreateInvoiceModal(true);
+//     document.body.style.overflow = 'auto';
+// }
+const handleSearchInputChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
@@ -181,6 +186,16 @@ const Products = () => {
                 onChange={handleSearchInputChange}
               />
             </div>
+        </div>
+        <div className="invoices-controls-hero">
+          <h2>All products</h2>
+          <div className="invoices-controls">
+            <button onClick={handleOpenModal} className="add-invoice-button">Add Product</button>
+            <div className="search-bar">
+              <FaSearch className="search-icon" />
+              <input type='text' className="search-products" placeholder='Search invoices...' value={searchQuery} onChange={handleSearchInputChange}/>
+            </div>
+          </div>
         </div>
         <table className="product-table">
           <thead>

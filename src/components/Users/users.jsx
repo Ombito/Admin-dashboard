@@ -169,11 +169,10 @@ const Users = () => {
         </div>
 
         <div className="invoices-controls-hero">
-                    <h2>All Users</h2>
-                    <div className="invoices-controls">
-                        <button onClick={handleOpenModal} className="add-invoice-button">Add User</button>
-                        
-                        <div className="search-bar">
+          <h2>All Users</h2>
+          <div className="invoices-controls">
+            <button onClick={handleOpenModal} className="add-invoice-button">Add User</button>
+          <div className="search-bar">
             <FaSearch className="search-icon" />
             <input type='text' className="search-input" placeholder='Search users...' value={searchQuery} onChange={handleSearchChange}/>
             </div>
