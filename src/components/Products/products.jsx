@@ -139,7 +139,6 @@ const handleSearchInputChange = (e) => {
       </div>
       <div className='products-hero-container'>
         <div>
-          <button onClick={handleOpenModal}>Add Product</button>
           {showModal && (
             <div className="modal">
               <div className="modal-content">
@@ -177,15 +176,6 @@ const handleSearchInputChange = (e) => {
                 </div>
               </div>
             )}
-            <div className="search-bar">
-              <input
-                className="search-input"
-                type="text"
-                placeholder="Search by name..."
-                value={searchQuery}
-                onChange={handleSearchInputChange}
-              />
-            </div>
         </div>
         <div className="invoices-controls-hero">
           <h2>All products</h2>
@@ -193,7 +183,7 @@ const handleSearchInputChange = (e) => {
             <button onClick={handleOpenModal} className="add-invoice-button">Add Product</button>
             <div className="search-bar">
               <FaSearch className="search-icon" />
-              <input type='text' className="search-products" placeholder='Search invoices...' value={searchQuery} onChange={handleSearchInputChange}/>
+              <input type='text' className="search-products" placeholder='Search for products...' value={searchQuery} onChange={handleSearchInputChange}/>
             </div>
           </div>
         </div>

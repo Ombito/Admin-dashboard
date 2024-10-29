@@ -11,6 +11,12 @@
 .product-form {
   margin-bottom: 20px;
 }
+.search-products {
+  border: none;
+  outline: none;
+  font-size: 0.8rem;
+  width: 300px;
+}
 .product-table {
   width: 100%;
   height: 100vh;
