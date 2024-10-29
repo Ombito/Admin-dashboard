@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaHome, FaUser, FaCog, FaClipboardList, FaShoppingCart, FaSignOutAlt, FaDollarSign, FaFileInvoice, FaGift, FaHeadset, FaEnvelope } from 'react-icons/fa';
 import { useAlert } from '../../context/alertContext';
 import './sidebar.css'; 
-import logo from "../../Assets/banner.jpg";
 import logo1 from "../../Assets/logo3.png";
 import user from "../../Assets/user.jpg";
 
@@ -73,7 +72,7 @@ const handleLogoutClose = () => {
   return (
    <div className="sidebar-navigation-hero">
      <div className="sidebar">
-      <div className="logo-container">
+      <div className="logo-container" onClick={() => handleNavigate('/')}>
         {/* <img className="logo" src={logo1} alt="logo" /> */}
         <div className="brand-container">
           <h1>Flap</h1>

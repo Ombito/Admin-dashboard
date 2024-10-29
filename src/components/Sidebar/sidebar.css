@@ -20,22 +20,20 @@
   justify-content: center; 
   width: auto;
   margin: auto;
+  cursor: pointer;
+}
+.brand-container {
+  padding: 0px; 
 }
 .brand-container h1 {
   font-family: "Frijole", system-ui;
-  font-size: 35px; 
+  font-size: 40px; 
   font-weight: 700; 
   color: #ffffff;  
   text-align: center; 
   text-transform: uppercase; 
   letter-spacing: 2px; 
   margin: 0;
-}
-
-.brand-container {
-  padding: 0px; 
-  border-radius: 10px; 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
 }
 .sidebar-div {
   display: flex;
