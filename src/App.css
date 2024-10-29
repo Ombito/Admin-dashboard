@@ -78,7 +78,7 @@ body.dark .message-sender {
   color: white;
 }
 body.dark .unread { 
-  background-color: green;
+  background-color: #73f67ea6; 
 }
 body.dark .logout-modal-content {
   background-color: #121212; 
