@@ -68,6 +68,13 @@ const handleInputChange = (e) => {
     setSearchQuery(e.target.value);
 };
 
+
+const filteredDiscounts = discounts.filter(discount =>
+  discount.name.toLowerCase().includes(searchQuery.toLowerCase())
+  // discount.code.toLowerCase().includes(searchQuery.toLowerCase())
+);
+
+
   return (
     <div className="discounts-container">
       <div className="navbar-div">
@@ -140,7 +147,7 @@ const handleInputChange = (e) => {
                 </tr>
               </thead>
               <tbody>
-                {discounts.map((discount) => (
+                {filteredDiscounts.map((discount) => (
                   <tr key={discount.id}>
                     <td>{discount.code}</td>
                     <td>{discount.name}</td>
