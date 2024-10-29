@@ -149,10 +149,9 @@ const Users = () => {
       
       <div className="users-hero-container">
         <div className="button-container">
-          {/* <button onClick={handleOpenModal}>Add User</button>
             {showModal && (
-              <div className="modal">
-                <div className="modal-content">
+              <div className="user-modal">
+                <div className="user-modal-content">
                   <span className="close" onClick={handleCloseModal}>&times;</span>
                   <form onSubmit={handleSubmit} className="add-user-form">
                     <div className="name-div">
@@ -166,13 +165,13 @@ const Users = () => {
                   </form>
                   </div>
             </div>
-          )} */}
+          )}
         </div>
 
         <div className="invoices-controls-hero">
                     <h2>All Users</h2>
                     <div className="invoices-controls">
-                        <button onClick={usersToggleModal} className="add-invoice-button">Add User</button>
+                        <button onClick={handleOpenModal} className="add-invoice-button">Add User</button>
                         
                         <div className="search-bar">
             <FaSearch className="search-icon" />
