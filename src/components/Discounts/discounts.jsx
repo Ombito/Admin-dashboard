@@ -89,7 +89,7 @@ const handleInputChange = (e) => {
                 <p>Discount: {discount.discountPercentage}%</p>
                 <p>Status: {discount.isActive ? 'Active' : 'Inactive'}</p>
               </div>
-              <button onClick={() => removeDiscount(discount.id)}>Remove</button>
+              <button className="remove-discount-btn" onClick={() => removeDiscount(discount.id)}>Remove</button>
             </div>
           ))}
         </div>

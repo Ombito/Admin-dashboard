@@ -45,13 +45,16 @@
 }
 .invoices-controls-hero {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     margin-top: 40px;
+    width: 100%;
+    justify-content: space-between;
 }
 .invoices-controls {
     display: flex;
+    align-items: center;
     gap: 10px;
+    width: 100%;
 }
 .add-invoice-button {
     padding: 10px 15px; 

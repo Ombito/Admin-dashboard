@@ -35,7 +35,13 @@ body.dark input {
   margin-left: 250px;
 }
 
-
+body.dark .sidebar {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+body.dark .brand-container h1 {
+  color: white;
+}
 body.dark .dashboard-stat {
   border: 1px solid gray;
 }
