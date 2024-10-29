@@ -5,9 +5,8 @@ import Barchart from '../Barchart/barchart';
 import Piechart from '../Piechart/piechart';
 import Linegraph from '../Linegraph/linegraph';
 import './home.css';
-import { FaMoneyBillAlt, FaShoppingCart, FaDollarSign, FaUsers, FaHome, FaFileExport, FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import { FaMoneyBillAlt, FaShoppingCart, FaBell, FaDollarSign, FaUsers, FaHome, FaDownload, FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import user from "../../Assets/user.jpg";
-import { FaBell } from 'react-icons/fa';
 import data from '../data.json';
 import { useReactToPrint } from 'react-to-print';
 import html2canvas from 'html2canvas';
@@ -173,7 +172,7 @@ const handleExportPDF = () => {
           </div>
           <div className='sidebar-username'>
             <div onClick={handleExportPDF} className="export-button">
-              <FaFileExport className="export-icon" />
+              <FaDownload className="export-icon" />
               <span>Export Data</span>
             </div>
             <div className="admin-profile">
