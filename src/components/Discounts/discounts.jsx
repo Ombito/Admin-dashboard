@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './discounts.css';
 import user from "../../Assets/user.jpg";
-
+import { FaSearch } from 'react-icons/fa';
 
 const Discounts = () => {
   const [createDiscountModal, setCreateDiscountModal] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const [discounts, setDiscounts] = useState([
     {
       id: 1,
@@ -61,6 +62,11 @@ const handleInputChange = (e) => {
     document.body.style.overflow = 'auto';
   };
 
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+};
+
   return (
     <div className="discounts-container">
       <div className="navbar-div">
@@ -87,24 +93,40 @@ const handleInputChange = (e) => {
           ))}
         </div>
         <div className="discounts-container">
-          <div className="discounts-content">
-            <form className="discount-form" onSubmit={addDiscount}>
-            <span className="logout-close" onClick={handleDiscountClose}>&times;</span>
-              <label htmlFor="discount-code">Giftcard Code:</label>
-              <input type="text" id="discount-code" name="code"value={newDiscount.code} onChange={handleInputChange} required />
-              <label htmlFor="discount-name">Giftcard Name:</label>
-              <input 
-                type="text" 
-                id="discount-name" 
-                name="name" 
-                value={newDiscount.name}
-                onChange={handleInputChange} 
-                required 
-              />
-              <label htmlFor="discount-value">Value:</label>
-              <input type="number" id="discount-value" name="discountPercentage" value={newDiscount.discountPercentage} onChange={handleInputChange} required/>
-              <button type="submit">Add Discount</button>
-            </form>
+          <div className="invoices-controls-hero">
+            <h2>All Discounts</h2>
+            <div className="invoices-controls">
+              <button onClick={discountToggleModal} className="add-invoice-button">Add Discount</button>
+            <div className="search-bar">
+              <FaSearch className="search-icon" />
+              <input type='text' className="search-input" placeholder='Search discounts...' value={searchQuery} onChange={handleSearchChange}/>
+              </div>
+            </div>
+          </div>
+        <div className="discounts-content">
+          {createDiscountModal && (
+            <div className='discount-modal'>
+              <div className='discount-modal-content'>
+                <form className="discount-form" onSubmit={addDiscount}>
+                  <span className="close" onClick={handleDiscountClose}>&times;</span>
+                  <label htmlFor="discount-code">Giftcard Code:</label>
+                  <input type="text" id="discount-code" name="code"value={newDiscount.code} onChange={handleInputChange} required />
+                  <label htmlFor="discount-name">Giftcard Name:</label>
+                  <input 
+                    type="text" 
+                    id="discount-name" 
+                    name="name" 
+                    value={newDiscount.name}
+                    onChange={handleInputChange} 
+                    required 
+                  />
+                  <label htmlFor="discount-value">Value:</label>
+                  <input type="number" id="discount-value" name="discountPercentage" value={newDiscount.discountPercentage} onChange={handleInputChange} required/>
+                  <button type="submit">Add Discount</button>
+                </form>
+              </div>
+            </div>
+          )}
 
             <table className="giftcard-table">
               <thead>

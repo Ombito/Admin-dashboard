@@ -176,8 +176,8 @@ const Users = () => {
             <FaSearch className="search-icon" />
             <input type='text' className="search-input" placeholder='Search users...' value={searchQuery} onChange={handleSearchChange}/>
             </div>
-                    </div>
-                </div>
+          </div>
+        </div>
 
         <table className="users-table">
           <thead>
