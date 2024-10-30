@@ -9,12 +9,14 @@ const Discounts = () => {
   const [discounts, setDiscounts] = useState([
     {
       id: 1,
+      code: 'XMAS2024',
       name: 'Christmas & New Year Sale',
       discountPercentage: 20,
       isActive: true
     },
     {
       id: 2,
+      code: 'Easter2024',
       name: 'Easter Clearance',
       discountPercentage: 30,
       isActive: false
