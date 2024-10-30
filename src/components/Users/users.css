@@ -1,3 +1,6 @@
+.users-container {
+  width: 100%;
+}
 .navbar-div {
   display: flex;
   justify-content: space-between;
@@ -5,32 +8,58 @@
 .users-hero-container {
   width: 100%;
   height: 100%;
-  padding: 0 10px;
-  margin-top: 70px;
+  overflow: hidden;
+  margin-top: 30px;
+  margin: auto;
 }
 .button-container {
   display: flex;
   justify-content: space-between;
 }
+.user-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-modal-content {
+  background-color: #fff;
+  padding: 0px 20px 0px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+}
 .add-user-form {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  margin: auto;
   gap: 20px;
 }
 .input {
-  height: 4vh;
-  padding: 0 5px;
+  padding: 10px;
   border-radius: 4px;
+  flex: 1;
 }
 .search-bar {
+  display: flex;
+  align-items: center;
   border: 1px solid gray;
+  border-radius: 4px;
   padding: 3px 5px;
 }
 .search-input {
   border: none;
-  width: 320px;
-  padding: 5px;
+  width: 300px;
+  font-size: 0.8rem;
+  padding: 6px;
   outline: none;
 }
 .search-input:focus {
@@ -50,9 +79,11 @@
 .users-table th {
   background-color: #f2f2f2;
 }
-.users-table tr:nth-child(even) {
+.users-table tr:hover {
+  cursor: pointer;
   background-color: #f2f2f2;
 }
+
 .users-table button {
   background-color: #f44336;
   color: white;
@@ -66,6 +97,20 @@
 }
 .name-div {
   display: flex;
+  gap: 10px;
   justify-content: space-between;
 }
   
+@media screen and (max-width: 768px) {
+  .users-hero-container {
+      padding: 0; 
+  }
+  .user-modal-content {
+    width: 90%;
+    margin: auto;
+  }
+  .add-user-form {
+    width: 95%;
+    margin: auto;
+  }
+}

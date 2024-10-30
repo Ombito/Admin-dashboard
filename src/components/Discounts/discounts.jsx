@@ -1,27 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './discounts.css';
 import user from "../../Assets/user.jpg";
-
+import { FaSearch } from 'react-icons/fa';
 
 const Discounts = () => {
-  const discounts = [
+  const [createDiscountModal, setCreateDiscountModal] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [discounts, setDiscounts] = useState([
     {
       id: 1,
-      name: 'Spring Sale',
+      name: 'Christmas & New Year Sale',
       discountPercentage: 20,
       isActive: true
     },
     {
       id: 2,
-      name: 'Summer Clearance',
+      name: 'Easter Clearance',
       discountPercentage: 30,
       isActive: false
     },
-  ];
+  ]);
 
+  const [newDiscount, setNewDiscount] = useState({
+    name: '',
+    discountPercentage: '',
+  });
+
+  const discountToggleModal = () => {
+    setCreateDiscountModal(true);
+    document.body.style.overflow = 'auto';
+}
+const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewDiscount({ ...newDiscount, [name]: value });
+  };
+
+  const addDiscount = (e) => {
+    e.preventDefault(); 
+    if (newDiscount.name && newDiscount.discountPercentage) {
+      const newDiscountEntry = {
+        id: discounts.length + 1, 
+        name: newDiscount.name,
+        discountPercentage: parseFloat(newDiscount.discountPercentage),
+        code: newDiscount.code,
+        isActive: true 
+      };
+      setDiscounts([...discounts, newDiscountEntry]);
+      setNewDiscount({ name: '', discountPercentage: '' }); 
+      setCreateDiscountModal(false);
+    } else {
+      alert("Please fill in all fields.");
+    }
+  };
+  
   const removeDiscount = (id) => {
+    setDiscounts(discounts.filter(discount => discount.id !== id));
     console.log(`Remove discount with ID: ${id}`);
   };
+  
+  const handleDiscountClose = () => {
+    setCreateDiscountModal(false);
+    document.body.style.overflow = 'auto';
+  };
+
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+};
+
+
+const filteredDiscounts = discounts.filter(discount =>
+  discount.name.toLowerCase().includes(searchQuery.toLowerCase())
+  // discount.code.toLowerCase().includes(searchQuery.toLowerCase())
+);
+
 
   return (
     <div className="discounts-container">
@@ -44,40 +96,68 @@ const Discounts = () => {
                 <p>Discount: {discount.discountPercentage}%</p>
                 <p>Status: {discount.isActive ? 'Active' : 'Inactive'}</p>
               </div>
-              <button onClick={() => removeDiscount(discount.id)}>Remove</button>
+              <button className="remove-discount-btn" onClick={() => removeDiscount(discount.id)}>Remove</button>
             </div>
           ))}
         </div>
-        <button className="add-discount-button">Add Discount</button>
-        <div className="giftcards-container">
-          <div className="giftcards-content">
-            <form className="giftcard-form">
-              <label htmlFor="giftcard-code">Giftcard Code:</label>
-              <input type="text" id="giftcard-code" name="giftcard-code" />
-              <label htmlFor="giftcard-value">Value:</label>
-              <input type="number" id="giftcard-value" name="giftcard-value" />
-              <button type="submit">Add Giftcard</button>
-            </form>
+        <div className="discounts-container">
+          <div className="invoices-controls-hero">
+            <h2>All Discounts</h2>
+            <div className="invoices-controls">
+              <button onClick={discountToggleModal} className="add-invoice-button">Add Discount</button>
+            <div className="search-bar">
+              <FaSearch className="search-icon" />
+              <input type='text' className="search-input" placeholder='Search discounts...' value={searchQuery} onChange={handleSearchChange}/>
+              </div>
+            </div>
+          </div>
+        <div className="discounts-content">
+          {createDiscountModal && (
+            <div className='discount-modal'>
+              <div className='discount-modal-content'>
+                <form className="discount-form" onSubmit={addDiscount}>
+                  <span className="close" onClick={handleDiscountClose}>&times;</span>
+                  <label htmlFor="discount-code">Giftcard Code</label>
+                  <input type="text" id="discount-code" name="code"value={newDiscount.code} onChange={handleInputChange} required />
+                  <label htmlFor="discount-name">Giftcard Name</label>
+                  <input 
+                    type="text" 
+                    id="discount-name" 
+                    name="name" 
+                    value={newDiscount.name}
+                    onChange={handleInputChange} 
+                    required 
+                  />
+                  <label htmlFor="discount-value">Value</label>
+                  <input type="number" id="discount-value" name="discountPercentage" value={newDiscount.discountPercentage} onChange={handleInputChange} required/>
+                  <button className="discount-button" type="submit">Add Discount</button>
+                </form>
+              </div>
+            </div>
+          )}
 
             <table className="giftcard-table">
               <thead>
                 <tr>
                   <th>Code</th>
+                  <th>Name</th>
                   <th>Value</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>GC123456</td>
-                  <td>$50</td>
-                  <td>Active</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
+                {filteredDiscounts.map((discount) => (
+                  <tr key={discount.id}>
+                    <td>{discount.code}</td>
+                    <td>{discount.name}</td>
+                    <td>{discount.discountPercentage}%</td>
+                    <td>{discount.isActive ? 'Active' : 'Inactive'}</td>
+                    <td>
+                      <button onClick={() => removeDiscount(discount.id)}>Delete</button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

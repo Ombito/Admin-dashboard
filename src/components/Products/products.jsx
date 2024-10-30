@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './products.css';
 import user from "../../Assets/user.jpg";
+import data from '../data.json';
+import { useAlert } from '../../context/alertContext';
+import { FaSearch } from 'react-icons/fa';
 
 const Products = () => {
+  const { showAlert } = useAlert();
   const [products, setProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [groupingFilter, setGroupingFilter] = useState('All');
@@ -20,28 +24,30 @@ const Products = () => {
   });
 
   useEffect(() => {
-    const apiUrl = `http://127.0.0.1:5555/products`;
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log('Fetched products:', data); 
-        setProducts(data);
-        setLoading(false);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setLoading(false);
-      });
+    // const apiUrl = `http://127.0.0.1:5555/products`;
+    // fetch(apiUrl)
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error(`Network response was not ok: ${response.status}`);
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log('Fetched products:', data); 
+    //     setProducts(data);
+    //     setLoading(false);
+    //     console.log(data);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error fetching data:', error);
+    //     setLoading(false);
+    //   });
+    setProducts(data.products);
   }, []);
 
   const handleOpenModal = () => {
     setShowModal(true);
+    document.body.style.overflow = 'auto';
   };
 
   const handleCloseModal = () => {
@@ -56,7 +62,11 @@ const Products = () => {
     setGroupingFilter(e.target.value);
   };
 
-  const handleSearchInputChange = (e) => {
+//   const productsToggleModal = () => {
+//     setCreateInvoiceModal(true);
+//     document.body.style.overflow = 'auto';
+// }
+const handleSearchInputChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
@@ -110,6 +120,7 @@ const Products = () => {
       });
     }
     console.log('Form submitted!');
+    showAlert('success', 'Product added successfully.');
     handleCloseModal();
   };
 
@@ -128,7 +139,6 @@ const Products = () => {
       </div>
       <div className='products-hero-container'>
         <div>
-          <button onClick={handleOpenModal}>Add Product</button>
           {showModal && (
             <div className="modal">
               <div className="modal-content">
@@ -166,15 +176,16 @@ const Products = () => {
                 </div>
               </div>
             )}
+        </div>
+        <div className="invoices-controls-hero">
+          <h2>All products</h2>
+          <div className="invoices-controls">
+            <button onClick={handleOpenModal} className="add-invoice-button">Add Product</button>
             <div className="search-bar">
-              <input
-                className="search-input"
-                type="text"
-                placeholder="Search by name..."
-                value={searchQuery}
-                onChange={handleSearchInputChange}
-              />
+              <FaSearch className="search-icon" />
+              <input type='text' className="search-products" placeholder='Search for products...' value={searchQuery} onChange={handleSearchInputChange}/>
             </div>
+          </div>
         </div>
         <table className="product-table">
           <thead>

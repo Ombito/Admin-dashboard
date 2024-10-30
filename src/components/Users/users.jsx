@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './users.css';
+import { useAlert } from '../../context/alertContext';
 import user from "../../Assets/user.jpg";
 import { FaSearch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
@@ -18,29 +19,33 @@ const Users = () => {
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { showAlert } = useAlert();
   const handleNavigation = (route) => {
     navigate(route);
   };
+  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [createUsersModal, setCreateUsersModal] = useState(false);
 
   useEffect(() => {
-    const apiUrl = `http://127.0.0.1:5555/users`;
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log('Fetched users:', data); 
-        setUsers(data);
-        setLoading(false);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        setLoading(false);
-      });
+    // const apiUrl = `http://127.0.0.1:5555/users`;
+    // fetch(apiUrl)
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error(`Network response was not ok: ${response.status}`);
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log('Fetched users:', data); 
+    //     setUsers(data);
+    //     setLoading(false);
+    //     console.log(data);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error fetching data:', error);
+    //     setLoading(false);
+    //   });
+    setUsers(data.users);
   }, []);
 
   const handleOpenModal = () => {
@@ -50,6 +55,10 @@ const Users = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -80,14 +89,50 @@ const Users = () => {
     }
   };
 
+  const handleUserClick = (userDetails) => {
+    navigate('/user-details', { state: { user: userDetails } });
+  };
+
+
    const handleRemoveUser = (id) => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this user?');
+    const confirmDelete = window.confirm('Are you sure you want to remove this user?');
     if (confirmDelete) {
       const updatedUsers = users.filter(user => user.id !== id);
       setUsers(updatedUsers);
+      showAlert('success', 'User removed successfully.');
     }
   };
 
+  const handleCheckboxChange = (userId) => {
+    setSelectedUsers(prevSelected => {
+      if (prevSelected.includes(userId)) {
+        return prevSelected.filter(id => id !== userId); 
+      } else {
+        return [...prevSelected, userId]; 
+      }
+    });
+  };
+
+  const handleSelectAllChange = (e) => {
+    if (e.target.checked) {
+      const allUserIds = users.map(user => user.id);
+      setSelectedUsers(allUserIds);
+    } else {
+      setSelectedUsers([]);
+    }
+  };
+
+  const usersToggleModal = () => {
+    setCreateUsersModal(true);
+    document.body.style.overflow = 'auto';
+}
+
+
+  const filteredUsers = users.filter(user =>
+    user.first_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.last_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.email.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className="users-container">
@@ -104,10 +149,9 @@ const Users = () => {
       
       <div className="users-hero-container">
         <div className="button-container">
-          <button onClick={handleOpenModal}>Add User</button>
             {showModal && (
-              <div className="modal">
-                <div className="modal-content">
+              <div className="user-modal">
+                <div className="user-modal-content">
                   <span className="close" onClick={handleCloseModal}>&times;</span>
                   <form onSubmit={handleSubmit} className="add-user-form">
                     <div className="name-div">
@@ -122,44 +166,54 @@ const Users = () => {
                   </div>
             </div>
           )}
+        </div>
+
+        <div className="invoices-controls-hero">
+          <h2>All Users</h2>
+          <div className="invoices-controls">
+            <button onClick={handleOpenModal} className="add-invoice-button">Add User</button>
           <div className="search-bar">
             <FaSearch className="search-icon" />
-            <input
-              className="search-input"
-              type="text"
-              placeholder="Search users..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            /> 
+            <input type='text' className="search-input" placeholder='Search users...' value={searchQuery} onChange={handleSearchChange}/>
+            </div>
           </div>
         </div>
 
         <table className="users-table">
           <thead>
             <tr>
+              <th>
+                <input
+                  type="checkbox"
+                  checked={selectedUsers.length === filteredUsers.length}
+                  onChange={handleSelectAllChange}
+                />
+              </th>
               <th>Name</th>
               <th>Email Address</th>
               <th>Phone Number</th>
-              <th>Action</th>
+              <th>Role</th>
             </tr>
           </thead>
           <tbody>
-          {users
-              .filter(user => {
-                return user.first_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                  user.last_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                  user.email.toLowerCase().includes(searchQuery.toLowerCase());
-              })
-              .map(filteredUser => (
-                <tr key={filteredUser.id}>
-                  <td>{filteredUser.first_name} {filteredUser.last_name}</td>
-                  <td>{filteredUser.email}</td>
-                  <td>{filteredUser.phone_number}</td>
-                  <td>
-                    <button onClick={() => handleRemoveUser(filteredUser.id)}>Remove</button>
-                  </td>
-                </tr>
-              ))}
+            {filteredUsers.map(filteredUser => (
+              <tr key={filteredUser.id} onClick={() => handleUserClick(filteredUser)}>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={selectedUsers.includes(filteredUser.id)}
+                    onChange={(e) => {
+                      e.stopPropagation();
+                      handleCheckboxChange(filteredUser.id);
+                    }}
+                  />
+                </td>
+                <td>{filteredUser.first_name} {filteredUser.last_name}</td>
+                <td>{filteredUser.email}</td>
+                <td>{filteredUser.phone_number}</td>
+                <td>User</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

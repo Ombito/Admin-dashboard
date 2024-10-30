@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa'; 
+import { AlertProvider } from './context/alertContext';
 import Sidebar from '../src/components/Sidebar/sidebar';
 import Home from '../src/components/Home/home';
 import Products from '../src/components/Products/products';
 import Orders from '../src/components/Orders/orders';
 import Users from '../src/components/Users/users';
+import UserDetails from '../src/components/UserDetails/userDetails';
 import Discounts from '../src/components/Discounts/discounts';
 import Giftcard from '../src/components/Giftcard/giftcard';
 import Messages from '../src/components/Messages/messages';
@@ -12,13 +16,14 @@ import MessageDetails from '../src/components/MessageDetails/messageDetails';
 import Invoices from '../src/components/Invoices/invoices';
 import Settings from '../src/components/Settings/settings';
 import SignIn from '../src/components/Signin/signin';
-import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa'; 
 
 
 function App() {
   const [user, setUser] = useState(true);
   const location = useLocation();
+  const [theme, setTheme] = useState('light');
+  const [settingsNotifications, setSettingsNotifications] = useState(true);
+  const [language, setLanguage] = useState('english');
 
   const [notifications, setNotifications] = useState([
     { id: 1, sender: 'System', content: 'Your profile has been updated.', timestamp: '2024-10-17 10:30 AM', isRead: false },
@@ -44,9 +49,41 @@ const markAsRead = (id) => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  
+
+
+  useEffect(() => {
+    const localTheme = window.localStorage.getItem('theme');
+    // const localNotifications = window.localStorage.getItem('notifications') === 'true';
+    const localLanguage = window.localStorage.getItem('language') || 'english';
+
+    if (localTheme) {
+      setTheme(localTheme);
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(prefersDark ? 'dark' : 'light');
+    }
+
+    // setNotifications(localNotifications);
+    setLanguage(localLanguage);
+  }, []);
+
+  useEffect(() => {
+    document.body.className = theme;
+    window.localStorage.setItem('theme', theme); 
+    // window.localStorage.setItem('notifications', settingsNotifications); 
+    window.localStorage.setItem('language', language); 
+  }, [theme, notifications, language]);
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+
+
+
   return (
-    <div className='app'>
+    <AlertProvider>
+      <div className='app'>
       {user ? (
         <div className='home-app'>
           <div className='dashboard-landing'>
@@ -60,18 +97,20 @@ const markAsRead = (id) => {
               <Route path="/messages" element={<Messages notifications={notifications} markAsRead={markAsRead}/>} />
               <Route path="/messages/:id" element={<MessageDetails notifications={notifications} />} />
               <Route path="/users" element={<Users />} />
+              <Route path="/user-details" element={<UserDetails />} />
               <Route path="/discounts" element={<Discounts />} />
               <Route path="/invoices" element={<Invoices />} />
               <Route path="/gift&vouchers" element={<Giftcard />} />
-              <Route path="/settings" element={<Settings />} />
+              <Route path="/settings" element={<Settings theme={theme} toggleTheme={toggleTheme} settingsNotifications={settingsNotifications} setSettingsNotifications={setSettingsNotifications} language={language} setLanguage={setLanguage} />} />
               <Route path="/signin" element={<SignIn setUser={setUser}/>} />
             </Routes>
           </div>
         </div>
-      ) : (
-        <SignIn setUser={setUser} />
-      )}
-    </div>
+        ) : (
+          <SignIn setUser={setUser} />
+        )}
+      </div>
+    </AlertProvider>
   )
 }
 

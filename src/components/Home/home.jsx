@@ -1,18 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAlert } from '../../context/alertContext';
 import Barchart from '../Barchart/barchart';
 import Piechart from '../Piechart/piechart';
 import Linegraph from '../Linegraph/linegraph';
 import './home.css';
-import { FaMoneyBillAlt, FaShoppingCart, FaDollarSign, FaUsers, FaHome, FaFileExport, FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import { FaMoneyBillAlt, FaShoppingCart, FaBell, FaDollarSign, FaUsers, FaHome, FaDownload, FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import user from "../../Assets/user.jpg";
-import { FaBell } from 'react-icons/fa';
 import data from '../data.json';
 import { useReactToPrint } from 'react-to-print';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 const Home = () => {
+  const { showAlert } = useAlert();
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
@@ -30,7 +31,7 @@ const Home = () => {
         navigate('/orders'); 
         break;
       case 2:
-        navigate('/analytics'); 
+        navigate('/products'); 
         break;
       case 3:
         navigate('/users'); 
@@ -121,7 +122,8 @@ const handleExportPDF = () => {
       const imgHeight = (canvas.height * imgWidth) / canvas.width; 
 
       pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight); 
-      pdf.save('download.pdf');
+      pdf.save('analytics.pdf');
+      showAlert('success', 'pdf downloaded successfully.');
     })
     .catch((err) => console.error('Error generating PDF', err));
   }
@@ -151,7 +153,7 @@ const handleExportPDF = () => {
           ) : (
             <FaArrowDown className="stat-icon" style={{ color: 'red' }}/>
           )}
-          <p>{percentage}%</p>
+          <p className='statRatio-div-percentage'>{percentage}%</p>
         </div>
       </div>
       
@@ -170,7 +172,7 @@ const handleExportPDF = () => {
           </div>
           <div className='sidebar-username'>
             <div onClick={handleExportPDF} className="export-button">
-              <FaFileExport className="export-icon" />
+              <FaDownload className="export-icon" />
               <span>Export Data</span>
             </div>
             <div className="admin-profile">

@@ -32,8 +32,9 @@ return (
                 <div 
                     key={notification.id} 
                     className={`notification-item ${notification.isRead ? 'read' : 'unread'}`}
+                    onClick={() => handleViewMore(notification.id)}
                 >
-                    <p><strong>{notification.sender}</strong></p>
+                    <p className='message-sender'>{notification.sender}</p>
                     <p>{notification.content}</p>
                     <p className="timestamp">{notification.timestamp}</p>
                     <div className="viewMore-button" onClick={() => handleViewMore(notification.id)}>

@@ -1,5 +1,4 @@
 .giftcards-container {
-    background-color: #f8f9fa;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -43,12 +42,12 @@
     border: 1px solid #ddd;
     padding: 8px;
 }
-.giftcard-table th {
+/* .giftcard-table th {
     background-color: #f2f2f2;
-}
-.giftcard-table tr:nth-child(even) {
+} */
+/* .giftcard-table tr:nth-child(even) {
     background-color: #f2f2f2;
-}
+} */
 .giftcard-table button {
     padding: 4px 8px;
     margin-right: 4px;

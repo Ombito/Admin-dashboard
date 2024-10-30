@@ -27,6 +27,7 @@
   display: flex; 
   gap: 5px;
   align-items: center; 
+  width: 100%;
 }
 .export-button {
   display: flex; 
@@ -38,7 +39,7 @@
   font-weight: bold;
   cursor: pointer; 
   margin: auto 0;
-  margin-right: 30px;
+  margin-right: 10px;
   transition: background-color 0.3s ease;
 }
 
@@ -82,6 +83,7 @@
 }
 .dashboard-stats-container:hover {
   cursor: pointer;
+  transform: translateY(-0.2em);
 }
 .dashboard-stat {
   display: flex;
@@ -96,7 +98,6 @@
   display: flex;
 }
 .dashboard-icon {
-  font-size: 1.5rem;
   margin-right: 3px;
 }
 .statRatio-div {
@@ -115,8 +116,8 @@
 }
 .statRatio-divs {
   display: flex;
-  padding: 2px 5px;
-  border-radius: 5px;
+  padding: 1px;
+  border-radius: 3px;
 }
 .statRatio-divs.increase {
   background-color: #d4edda; 
@@ -125,6 +126,15 @@
 .statRatio-divs.decrease {
   background-color: #f8d7da; 
   border: 1px solid #f5c6cb;
+}
+.stat-icon {
+  font-weight: bold;
+  font-size: 12px;
+  margin: auto;
+}
+.statRatio-div-percentage {
+  font-weight: bold;
+  font-size: 13px;
 }
 .dashboard-top-products {
   width: 270px;

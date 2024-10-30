@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaHome, FaUser, FaCog, FaClipboardList, FaShoppingCart, FaSignOutAlt, FaDollarSign, FaFileInvoice, FaGift, FaHeadset, FaEnvelope } from 'react-icons/fa';
+import { useAlert } from '../../context/alertContext';
 import './sidebar.css'; 
-import logo from "../../Assets/banner.jpg";
+import logo1 from "../../Assets/logo3.png";
 import user from "../../Assets/user.jpg";
 
 
 const Sidebar = ({ notifications }) => {
   const navigate = useNavigate();
+  const { showAlert } = useAlert();
   const [isNavbarOpen, setNavbarIsOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [ticketTitle, setTicketTitle] = useState('');
@@ -37,6 +39,7 @@ const Sidebar = ({ notifications }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Ticket submitted:', { title:ticketTitle, description: ticketDescription });
+    showAlert('success', 'Ticket submitted successfully.');
     handleClose(); 
   };
 
@@ -48,6 +51,7 @@ const Sidebar = ({ notifications }) => {
 
 const handleLogout = () => {
     console.log("User logged out");
+    showAlert('success', 'User logged out successfully!');
     setIsLogoutModalOpen(false);
     navigate('/signin');
 }
@@ -68,9 +72,11 @@ const handleLogoutClose = () => {
   return (
    <div className="sidebar-navigation-hero">
      <div className="sidebar">
-      <div className="logo-container">
-        <img className="logo" src={logo} alt="logo" />
-        <h3>Flap</h3>
+      <div className="logo-container" onClick={() => handleNavigate('/')}>
+        {/* <img className="logo" src={logo1} alt="logo" /> */}
+        <div className="brand-container">
+          <h1>Flap</h1>
+      </div>
       </div>
       <div className="sidebar-div">
         <div className='sidebar-hero'>
