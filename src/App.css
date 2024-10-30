@@ -36,6 +36,7 @@ button {
   display: flex; 
   padding: 10px 20px; 
   align-items: center;
+  text-align: center;
   background-color: #4caf50; 
   color: white; 
   border: none;

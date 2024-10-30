@@ -1,11 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Alike+Angular&family=Fontdiner+Swanky&family=Frijole&family=Shojumaru&family=Trade+Winds&display=swap');
+
+.signin-container-hero {
+  display: flex;
+  height: 100vh;
+  margin: auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0px;
+}
 .signin-container {
-    height: 350px;
+    height: auto;
     width: 450px;
-    margin: 10% auto;
+    margin: auto;
+    /* top: 15%;
+    left: 50%;
+    position: fixed; */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 0 30px;
+    padding: 20px;
     border-radius: 4px;
 }
+
+.brand-logo-container {
+  display: flex;
+  padding: 40px 10px; 
+  width: fit-content;
+  justify-content: center;
+  border-radius: 50%;
+  margin: auto;
+  background-color: #0b30d7;
+}
+.brand-logo {
+  width: 30px;
+  height: auto;
+  margin-right: 0px;
+}
+.brand-logo-container h1 {
+  font-family: "Frijole", system-ui;
+  font-size: 30px; 
+  font-weight: 700; 
+  color: white;  
+  text-align: center; 
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+  margin: 0;
+}
+
 .signin-container h2{
     text-align: center;
 }
@@ -25,3 +65,10 @@
     border: 1px solid #ccc;
     border-radius: 5px;
   }  
+  .signin-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    /* text-align: center;
+    margin: auto; */
+  }

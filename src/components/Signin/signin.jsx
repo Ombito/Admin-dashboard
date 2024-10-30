@@ -40,32 +40,37 @@ const Signin = ( {user, setUser}) => {
   };
 
   return (
-      <div className='signin-container'>
-        <img className="logo" src={logo1} alt="logo" />
-        <h2>Welcome back!</h2>
-        <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+      <div className='signin-container-hero'>
+        <div className='signin-container'>
+          <div className="brand-logo-container">
+            {/* <img className="brand-logo" src={logo1} alt="logo" /> */}
+            <h1>Flap</h1>
+          </div>
+          <h2>Welcome back!🤓</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <button className="signin-btn" type="submit">Login</button>
+          </form>
         </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
       </div>
   )
 }

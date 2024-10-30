@@ -23,19 +23,6 @@
   margin: auto;
   cursor: pointer;
 }
-.brand-container {
-  padding: 0px; 
-}
-.brand-container h1 {
-  font-family: "Frijole", system-ui;
-  font-size: 35px; 
-  font-weight: 700; 
-  color: white;  
-  text-align: center; 
-  text-transform: uppercase; 
-  letter-spacing: 2px; 
-  margin: 0;
-}
 .sidebar-div {
   display: flex;
   flex-direction: column;
