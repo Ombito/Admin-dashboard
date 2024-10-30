@@ -57,6 +57,11 @@ body.dark .sidebar-menu-mobile {
 body.dark .brand-container h1 {
   color: white;
 }
+body.dark .supportTicket-modal {
+  background-color: #333;
+  color: white;
+}
+
 body.dark .dashboard-stat {
   border: 1px solid gray;
 }
