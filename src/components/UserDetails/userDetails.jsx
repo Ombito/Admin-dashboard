@@ -23,7 +23,7 @@ const UserDetails = () => {
         <div className='userDetails-summary'>
           <div className="user-details-card">
             <div className="user-header">
-              <img src={userIcon} alt="avatar" />
+              <img className="user-icon" src={userIcon} alt="avatar" />
               <h3>{user.first_name} {user.last_name}</h3>
               <p className="role">Role: <span>User</span></p>
             </div>
@@ -32,7 +32,7 @@ const UserDetails = () => {
               <p>{user.phone_number}</p>
             </div>
           </div>
-          <p>No user data available.</p>
+          <p>No previous orders.</p>
         </div>
       ) : (
         <p>No user data available.</p>
