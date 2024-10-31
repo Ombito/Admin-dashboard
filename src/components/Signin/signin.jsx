@@ -17,7 +17,7 @@ const Signin = ( {user, setUser}) => {
   };
 
   const defaultCredentials = {
-    email: 'admin@admin',
+    email: 'admin@admin.com',
     password: 'admin'
 };
 

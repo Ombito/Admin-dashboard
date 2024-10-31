@@ -7,38 +7,68 @@
     width: 100%;
     height: 100%;
 }
-
-.user-details-container {
-    margin: 20px auto;
+.userDetails-summary {
+    display: flex;
+    margin: 60px auto 0;
     padding: 20px;
+    width: 90%;
+    height: 100%;
+}
+.user-details-container {
+    margin: auto;
+    padding: 20px;
+    max-width: 300px;
     background-color: #f9f9f9;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
+.user-details-card {
+    display: flex;
+    padding: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    border-right: 0.5px solid rgb(180, 170, 170);
+}
 .user-header {
     text-align: center;
-    margin-bottom: 20px;
     margin-top: 60px;
     padding: 0 10px;
 }
-
-.user-header h3 {
-    font-size: 24px;
+.user-icon {
+    width: 70px;
 }
-
+.user-header h3 {
+    margin: 0;
+}
 .role {
     font-size: 16px;
 }
-
+.status-active-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+.status-dot {
+    width: 8px;                  
+    height: 8px;                 
+    border-radius: 50%;           
+    display: inline-block;        
+    margin-right: 3px;        
+}
+.active {
+    background-color: #28a745;   
+}
+.status-text {
+    font-size: 12px;
+    font-weight: bold;
+}
 .user-info {
-    font-size: 16px;
-    line-height: 1.6;
+    text-align: left;
+    /* font-size: 16px;
+    line-height: 1.6; */
 }
 
-.user-info p {
-    margin: 10px 0;
-}
 .user-info span {
     font-weight: normal; 
 }
@@ -49,7 +79,16 @@
         padding: 15px;
         margin: 10px;
     }
-
+    .userDetails-summary {
+        display: flex;
+        width: 95%;
+        padding: 0px;
+        flex-direction: column;
+    }
+    .user-details-card {
+        border: none;
+        margin-right: 0;
+    }
     .user-header h3 {
         font-size: 20px;
     }

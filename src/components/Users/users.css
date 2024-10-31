@@ -9,7 +9,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  margin-top: 30px;
+  margin-top: 60px;
   margin: auto;
 }
 .button-container {
@@ -50,6 +50,7 @@
 }
 .search-bar {
   display: flex;
+  flex: 1;
   align-items: center;
   border: 1px solid gray;
   border-radius: 4px;
@@ -57,7 +58,7 @@
 }
 .search-input {
   border: none;
-  width: 300px;
+  max-width: 300px;
   font-size: 0.8rem;
   padding: 6px;
   outline: none;
