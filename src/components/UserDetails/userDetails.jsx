@@ -25,7 +25,12 @@ const UserDetails = () => {
             <div className="user-header">
               <img className="user-icon" src={userIcon} alt="avatar" />
               <h3>{user.first_name} {user.last_name}</h3>
+              <div className="status-active-div">
+                <div className="status-dot active"></div>
+                <p className="status-text">Active</p>
+              </div>
               <p className="role">Role: <span>User</span></p>
+              
             </div>
             <div className="user-info">
               <p>{user.email}</p>

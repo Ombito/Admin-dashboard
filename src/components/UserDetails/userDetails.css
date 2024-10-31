@@ -26,33 +26,43 @@
     display: flex;
     padding: 20px;
     flex-direction: column;
-    border-right: 1px solid gray;
+    border-right: 0.5px solid rgb(180, 170, 170);
 }
 .user-header {
     text-align: center;
-    margin-bottom: 20px;
     margin-top: 60px;
     padding: 0 10px;
 }
 .user-icon {
     width: 70px;
 }
-.user-header h3 {
-    font-size: 24px;
-}
-
 .role {
     font-size: 16px;
 }
-
+.status-active-div {
+    display: flex;
+    align-items: center;
+}
+.status-dot {
+    width: 10px;                  
+    height: 10px;                 
+    border-radius: 50%;           
+    display: inline-block;        
+    margin-right: 3px;        
+}
+.active {
+    background-color: #28a745;   
+}
+.status-text {
+    font-size: 12px;
+    font-weight: bold;
+}
 .user-info {
-    font-size: 16px;
-    line-height: 1.6;
+    text-align: center;
+    /* font-size: 16px;
+    line-height: 1.6; */
 }
 
-.user-info p {
-    margin: 10px 0;
-}
 .user-info span {
     font-weight: normal; 
 }
