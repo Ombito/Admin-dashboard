@@ -19,7 +19,7 @@ import SignIn from '../src/components/Signin/signin';
 
 
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
   const location = useLocation();
   const [theme, setTheme] = useState('light');
   const [settingsNotifications, setSettingsNotifications] = useState(true);

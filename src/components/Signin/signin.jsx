@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './signin.css';
 import { useNavigate } from 'react-router-dom';
+import { useAlert } from '../../context/alertContext';
 import logo1 from "../../Assets/logo3.png";
 
 
@@ -9,15 +10,28 @@ const Signin = ( {user, setUser}) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { showAlert } = useAlert();
 
   const handleNavigation = (route) => {
     navigate(route);
   };
 
+  const defaultCredentials = {
+    email: 'admin@admin',
+    password: 'admin'
+};
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Logging in', email);
 
+    if (email === defaultCredentials.email && password === defaultCredentials.password) {
+      showAlert('success', 'Login is successful.');
+      setUser(defaultCredentials);
+      navigate('/');
+      return; 
+    }
+    
     try {
       const response = await fetch('http://127.0.0.1:5555/login_user', {
         method: 'POST',
@@ -31,11 +45,14 @@ const Signin = ( {user, setUser}) => {
         const data = await response.json();
         setUser(data)
         navigate('/');
+        showAlert('success', 'Login is successful.');
       } else {
         console.log("Login failed!")
+        showAlert('error', 'Login failed!');
       }
     } catch (error) {
       console.error('Login failed: ', error);
+      showAlert('error', 'Login failed!');
     }
   };
 

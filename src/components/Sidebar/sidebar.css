@@ -23,6 +23,16 @@
   margin: auto;
   cursor: pointer;
 }
+.logo-container h1 {
+  font-family: "Frijole", system-ui;
+  font-size: 30px; 
+  font-weight: 700; 
+  color: white;  
+  text-align: center; 
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+  margin: 0;
+}
 .sidebar-div {
   display: flex;
   flex-direction: column;
@@ -48,7 +58,7 @@
   transition: background-color 0.3s ease;
 }
 .sidebar-menu li:hover {
-  background-color: #555;
+  background-color: #16496afa;
 }
 .sidebar-menu li svg {
   margin-right: 15px;
