@@ -29,15 +29,15 @@ const UserDetails = () => {
                 <div className="status-dot active"></div>
                 <p className="status-text">Active</p>
               </div>
-              <p className="role">Role: <span>User</span></p>
               
             </div>
             <div className="user-info">
-              <p>{user.email}</p>
-              <p>{user.phone_number}</p>
+              <p><strong>Email: </strong>{user.email}</p>
+              <p><strong>Phone number: </strong>{user.phone_number}</p>
+              <p><strong>Role: </strong>User</p>
             </div>
           </div>
-          <p>No previous orders.</p>
+          <h4>No previous orders.</h4>
         </div>
       ) : (
         <p>No user data available.</p>

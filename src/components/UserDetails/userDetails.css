@@ -64,7 +64,7 @@
     font-weight: bold;
 }
 .user-info {
-    text-align: center;
+    text-align: left;
     /* font-size: 16px;
     line-height: 1.6; */
 }
@@ -81,6 +81,8 @@
     }
     .userDetails-summary {
         display: flex;
+        width: 95%;
+        padding: 0px;
         flex-direction: column;
     }
     .user-details-card {
