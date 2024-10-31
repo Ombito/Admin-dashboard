@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa'; 
+import Cookies from 'js-cookie'; 
 import { AlertProvider } from './context/alertContext';
 import Sidebar from '../src/components/Sidebar/sidebar';
 import Home from '../src/components/Home/home';
@@ -19,7 +19,7 @@ import SignIn from '../src/components/Signin/signin';
 
 
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
   const location = useLocation();
   const [theme, setTheme] = useState('light');
   const [settingsNotifications, setSettingsNotifications] = useState(true);
@@ -35,25 +35,45 @@ function App() {
     { id :7 ,sender:'Admin' ,content:'Set up two-factor authentication for added security.' ,timestamp:'2024 -10 -06 3 PM' ,isRead:false},
 ]);
 
-useEffect(() => {
-  localStorage.setItem('notifications', JSON.stringify(notifications));
-}, [notifications]);
+  useEffect(() => {
+    const savedUser = Cookies.get('user');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    }
+  }, []);
 
-const markAsRead = (id) => {
-    setNotifications(notifications.map(notif => 
-        notif.id === id ? { ...notif, isRead: true } : notif
-    ));
-};
+  useEffect(() => {
+    if (user) {
+      Cookies.set('user', JSON.stringify(user), { expires: 7 });
+    } else {
+      Cookies.remove('user');
+    }
+  }, [user]);
+
+  useEffect(() => {
+    localStorage.setItem('notifications', JSON.stringify(notifications));
+  }, [notifications]);
+
+  const markAsRead = (id) => {
+      setNotifications(notifications.map(notif => 
+          notif.id === id ? { ...notif, isRead: true } : notif
+      ));
+  };
   
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
 
+  useEffect(() => {
+    const savedTheme = Cookies.get('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem('theme');
-    // const localNotifications = window.localStorage.getItem('notifications') === 'true';
     const localLanguage = window.localStorage.getItem('language') || 'english';
 
     if (localTheme) {
@@ -63,14 +83,12 @@ const markAsRead = (id) => {
       setTheme(prefersDark ? 'dark' : 'light');
     }
 
-    // setNotifications(localNotifications);
     setLanguage(localLanguage);
   }, []);
 
   useEffect(() => {
     document.body.className = theme;
-    window.localStorage.setItem('theme', theme); 
-    // window.localStorage.setItem('notifications', settingsNotifications); 
+    window.localStorage.setItem('theme', theme);  
     window.localStorage.setItem('language', language); 
   }, [theme, notifications, language]);
 
@@ -87,7 +105,7 @@ const markAsRead = (id) => {
       {user ? (
         <div className='home-app'>
           <div className='dashboard-landing'>
-          {location.pathname !== '/signin' && <Sidebar notifications={notifications}/>}
+          {location.pathname !== '/signin' && <Sidebar setUser={setUser} notifications={notifications}/>}
           </div>
           <div className="content">
             <Routes>

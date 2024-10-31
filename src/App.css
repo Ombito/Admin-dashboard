@@ -36,6 +36,7 @@ button {
   display: flex; 
   padding: 10px 20px; 
   align-items: center;
+  text-align: center;
   background-color: #4caf50; 
   color: white; 
   border: none;
@@ -61,7 +62,9 @@ body.dark .supportTicket-modal {
   background-color: #333;
   color: white;
 }
-
+body.dark form {
+  border: 1px solid rgb(56, 56, 56)080;
+}
 body.dark .dashboard-stat {
   border: 1px solid gray;
 }

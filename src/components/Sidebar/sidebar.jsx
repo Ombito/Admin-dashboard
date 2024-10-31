@@ -7,7 +7,7 @@ import logo1 from "../../Assets/logo3.png";
 import user from "../../Assets/user.jpg";
 
 
-const Sidebar = ({ notifications }) => {
+const Sidebar = ({ setUser, notifications }) => {
   const navigate = useNavigate();
   const { showAlert } = useAlert();
   const [isNavbarOpen, setNavbarIsOpen] = useState(false);
@@ -51,7 +51,8 @@ const Sidebar = ({ notifications }) => {
 
 const handleLogout = () => {
     console.log("User logged out");
-    showAlert('success', 'User logged out successfully!');
+    setUser('');
+    showAlert('success', 'User logged out successfully.');
     setIsLogoutModalOpen(false);
     navigate('/signin');
 }
