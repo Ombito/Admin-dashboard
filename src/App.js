@@ -65,10 +65,15 @@ function App() {
   }, [location.pathname]);
 
 
+  useEffect(() => {
+    const savedTheme = Cookies.get('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem('theme');
-    // const localNotifications = window.localStorage.getItem('notifications') === 'true';
     const localLanguage = window.localStorage.getItem('language') || 'english';
 
     if (localTheme) {
@@ -78,14 +83,12 @@ function App() {
       setTheme(prefersDark ? 'dark' : 'light');
     }
 
-    // setNotifications(localNotifications);
     setLanguage(localLanguage);
   }, []);
 
   useEffect(() => {
     document.body.className = theme;
-    window.localStorage.setItem('theme', theme); 
-    // window.localStorage.setItem('notifications', settingsNotifications); 
+    window.localStorage.setItem('theme', theme);  
     window.localStorage.setItem('language', language); 
   }, [theme, notifications, language]);
 
@@ -102,7 +105,7 @@ function App() {
       {user ? (
         <div className='home-app'>
           <div className='dashboard-landing'>
-          {location.pathname !== '/signin' && <Sidebar notifications={notifications}/>}
+          {location.pathname !== '/signin' && <Sidebar setUser={setUser} notifications={notifications}/>}
           </div>
           <div className="content">
             <Routes>

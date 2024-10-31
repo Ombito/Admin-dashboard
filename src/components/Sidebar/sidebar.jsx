@@ -51,7 +51,8 @@ const Sidebar = ({ setUser, notifications }) => {
 
 const handleLogout = () => {
     console.log("User logged out");
-    showAlert('success', 'User logged out successfully!');
+    setUser('');
+    showAlert('success', 'User logged out successfully.');
     setIsLogoutModalOpen(false);
     navigate('/signin');
 }

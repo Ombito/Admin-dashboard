@@ -62,7 +62,9 @@ body.dark .supportTicket-modal {
   background-color: #333;
   color: white;
 }
-
+body.dark form {
+  border: 1px solid rgb(56, 56, 56)080;
+}
 body.dark .dashboard-stat {
   border: 1px solid gray;
 }
