@@ -25,6 +25,7 @@
 .user-details-card {
     display: flex;
     padding: 20px;
+    margin-right: 20px;
     flex-direction: column;
     border-right: 0.5px solid rgb(180, 170, 170);
 }
@@ -36,16 +37,21 @@
 .user-icon {
     width: 70px;
 }
+.user-header h3 {
+    margin: 0;
+}
 .role {
     font-size: 16px;
 }
 .status-active-div {
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin: auto;
 }
 .status-dot {
-    width: 10px;                  
-    height: 10px;                 
+    width: 8px;                  
+    height: 8px;                 
     border-radius: 50%;           
     display: inline-block;        
     margin-right: 3px;        
@@ -79,6 +85,7 @@
     }
     .user-details-card {
         border: none;
+        margin-right: 0;
     }
     .user-header h3 {
         font-size: 20px;
