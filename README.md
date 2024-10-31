@@ -66,7 +66,7 @@ To set up the Admin Dashboard locally, follow these steps:
 Once the dashboard is running, you can log in with the following credentials:
 
   - Username: admin@admin
-  - Password: admin543
+  - Password: admin
 
 Explore the various sections of the dashboard to manage users, view statistics, and configure settings.
 
