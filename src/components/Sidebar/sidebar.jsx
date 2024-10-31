@@ -7,7 +7,7 @@ import logo1 from "../../Assets/logo3.png";
 import user from "../../Assets/user.jpg";
 
 
-const Sidebar = ({ notifications }) => {
+const Sidebar = ({ setUser, notifications }) => {
   const navigate = useNavigate();
   const { showAlert } = useAlert();
   const [isNavbarOpen, setNavbarIsOpen] = useState(false);
