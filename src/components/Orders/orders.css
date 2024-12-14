@@ -44,3 +44,8 @@
     cursor: pointer;
 }
   
+@media screen and (max-width: 768px) {
+.orders-hero-container {
+    padding: 0;
+}
+}

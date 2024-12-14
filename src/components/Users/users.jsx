@@ -80,12 +80,15 @@ const Users = () => {
         setPassword('');
         handleCloseModal()
         console.log('Signup successful')
+        showAlert('success', 'User added successfully.');
       } else {
         console.log("Signup failed!")
+        showAlert('error', 'User signup error.');
       }
     } catch (error) {
       setError('Error: ' + error.message);
-      console.error('Error during signup:', error);
+      console.error('Error during signup', error);
+      showAlert('error', 'User signup error.');
     }
   };
 
@@ -152,15 +155,15 @@ const Users = () => {
             {showModal && (
               <div className="user-modal">
                 <div className="user-modal-content">
-                  <span className="close" onClick={handleCloseModal}>&times;</span>
+                  <span className="user-form-close" onClick={handleCloseModal}>&times;</span>
                   <form onSubmit={handleSubmit} className="add-user-form">
                     <div className="name-div">
-                      <input type="text" className="input" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                      <input type="text" className="input" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                      <input type="text" className="input" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required/>
+                      <input type="text" className="input" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} required/>
                     </div>
-                    <input type="email" className="input" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    <input type="phone" className="input" placeholder="Phone number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
-                    <input type="password" className="input" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input type="email" className="input" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                    <input type="phone" className="input" placeholder="Phone number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required/>
+                    <input type="password" className="input" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                     <button type="submit">Add User</button>
                   </form>
                   </div>

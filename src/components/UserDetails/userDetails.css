@@ -9,8 +9,23 @@
 }
 .userDetails-summary {
     display: flex;
+    flex-direction: column;
     margin: 60px auto 0;
     padding: 20px;
+    height: 100%;
+    gap: 10px;
+}
+.back-to-users {
+    color: #ff9f40; 
+    border: none;
+    font-weight: bold;  
+    font-size: 1rem; 
+    cursor: pointer;
+    width: fit-content; 
+}
+.userDetails-summary-hero {
+    display: flex;
+    margin: auto;
     width: 90%;
     height: 100%;
 }
@@ -24,7 +39,7 @@
 }
 .user-details-card {
     display: flex;
-    padding: 20px;
+    padding: 20px 40px;
     margin-right: 20px;
     flex-direction: column;
     border-right: 0.5px solid rgb(180, 170, 170);
@@ -80,6 +95,9 @@
         margin: 10px;
     }
     .userDetails-summary {
+        gap: 0px;
+    }
+    .userDetails-summary-hero {
         display: flex;
         width: 95%;
         padding: 0px;
@@ -88,15 +106,14 @@
     .user-details-card {
         border: none;
         margin-right: 0;
-    }
+        padding: 20px;
+    }  
     .user-header h3 {
         font-size: 20px;
     }
-
     .role {
         font-size: 14px;
     }
-
     .user-info {
         font-size: 14px;
     }

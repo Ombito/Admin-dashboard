@@ -33,7 +33,8 @@ body.dark input {
   margin-left: 250px;
 }
 button {
-  display: flex; 
+  font-size: 12px;
+  font-weight: bold;
   padding: 10px 20px; 
   align-items: center;
   text-align: center;

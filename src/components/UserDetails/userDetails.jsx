@@ -1,11 +1,14 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams, useNavigate } from 'react-router-dom';
 import './userDetails.css';
 import userIcon from "../../Assets/user.jpg";
+import { FaChevronLeft } from 'react-icons/fa';
+
 
 const UserDetails = () => {
   const location = useLocation();
   const { user } = location.state;
+  const navigate = useNavigate();
 
   return (
     <div className="userDetails-container">
@@ -19,29 +22,32 @@ const UserDetails = () => {
           </div>
         </div>
       </div>
-      {user ? (
-        <div className='userDetails-summary'>
-          <div className="user-details-card">
-            <div className="user-header">
-              <img className="user-icon" src={userIcon} alt="avatar" />
-              <h3>{user.first_name} {user.last_name}</h3>
-              <div className="status-active-div">
-                <div className="status-dot active"></div>
-                <p className="status-text">Active</p>
+      <div className='userDetails-summary'>
+        <div className='back-to-users' onClick={() => navigate('/users')}><FaChevronLeft className="back-icon" /> BACK TO USERS</div>
+        {user ? (
+          <div className='userDetails-summary-hero'>
+            <div className="user-details-card">
+              <div className="user-header">
+                <img className="user-icon" src={userIcon} alt="avatar" />
+                <h3>{user.first_name} {user.last_name}</h3>
+                <div className="status-active-div">
+                  <div className="status-dot active"></div>
+                  <p className="status-text">Active</p>
+                </div>
+                
               </div>
-              
+              <div className="user-info">
+                <p><strong>Email: </strong>{user.email}</p>
+                <p><strong>Phone number: </strong>{user.phone_number}</p>
+                <p><strong>Role: </strong>User</p>
+              </div>
             </div>
-            <div className="user-info">
-              <p><strong>Email: </strong>{user.email}</p>
-              <p><strong>Phone number: </strong>{user.phone_number}</p>
-              <p><strong>Role: </strong>User</p>
-            </div>
+            <h4>No previous orders.</h4>
           </div>
-          <h4>No previous orders.</h4>
-        </div>
-      ) : (
-        <p>No user data available.</p>
-      )}
+        ) : (
+          <p>No user data available.</p>
+        )}
+      </div>
     </div>
   );
 };

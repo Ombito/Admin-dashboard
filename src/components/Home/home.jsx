@@ -123,7 +123,7 @@ const handleExportPDF = () => {
 
       pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight); 
       pdf.save('analytics.pdf');
-      showAlert('success', 'pdf downloaded successfully.');
+      showAlert('success', 'Starting pdf download...');
     })
     .catch((err) => console.error('Error generating PDF', err));
   }

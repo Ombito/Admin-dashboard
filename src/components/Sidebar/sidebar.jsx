@@ -167,16 +167,15 @@ const handleLogoutClose = () => {
 
           )}
 
-          <div onClick={logoutToggleModal} className='sidebar-user-div'>
+          <div className='sidebar-user-div'>
             <img src={user} alt='profile-icon' />
             <div className='sidebar-user-account'>
               <div className='user-profile-details'>
                 <h5>Administrator</h5>
                 <h5>admin@admin</h5>
               </div>
-              <div>
-                <FaSignOutAlt color='#ff9f40' fontSize='22' marginRight='90px'/>
-                
+              <div onClick={logoutToggleModal}>
+                <FaSignOutAlt color='#ff9f40' fontSize='22' marginRight='90px'/> 
               </div>
             </div>
           </div>
