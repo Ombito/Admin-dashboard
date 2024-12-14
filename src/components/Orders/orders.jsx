@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './orders.css';
 import user from "../../Assets/user.jpg";
 import data from '../data.json';
+import { useAlert } from '../../context/alertContext';
 
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { showAlert } = useAlert();
 
   useEffect(() => {
     // const apiUrl = `http://127.0.0.1:5555/orders`;
@@ -40,6 +42,7 @@ const Orders = () => {
     });
     setOrders(updatedOrders);
     console.log(`Order ${orderId} status changed to ${newStatus}`);
+    showAlert('success', `Order status changed to ${newStatus}.`);
   };
 
   return (
@@ -72,10 +75,10 @@ const Orders = () => {
           <tbody>
             {orders.map(order => (
               <tr key={order.id}>
-                <td>order.product</td>
+                <td>{order.product}</td>
                 <td>{order.address}</td>
                 <td>{order.order_date}</td>
-                <td>order.user</td>
+                <td>{order.user}</td>
                 <td>${order.total_amount}</td>
                 <td>${order.shipping_fees}</td>
                 <td>{order.status}</td>
